@@ -18,6 +18,7 @@ struct GroupFood {
 }
 
 class ViewController: UIViewController {
+    
     let groupFoods = [
         GroupFood(name: "Trending", food: [
             Food(name: "Good Thai", address: "20 Queen Street, NSW"),
@@ -31,12 +32,17 @@ class ViewController: UIViewController {
             Food(name: "Blacksmith Cafe", address: "20/25/26/27 Queen Street, NSW 20/25/26/27 Queen Street, NSW 20/25/26/27 Queen Street, NSW"),
             Food(name: "Pizza Box", address: "20 Queen Street, NSW"),
             Food(name: "KFC", address: "Tran Hung Dao Street, ASA"),
-            Food(name: "Pizza HUT", address: "20 Queen Street, KND")
+            Food(name: "Pizza HUT", address: "20 Queen Street, KND"),
+            
         ])]
-
+    
+    
     @IBOutlet weak var foodTableView: UITableView!
+    @IBOutlet weak var bg: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
         foodTableView.estimatedRowHeight = 140
         foodTableView.rowHeight = UITableView.automaticDimension
@@ -45,19 +51,21 @@ class ViewController: UIViewController {
         foodTableView.dataSource = self
         foodTableView.delegate = self
         
+        foodTableView.sectionHeaderTopPadding = 0
+        //foodTableView.contentInset = UIEdgeInsets(top: 100, left: 0, bottom: 0, right: 0)
         
         // Make tv show
         foodTableView.separatorStyle = .none
         foodTableView.showsVerticalScrollIndicator = false
         
-        // Make header
-        let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 300))
-        header.backgroundColor = UIColor(patternImage: UIImage(named: "iStock-1131794876.t5d482e40.m800.xtDADj9SvTVFjzuNeGuNUUGY4tm5d6UGU5tkKM0s3iPk-620x342.jpg")!)
+        //        // Make header
+        //        let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 300))
+        //        header.backgroundColor = UIColor(patternImage: UIImage(named: "iStock-1131794876.t5d482e40.m800.xtDADj9SvTVFjzuNeGuNUUGY4tm5d6UGU5tkKM0s3iPk-620x342.jpg")!)
+        //
+        //        foodTableView.tableHeaderView = header
         
-        foodTableView.tableHeaderView = header
     }
-
-
+    
 }
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
@@ -73,6 +81,10 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 80
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return .leastNormalMagnitude
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -92,5 +104,6 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         }
         return UITableViewCell()
     }
+    
 }
 

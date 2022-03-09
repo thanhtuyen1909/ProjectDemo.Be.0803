@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemFood" rowHeight="125" id="P0W-DF-rKs" customClass="FoodTVC" customModule="ProjectDemo1" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" indentationWidth="10" reuseIdentifier="itemFood" rowHeight="125" id="P0W-DF-rKs" customClass="FoodTVC" customModule="ProjectDemo1" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="125"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="P0W-DF-rKs" id="IWE-hJ-03L">
@@ -100,8 +100,10 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="foodAddress" destination="3dt-Vv-XGh" id="Tqg-ik-xpK"/>
+                <outlet property="foodImg" destination="hzt-zq-mQe" id="Spr-24-nQJ"/>
                 <outlet property="foodName" destination="Edo-yo-syw" id="t9H-oj-FTS"/>
                 <outlet property="foodView" destination="lpq-44-MwV" id="jem-HY-DGO"/>
+                <outlet property="ratingLabel" destination="Rsu-jP-PWC" id="3O2-Pc-gYq"/>
             </connections>
             <point key="canvasLocation" x="-342" y="450"/>
         </tableViewCell>
