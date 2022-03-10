@@ -9,13 +9,23 @@
 /* Begin PBXBuildFile section */
 		E517862027D9D23800090A8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E517861F27D9D23800090A8D /* AppDelegate.swift */; };
 		E517862227D9D23800090A8D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E517862127D9D23800090A8D /* SceneDelegate.swift */; };
-		E517862427D9D23800090A8D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E517862327D9D23800090A8D /* ViewController.swift */; };
+		E517862427D9D23800090A8D /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E517862327D9D23800090A8D /* DataViewController.swift */; };
 		E517862727D9D23800090A8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E517862527D9D23800090A8D /* Main.storyboard */; };
 		E517862927D9D23A00090A8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E517862827D9D23A00090A8D /* Assets.xcassets */; };
 		E517862C27D9D23A00090A8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E517862A27D9D23A00090A8D /* LaunchScreen.storyboard */; };
 		E517863727D9D23B00090A8D /* UIBeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E517863627D9D23B00090A8D /* UIBeTests.swift */; };
 		E517864127D9D23B00090A8D /* UIBeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E517864027D9D23B00090A8D /* UIBeUITests.swift */; };
 		E517864327D9D23B00090A8D /* UIBeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E517864227D9D23B00090A8D /* UIBeUITestsLaunchTests.swift */; };
+		E517865627D9D8BA00090A8D /* TitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E517865527D9D8BA00090A8D /* TitleCell.xib */; };
+		E517865827D9DFD600090A8D /* InputLocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E517865727D9DFD600090A8D /* InputLocationCell.xib */; };
+		E517865B27D9E3F000090A8D /* ServiceCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = E517865A27D9E3F000090A8D /* ServiceCell1.xib */; };
+		E517865D27D9E49F00090A8D /* ServiceCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = E517865C27D9E49F00090A8D /* ServiceCell2.xib */; };
+		E517865F27D9E51600090A8D /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E517865E27D9E51600090A8D /* TitleCell.swift */; };
+		E517866127D9E52D00090A8D /* InputLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E517866027D9E52D00090A8D /* InputLocationCell.swift */; };
+		E517866327D9E54100090A8D /* ServiceCell1.swift in Sources */ = {isa = PBXBuildFile; fileRef = E517866227D9E54100090A8D /* ServiceCell1.swift */; };
+		E517866527D9E55300090A8D /* ServiceCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E517866427D9E55300090A8D /* ServiceCell2.swift */; };
+		E517866927D9EE4600090A8D /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E517866827D9EE4600090A8D /* DataLoader.swift */; };
+		E517866D27D9F09B00090A8D /* MockDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E517866C27D9F09B00090A8D /* MockDataLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +49,7 @@
 		E517861C27D9D23800090A8D /* UIBe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIBe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E517861F27D9D23800090A8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E517862127D9D23800090A8D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E517862327D9D23800090A8D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E517862327D9D23800090A8D /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
 		E517862627D9D23800090A8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E517862827D9D23A00090A8D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E517862B27D9D23A00090A8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +59,16 @@
 		E517863C27D9D23B00090A8D /* UIBeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UIBeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E517864027D9D23B00090A8D /* UIBeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBeUITests.swift; sourceTree = "<group>"; };
 		E517864227D9D23B00090A8D /* UIBeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E517865527D9D8BA00090A8D /* TitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleCell.xib; sourceTree = "<group>"; };
+		E517865727D9DFD600090A8D /* InputLocationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputLocationCell.xib; sourceTree = "<group>"; };
+		E517865A27D9E3F000090A8D /* ServiceCell1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceCell1.xib; sourceTree = "<group>"; };
+		E517865C27D9E49F00090A8D /* ServiceCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceCell2.xib; sourceTree = "<group>"; };
+		E517865E27D9E51600090A8D /* TitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCell.swift; sourceTree = "<group>"; };
+		E517866027D9E52D00090A8D /* InputLocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputLocationCell.swift; sourceTree = "<group>"; };
+		E517866227D9E54100090A8D /* ServiceCell1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCell1.swift; sourceTree = "<group>"; };
+		E517866427D9E55300090A8D /* ServiceCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCell2.swift; sourceTree = "<group>"; };
+		E517866827D9EE4600090A8D /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
+		E517866C27D9F09B00090A8D /* MockDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +119,10 @@
 		E517861E27D9D23800090A8D /* UIBe */ = {
 			isa = PBXGroup;
 			children = (
+				E517864F27D9D62400090A8D /* CollectionView */,
 				E517861F27D9D23800090A8D /* AppDelegate.swift */,
 				E517862127D9D23800090A8D /* SceneDelegate.swift */,
-				E517862327D9D23800090A8D /* ViewController.swift */,
+				E517862327D9D23800090A8D /* DataViewController.swift */,
 				E517862527D9D23800090A8D /* Main.storyboard */,
 				E517862827D9D23A00090A8D /* Assets.xcassets */,
 				E517862A27D9D23A00090A8D /* LaunchScreen.storyboard */,
@@ -125,6 +146,55 @@
 				E517864227D9D23B00090A8D /* UIBeUITestsLaunchTests.swift */,
 			);
 			path = UIBeUITests;
+			sourceTree = "<group>";
+		};
+		E517864F27D9D62400090A8D /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				E517866727D9EE2F00090A8D /* DataLoad */,
+				E517866627D9EC4A00090A8D /* Components */,
+				E517865427D9D86D00090A8D /* View */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		E517865427D9D86D00090A8D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E517865927D9E3A300090A8D /* Service */,
+				E517865527D9D8BA00090A8D /* TitleCell.xib */,
+				E517865727D9DFD600090A8D /* InputLocationCell.xib */,
+				E517865E27D9E51600090A8D /* TitleCell.swift */,
+				E517866027D9E52D00090A8D /* InputLocationCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E517865927D9E3A300090A8D /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				E517865A27D9E3F000090A8D /* ServiceCell1.xib */,
+				E517865C27D9E49F00090A8D /* ServiceCell2.xib */,
+				E517866227D9E54100090A8D /* ServiceCell1.swift */,
+				E517866427D9E55300090A8D /* ServiceCell2.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		E517866627D9EC4A00090A8D /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		E517866727D9EE2F00090A8D /* DataLoad */ = {
+			isa = PBXGroup;
+			children = (
+				E517866827D9EE4600090A8D /* DataLoader.swift */,
+				E517866C27D9F09B00090A8D /* MockDataLoader.swift */,
+			);
+			path = DataLoad;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,9 +301,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E517865827D9DFD600090A8D /* InputLocationCell.xib in Resources */,
+				E517865627D9D8BA00090A8D /* TitleCell.xib in Resources */,
 				E517862C27D9D23A00090A8D /* LaunchScreen.storyboard in Resources */,
+				E517865D27D9E49F00090A8D /* ServiceCell2.xib in Resources */,
 				E517862927D9D23A00090A8D /* Assets.xcassets in Resources */,
 				E517862727D9D23800090A8D /* Main.storyboard in Resources */,
+				E517865B27D9E3F000090A8D /* ServiceCell1.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +332,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E517862427D9D23800090A8D /* ViewController.swift in Sources */,
+				E517865F27D9E51600090A8D /* TitleCell.swift in Sources */,
+				E517862427D9D23800090A8D /* DataViewController.swift in Sources */,
 				E517862027D9D23800090A8D /* AppDelegate.swift in Sources */,
+				E517866127D9E52D00090A8D /* InputLocationCell.swift in Sources */,
+				E517866927D9EE4600090A8D /* DataLoader.swift in Sources */,
+				E517866D27D9F09B00090A8D /* MockDataLoader.swift in Sources */,
 				E517862227D9D23800090A8D /* SceneDelegate.swift in Sources */,
+				E517866327D9E54100090A8D /* ServiceCell1.swift in Sources */,
+				E517866527D9E55300090A8D /* ServiceCell2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
