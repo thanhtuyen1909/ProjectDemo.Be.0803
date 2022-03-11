@@ -12,8 +12,7 @@ class ServiceCell2: UICollectionViewCell {
     @IBOutlet weak var serviceImageView: UIImageView!
     
     @IBOutlet weak var serviceLabel: UILabel!
-    
-//    override init(frame: CGRect) {
+    //    override init(frame: CGRect) {
 //        super.init(frame: frame)
 //        backgroundColor = .white
 //    }

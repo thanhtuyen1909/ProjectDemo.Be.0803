@@ -12,12 +12,12 @@ class ServiceCell1: UICollectionViewCell {
     @IBOutlet weak var serviceImageView: UIImageView!
     @IBOutlet weak var serviceLabel: UILabel!
     
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//        backgroundColor = .white
-//    }
-//    
-//    required init?(coder: NSCoder) {
-//        fatalError("")
-//    }
+    @IBOutlet weak var serviceView: UIView!
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        serviceView.layer.cornerRadius = 5
+        serviceView.clipsToBounds = true
+    }
 }

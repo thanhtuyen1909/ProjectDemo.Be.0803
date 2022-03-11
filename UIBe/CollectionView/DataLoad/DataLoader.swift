@@ -7,6 +7,8 @@
 
 import Foundation
 
+protocol HomeData {}
+
 struct DataHome {
     let numberSection: Int?
     let banner: [Banner]
@@ -14,17 +16,17 @@ struct DataHome {
     let service: [Service]
 }
 
-struct Service {
+struct Service: HomeData {
     let type: String?
     let name: String?
     let img: String?
 }
 
-struct Location {
+struct Location: HomeData {
     let type: String?
 }
 
-struct Banner {
+struct Banner: HomeData {
     let type: String?
     let username: String?
     let userScore: Int?

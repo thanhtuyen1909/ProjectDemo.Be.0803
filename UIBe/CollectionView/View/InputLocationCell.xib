@@ -20,6 +20,13 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JyO-f3-T8e">
                         <rect key="frame" x="0.0" y="0.0" width="292" height="113"/>
                         <subviews>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="whc-52-Ijq">
+                                <rect key="frame" x="60" y="56" width="222" height="1"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="cCl-16-QU1"/>
+                                </constraints>
+                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="tuv-fT-588">
                                 <rect key="frame" x="0.0" y="0.0" width="292" height="113"/>
                                 <subviews>
@@ -27,45 +34,47 @@
                                         <rect key="frame" x="0.0" y="0.0" width="292" height="56.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="BWc-Po-dcG">
-                                                <rect key="frame" x="5" y="9" width="40" height="39"/>
+                                                <rect key="frame" x="10" y="9" width="40" height="39"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="QrI-1W-SO7"/>
                                                     <constraint firstAttribute="width" constant="40" id="oV6-Mw-NP6"/>
                                                 </constraints>
                                             </imageView>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cST-cm-tIV">
-                                                <rect key="frame" x="50" y="8.5" width="237" height="40"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Text" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cST-cm-tIV">
+                                                <rect key="frame" x="57" y="8.5" width="230" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="GRh-kx-4EI"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="cST-cm-tIV" firstAttribute="centerY" secondItem="plP-nD-FwL" secondAttribute="centerY" id="OCu-OE-Vek"/>
-                                            <constraint firstItem="cST-cm-tIV" firstAttribute="leading" secondItem="BWc-Po-dcG" secondAttribute="trailing" constant="5" id="Xeo-zY-PVZ"/>
+                                            <constraint firstItem="cST-cm-tIV" firstAttribute="leading" secondItem="BWc-Po-dcG" secondAttribute="trailing" constant="7" id="Xeo-zY-PVZ"/>
                                             <constraint firstItem="BWc-Po-dcG" firstAttribute="centerY" secondItem="plP-nD-FwL" secondAttribute="centerY" id="bMD-79-JER"/>
                                             <constraint firstAttribute="trailing" secondItem="cST-cm-tIV" secondAttribute="trailing" constant="5" id="gcF-Sp-WuP"/>
-                                            <constraint firstItem="BWc-Po-dcG" firstAttribute="leading" secondItem="plP-nD-FwL" secondAttribute="leading" constant="5" id="nh8-rH-C4Y"/>
+                                            <constraint firstItem="BWc-Po-dcG" firstAttribute="leading" secondItem="plP-nD-FwL" secondAttribute="leading" constant="10" id="nh8-rH-C4Y"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6zW-l2-fzv">
                                         <rect key="frame" x="0.0" y="56.5" width="292" height="56.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="WLo-c7-5pC">
-                                                <rect key="frame" x="5" y="9" width="40" height="39"/>
+                                                <rect key="frame" x="10" y="9" width="40" height="39"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="lCH-E6-pMx"/>
                                                     <constraint firstAttribute="height" constant="40" id="lHU-GE-g7c"/>
                                                 </constraints>
                                             </imageView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pXf-DV-lfj">
-                                                <rect key="frame" x="50" y="8.5" width="237" height="40"/>
+                                                <rect key="frame" x="57" y="8.5" width="230" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="hhN-OR-x73"/>
                                                 </constraints>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -74,9 +83,9 @@
                                         <constraints>
                                             <constraint firstItem="WLo-c7-5pC" firstAttribute="centerY" secondItem="6zW-l2-fzv" secondAttribute="centerY" id="1kT-7k-815"/>
                                             <constraint firstAttribute="trailing" secondItem="pXf-DV-lfj" secondAttribute="trailing" constant="5" id="8gj-oa-gWK"/>
-                                            <constraint firstItem="WLo-c7-5pC" firstAttribute="leading" secondItem="6zW-l2-fzv" secondAttribute="leading" constant="5" id="Rgf-0y-Hxg"/>
+                                            <constraint firstItem="WLo-c7-5pC" firstAttribute="leading" secondItem="6zW-l2-fzv" secondAttribute="leading" constant="10" id="Rgf-0y-Hxg"/>
                                             <constraint firstItem="pXf-DV-lfj" firstAttribute="centerY" secondItem="6zW-l2-fzv" secondAttribute="centerY" id="iUe-HF-ZyT"/>
-                                            <constraint firstItem="pXf-DV-lfj" firstAttribute="leading" secondItem="WLo-c7-5pC" secondAttribute="trailing" constant="5" id="jm0-Ih-jhF"/>
+                                            <constraint firstItem="pXf-DV-lfj" firstAttribute="leading" secondItem="WLo-c7-5pC" secondAttribute="trailing" constant="7" id="jm0-Ih-jhF"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -84,8 +93,11 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="whc-52-Ijq" secondAttribute="trailing" constant="10" id="24q-C4-YE0"/>
+                            <constraint firstItem="whc-52-Ijq" firstAttribute="leading" secondItem="JyO-f3-T8e" secondAttribute="leading" constant="60" id="7Rj-hl-g2B"/>
                             <constraint firstAttribute="bottom" secondItem="tuv-fT-588" secondAttribute="bottom" id="MSl-qI-3ae"/>
                             <constraint firstItem="tuv-fT-588" firstAttribute="top" secondItem="JyO-f3-T8e" secondAttribute="top" id="UmI-eY-eXt"/>
+                            <constraint firstItem="whc-52-Ijq" firstAttribute="centerY" secondItem="JyO-f3-T8e" secondAttribute="centerY" id="heA-iI-AGT"/>
                             <constraint firstItem="tuv-fT-588" firstAttribute="leading" secondItem="JyO-f3-T8e" secondAttribute="leading" id="n2s-ud-aGt"/>
                             <constraint firstAttribute="trailing" secondItem="tuv-fT-588" secondAttribute="trailing" id="o3n-PB-h6e"/>
                         </constraints>
@@ -99,6 +111,12 @@
                 </constraints>
             </collectionViewCellContentView>
             <size key="customSize" width="292" height="113"/>
+            <connections>
+                <outlet property="inputLocationTextFieldFrom" destination="cST-cm-tIV" id="XEa-LK-zlU"/>
+                <outlet property="inputLocationTextFieldTo" destination="pXf-DV-lfj" id="lx1-2s-IB8"/>
+                <outlet property="inputLocationView" destination="JyO-f3-T8e" id="61k-jJ-wVM"/>
+                <outlet property="lineView" destination="whc-52-Ijq" id="bn1-WZ-1Jt"/>
+            </connections>
             <point key="canvasLocation" x="168.11594202898553" y="30.46875"/>
         </collectionViewCell>
     </objects>
@@ -106,6 +124,9 @@
         <image name="square.and.arrow.up.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

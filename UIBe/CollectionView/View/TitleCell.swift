@@ -14,6 +14,9 @@ class TitleCell: UICollectionViewCell {
     @IBOutlet weak var bannerImageView: UIImageView!
     @IBOutlet weak var userScoreLabel: UILabel!
     
+    
+    @IBOutlet weak var userScoreView: UIView!
+    
 //    override init(frame: CGRect) {
 //        super.init(frame: frame)
 //        backgroundColor = .white
@@ -22,5 +25,11 @@ class TitleCell: UICollectionViewCell {
 //    required init?(coder: NSCoder) {
 //        fatalError("")
 //    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        userScoreView.clipsToBounds = true
+        userScoreView.layer.cornerRadius = 18
+    }
 
 }

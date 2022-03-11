@@ -21,24 +21,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="229" height="94"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6gj-W1-Y3l">
-                                <rect key="frame" x="5" y="22" width="50" height="50"/>
+                                <rect key="frame" x="15" y="24.5" width="45" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="TnT-3W-Z4z"/>
-                                    <constraint firstAttribute="width" constant="50" id="tLN-Ei-f6s"/>
+                                    <constraint firstAttribute="height" constant="45" id="TnT-3W-Z4z"/>
+                                    <constraint firstAttribute="width" constant="45" id="tLN-Ei-f6s"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Wj-e0-uLO">
-                                <rect key="frame" x="70" y="37" width="154" height="20.5"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <rect key="frame" x="75" y="38.5" width="149" height="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="5Wj-e0-uLO" firstAttribute="centerY" secondItem="SUy-dU-FZn" secondAttribute="centerY" id="1bn-o2-XOV"/>
                             <constraint firstItem="5Wj-e0-uLO" firstAttribute="leading" secondItem="6gj-W1-Y3l" secondAttribute="trailing" constant="15" id="IlP-ib-jVr"/>
-                            <constraint firstItem="6gj-W1-Y3l" firstAttribute="leading" secondItem="SUy-dU-FZn" secondAttribute="leading" constant="5" id="RAv-Sp-DDY"/>
+                            <constraint firstItem="6gj-W1-Y3l" firstAttribute="leading" secondItem="SUy-dU-FZn" secondAttribute="leading" constant="15" id="RAv-Sp-DDY"/>
                             <constraint firstAttribute="trailing" secondItem="5Wj-e0-uLO" secondAttribute="trailing" constant="5" id="aQL-fC-cqf"/>
                             <constraint firstItem="6gj-W1-Y3l" firstAttribute="centerY" secondItem="SUy-dU-FZn" secondAttribute="centerY" id="v2Y-TI-hdk"/>
                         </constraints>
@@ -58,12 +58,13 @@
             <connections>
                 <outlet property="serviceImageView" destination="6gj-W1-Y3l" id="HnF-Dg-40B"/>
                 <outlet property="serviceLabel" destination="5Wj-e0-uLO" id="K7r-F9-qAo"/>
+                <outlet property="serviceView" destination="SUy-dU-FZn" id="7j9-Ar-jT5"/>
             </connections>
             <point key="canvasLocation" x="145.6521739130435" y="92.410714285714278"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <systemColor name="systemGray6Color">
+        <systemColor name="tertiarySystemGroupedBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
