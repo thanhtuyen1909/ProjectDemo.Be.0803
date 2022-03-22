@@ -7,32 +7,32 @@
 
 import Foundation
 
-protocol HomeData {}
+protocol HomeData {
+    var type: String { get set }
+}
 
 struct DataHome {
-    let numberSection: Int?
-    let banner: [Banner]
-    let location: [Location]
-    let service: [Service]
+    let source: [[HomeData]]
 }
 
 struct Service: HomeData {
-    let type: String?
+    var type: String
     let name: String?
     let img: String?
 }
 
 struct Location: HomeData {
-    let type: String?
+    var type: String
 }
 
 struct Banner: HomeData {
-    let type: String?
+    var type: String
+    
     let username: String?
     let userScore: Int?
     let imgBanner: String?
 }
 
 protocol DataLoader {
-    func loadData(completion: @escaping ([DataHome]) -> Void)
+    func loadData(completion: @escaping (DataHome) -> Void)
 }

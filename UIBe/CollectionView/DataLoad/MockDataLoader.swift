@@ -8,13 +8,11 @@
 import Foundation
 
 class MockDataLoader: DataLoader {
-    
-    private let mockData = [
-        DataHome(
-            numberSection: 3,
-            banner: [Banner(type: "TitleCell", username: "Thanh Tuyền", userScore: 13, imgBanner: "https://imgcdn.be.com.vn/vehicle/reskin/Banner-Day.png")],
-            location: [Location(type: "InputLocationCell")],
-            service: [
+        
+    private let mockData = DataHome(source: [
+        [Banner(type: "TitleCell", username: "Thanh Tuyền", userScore: 13, imgBanner: "https://imgcdn.be.com.vn/vehicle/reskin/Banner-Day.png")],
+        [Location(type: "InputLocationCell")],
+        [
             Service(type: "ServiceCell1", name: "Giao hàng", img: "https://imgcdn.be.com.vn/be-config/services/ic-home-deli2%403x.png"),
             Service(type: "ServiceCell1", name: "Gói hội viên", img: "https://imgcdn.be.com.vn/be-config/services/ic-home-sub2%403x.png"),
             Service(type: "ServiceCell2", name: "Food", img: "https://media-dev.be.com.vn/bizops/image/9ee655a2-2cdc-11ec-8b8b-425fea39ed52/original"),
@@ -25,10 +23,10 @@ class MockDataLoader: DataLoader {
             Service(type: "ServiceCell2", name: "Đổi điểm", img: "https://imgcdn.be.com.vn/be-config/services/ic-home-exchange%403x.png"),
             Service(type: "ServiceCell2", name: "Vé máy bay", img: "https://imgcdn.be.com.vn/be-config/services/ic_home_plane%403x.png"),
             Service(type: "ServiceCell2", name: "Dịch vụ khác", img: "https://imgcdn.be.com.vn/be-config/services/ic_home_plane%403x.png"),
-        ])
-    ]
+        ]
+    ])
     
-    func loadData(completion: @escaping ([DataHome]) -> Void) {
+    func loadData(completion: @escaping (DataHome) -> Void) {
         completion(mockData)
     }
 }

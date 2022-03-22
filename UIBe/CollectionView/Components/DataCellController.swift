@@ -33,30 +33,14 @@ class DataCellController {
     
     func dataCell(for collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: bannerController(at: indexPath).type ?? "", for: indexPath) as! TitleCell
             
-            cell.userLabel.text = "Chào " + bannerController(at: indexPath).username! + " !"
-            cell.userScoreLabel.text = String(bannerController(at: indexPath).userScore!)
-            loadImage(image_url: bannerController(at: indexPath).imgBanner!, imageView: cell.bannerImageView)
-            return cell
         }
         if indexPath.section == 1 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: location[indexPath.row].type ?? "", for: indexPath) as! InputLocationCell
             
-            return cell
         }
         
         if service[indexPath.row].type == "ServiceCell1" {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: serviceController(at: indexPath).type ?? "", for: indexPath) as! ServiceCell1
-            cell.serviceLabel.text = service[indexPath.row].name
-            loadImage(image_url: serviceController(at: indexPath).img!, imageView: cell.serviceImageView)
             
-            if indexPath.row == 0 {
-                cell.serviceView.leftAnchor.constraint(equalTo: cell.leftAnchor, constant: 15).isActive = true
-                //cell.serviceView.rightAnchor.constraint(equalTo: cell.rightAnchor, constant: 15).isActive = true
-            }
-            cell.serviceView.rightAnchor.constraint(equalTo: cell.rightAnchor, constant: -15).isActive = true
-            return cell
         }
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: serviceController(at: indexPath).type ?? "", for: indexPath) as! ServiceCell2
@@ -77,10 +61,10 @@ class DataCellController {
     private func serviceController(at indexPath: IndexPath) -> ServiceCellController {
         service[indexPath.row]
     }
-    
-    private func bannerController(at indexPath: IndexPath) -> BannerCellController {
-        banner[indexPath.row]
-    }
+//
+//    private func bannerController() -> BannerCellController {
+//        banner
+//    }
     
     func setStyle() {
         
