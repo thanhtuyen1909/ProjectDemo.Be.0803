@@ -60,7 +60,7 @@ class FoodListViewController: UIViewController {
 extension FoodListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return sectionCellController(at: section).cell(for: tableView, section: section)
+        return sectionCellController(at: section).headerSection(for: tableView, section: section)
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {

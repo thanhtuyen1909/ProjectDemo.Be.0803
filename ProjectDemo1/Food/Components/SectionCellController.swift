@@ -12,25 +12,46 @@ class SectionCellController {
     
     let name: String?
     var controllers = [FoodCellController]()
-    private var cell: SectionHeader?
+    private var headerSection: SectionHeader?
     
     init(name: String?, controllers: [FoodCellController]) {
         self.name = name
         self.controllers = controllers
     }
     
-    func cell(for tableView: UITableView, section: Int) -> UIView {
-        let headerCell = Bundle.main.loadNibNamed("SectionHeader", owner: FoodListViewController.self, options:nil)?.first as! SectionHeader
-        self.cell = headerCell
-        return headerCell
+    func headerSection(for tableView: UITableView, section: Int) -> UIView {
+        let headerSection = Bundle.main.loadNibNamed("SectionHeader", owner: FoodListViewController.self, options:nil)?.first as! SectionHeader
+        self.headerSection = headerSection
+        return headerSection
     }
     
     func display() {
-        cell?.title.text = name
-        cell?.countFood.text = String(controllers.count) + " restaurants"
+        headerSection?.title.text = name
+        headerSection?.countFood.text = String(controllers.count) + " restaurants"
     }
     
     func endDisplay() {
-        cell = nil
+        headerSection = nil
+    }
+}
+
+// "QUan 1; quan 2"
+
+fileprivate extension Array where Element == FoodCellController {
+    func restaurantNames() -> String {
+         var name = ""
+        self.forEach {
+            let foodName = $0.food.address ?? ""
+            name = name.isEmpty ? foodName : "\(name); \(foodName)"
+        }
+        return name
+    }
+    
+    func restaurantNames2() -> String {
+        let a = reduce(into: "") { partialResult, value in
+            let foodName = value.food.address ?? ""
+            partialResult = partialResult.isEmpty ? foodName : "\(partialResult); \(foodName)"
+        }
+       return a
     }
 }
