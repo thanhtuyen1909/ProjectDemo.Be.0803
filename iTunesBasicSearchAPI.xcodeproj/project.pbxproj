@@ -7,15 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E5E8253127EB71CB00E58862 /* DownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E8252F27EB71CB00E58862 /* DownloadService.swift */; };
+		E5E8253227EB71CB00E58862 /* QueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E8253027EB71CB00E58862 /* QueryService.swift */; };
+		E5E8253427EB810200E58862 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E8253327EB810200E58862 /* Download.swift */; };
 		E5F25AF727EB127B0054E6E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F25AF627EB127B0054E6E4 /* AppDelegate.swift */; };
 		E5F25AF927EB127B0054E6E4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F25AF827EB127B0054E6E4 /* SceneDelegate.swift */; };
-		E5F25AFB27EB127B0054E6E4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F25AFA27EB127B0054E6E4 /* ViewController.swift */; };
-		E5F25AFE27EB127B0054E6E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5F25AFC27EB127B0054E6E4 /* Main.storyboard */; };
 		E5F25B0027EB127D0054E6E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5F25AFF27EB127D0054E6E4 /* Assets.xcassets */; };
 		E5F25B0327EB127D0054E6E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5F25B0127EB127D0054E6E4 /* LaunchScreen.storyboard */; };
 		E5F25B0E27EB127D0054E6E4 /* iTunesBasicSearchAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F25B0D27EB127D0054E6E4 /* iTunesBasicSearchAPITests.swift */; };
 		E5F25B1827EB127D0054E6E4 /* iTunesBasicSearchAPIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F25B1727EB127D0054E6E4 /* iTunesBasicSearchAPIUITests.swift */; };
 		E5F25B1A27EB127D0054E6E4 /* iTunesBasicSearchAPIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F25B1927EB127D0054E6E4 /* iTunesBasicSearchAPIUITestsLaunchTests.swift */; };
+		E5F25B2A27EB14830054E6E4 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F25B2827EB14830054E6E4 /* SearchViewController.swift */; };
+		E5F25B2E27EB16900054E6E4 /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F25B2D27EB16900054E6E4 /* Music.swift */; };
+		E5F25B3127EB16BC0054E6E4 /* MusicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F25B2F27EB16BC0054E6E4 /* MusicCell.swift */; };
+		E5F25B3227EB16BC0054E6E4 /* MusicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F25B3027EB16BC0054E6E4 /* MusicCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,11 +41,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E5E8252F27EB71CB00E58862 /* DownloadService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadService.swift; sourceTree = "<group>"; };
+		E5E8253027EB71CB00E58862 /* QueryService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryService.swift; sourceTree = "<group>"; };
+		E5E8253327EB810200E58862 /* Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
 		E5F25AF327EB127B0054E6E4 /* iTunesBasicSearchAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunesBasicSearchAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5F25AF627EB127B0054E6E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5F25AF827EB127B0054E6E4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E5F25AFA27EB127B0054E6E4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E5F25AFD27EB127B0054E6E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E5F25AFF27EB127D0054E6E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E5F25B0227EB127D0054E6E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E5F25B0427EB127D0054E6E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +55,10 @@
 		E5F25B1327EB127D0054E6E4 /* iTunesBasicSearchAPIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iTunesBasicSearchAPIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5F25B1727EB127D0054E6E4 /* iTunesBasicSearchAPIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesBasicSearchAPIUITests.swift; sourceTree = "<group>"; };
 		E5F25B1927EB127D0054E6E4 /* iTunesBasicSearchAPIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesBasicSearchAPIUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E5F25B2827EB14830054E6E4 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		E5F25B2D27EB16900054E6E4 /* Music.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
+		E5F25B2F27EB16BC0054E6E4 /* MusicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicCell.swift; sourceTree = "<group>"; };
+		E5F25B3027EB16BC0054E6E4 /* MusicCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MusicCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +86,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E5E8252C27EB6B1C00E58862 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E5F25B2D27EB16900054E6E4 /* Music.swift */,
+				E5E8253327EB810200E58862 /* Download.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E5E8252D27EB6B3400E58862 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E5F25B3027EB16BC0054E6E4 /* MusicCell.xib */,
+				E5F25B2F27EB16BC0054E6E4 /* MusicCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		E5E8252E27EB719600E58862 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				E5E8252F27EB71CB00E58862 /* DownloadService.swift */,
+				E5E8253027EB71CB00E58862 /* QueryService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		E5F25AEA27EB127B0054E6E4 = {
 			isa = PBXGroup;
 			children = (
@@ -99,13 +136,14 @@
 		E5F25AF527EB127B0054E6E4 /* iTunesBasicSearchAPI */ = {
 			isa = PBXGroup;
 			children = (
+				E5E8252E27EB719600E58862 /* Networking */,
+				E5F25B2C27EB166C0054E6E4 /* Music */,
 				E5F25AF627EB127B0054E6E4 /* AppDelegate.swift */,
 				E5F25AF827EB127B0054E6E4 /* SceneDelegate.swift */,
-				E5F25AFA27EB127B0054E6E4 /* ViewController.swift */,
-				E5F25AFC27EB127B0054E6E4 /* Main.storyboard */,
 				E5F25AFF27EB127D0054E6E4 /* Assets.xcassets */,
 				E5F25B0127EB127D0054E6E4 /* LaunchScreen.storyboard */,
 				E5F25B0427EB127D0054E6E4 /* Info.plist */,
+				E5F25B2827EB14830054E6E4 /* SearchViewController.swift */,
 			);
 			path = iTunesBasicSearchAPI;
 			sourceTree = "<group>";
@@ -125,6 +163,15 @@
 				E5F25B1927EB127D0054E6E4 /* iTunesBasicSearchAPIUITestsLaunchTests.swift */,
 			);
 			path = iTunesBasicSearchAPIUITests;
+			sourceTree = "<group>";
+		};
+		E5F25B2C27EB166C0054E6E4 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				E5E8252D27EB6B3400E58862 /* Cell */,
+				E5E8252C27EB6B1C00E58862 /* Model */,
+			);
+			path = Music;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +280,7 @@
 			files = (
 				E5F25B0327EB127D0054E6E4 /* LaunchScreen.storyboard in Resources */,
 				E5F25B0027EB127D0054E6E4 /* Assets.xcassets in Resources */,
-				E5F25AFE27EB127B0054E6E4 /* Main.storyboard in Resources */,
+				E5F25B3227EB16BC0054E6E4 /* MusicCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +305,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5F25AFB27EB127B0054E6E4 /* ViewController.swift in Sources */,
+				E5F25B3127EB16BC0054E6E4 /* MusicCell.swift in Sources */,
+				E5E8253427EB810200E58862 /* Download.swift in Sources */,
+				E5F25B2A27EB14830054E6E4 /* SearchViewController.swift in Sources */,
 				E5F25AF727EB127B0054E6E4 /* AppDelegate.swift in Sources */,
 				E5F25AF927EB127B0054E6E4 /* SceneDelegate.swift in Sources */,
+				E5E8253227EB71CB00E58862 /* QueryService.swift in Sources */,
+				E5F25B2E27EB16900054E6E4 /* Music.swift in Sources */,
+				E5E8253127EB71CB00E58862 /* DownloadService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +349,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		E5F25AFC27EB127B0054E6E4 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E5F25AFD27EB127B0054E6E4 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E5F25B0127EB127D0054E6E4 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -443,7 +487,6 @@
 				INFOPLIST_FILE = iTunesBasicSearchAPI/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -470,7 +513,6 @@
 				INFOPLIST_FILE = iTunesBasicSearchAPI/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
