@@ -33,7 +33,7 @@ class MusicCell: UITableViewCell {
     // MARK: - Variables And Properties
     //
     
-    /// Delegate identifies track for this cell, then
+    /// Delegate identifies music for this cell, then
     /// passes this to a download service method.
     var delegate: MusicCellDelegate?
     
@@ -82,7 +82,7 @@ class MusicCell: UITableViewCell {
         progressView.isHidden = !showDownloadControls
         progressLabel.isHidden = !showDownloadControls
         
-        // If the track is already downloaded, enable cell selection and hide the Download button.
+        // If the music is already downloaded, enable cell selection and hide the Download button.
         selectionStyle = downloaded ? UITableViewCell.SelectionStyle.gray : UITableViewCell.SelectionStyle.none
         downloadButton.isHidden = downloaded || showDownloadControls
     }

@@ -29,9 +29,9 @@ class SearchViewController: UIViewController {
     // MARK: - Variables And Properties
     //
     lazy var downloadsSession: URLSession = {
-      let configuration = URLSessionConfiguration.background(withIdentifier:
-                                                              "com.raywenderlich.HalfTunes.bgSession")
-      return URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
+        let configuration = URLSessionConfiguration.background(withIdentifier:
+                                                                "com.raywenderlich.HalfTunes.bgSession")
+        return URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
     }()
     
     lazy var tapRecognizer: UITapGestureRecognizer = {
@@ -62,8 +62,6 @@ class SearchViewController: UIViewController {
         
         return s
     }()
-    
-    
     
     @objc func dismissKeyboard() {
         searchMusic.resignFirstResponder()
@@ -125,10 +123,10 @@ extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //When user taps cell, play the local file, if it's downloaded.
         
-        let track = arrMusic[indexPath.row]
+        let music = arrMusic[indexPath.row]
         
-        if track.downloaded {
-            playDownload(track)
+        if music.downloaded {
+            playDownload(music)
         }
         
         tableView.deselectRow(at: indexPath, animated: true)
@@ -154,7 +152,6 @@ extension SearchViewController: UITableViewDataSource {
         cell.delegate = self
         
         let music = arrMusic[indexPath.row]
-        // TODO 13
         cell.configure(music: music, downloaded: music.downloaded, download: downloadService.activeDownloads[music.previewURL])
         
         return cell
@@ -173,11 +170,7 @@ extension SearchViewController: UISearchBarDelegate {
             return
         }
         
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        
         queryService.getSearchResults(searchTerm: searchText) { [weak self] results, errorMessage in
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            
             if let results = results {
                 self?.arrMusic = results
                 self?.musicTableView.reloadData()
@@ -201,37 +194,37 @@ extension SearchViewController: UISearchBarDelegate {
 
 
 //
-// MARK: - Track Cell Delegate
+// MARK: - Music Cell Delegate
 //
 extension SearchViewController: MusicCellDelegate {
     func cancelTapped(_ cell: MusicCell) {
         if let indexPath = musicTableView.indexPath(for: cell) {
-            let track = arrMusic[indexPath.row]
-            downloadService.cancelDownload(track)
+            let music = arrMusic[indexPath.row]
+            downloadService.cancelDownload(music)
             reload(indexPath.row)
         }
     }
     
     func downloadTapped(_ cell: MusicCell) {
         if let indexPath = musicTableView.indexPath(for: cell) {
-            let track = arrMusic[indexPath.row]
-            downloadService.startDownload(track)
+            let music = arrMusic[indexPath.row]
+            downloadService.startDownload(music)
             reload(indexPath.row)
         }
     }
     
     func pauseTapped(_ cell: MusicCell) {
         if let indexPath = musicTableView.indexPath(for: cell) {
-            let track = arrMusic[indexPath.row]
-            downloadService.pauseDownload(track)
+            let music = arrMusic[indexPath.row]
+            downloadService.pauseDownload(music)
             reload(indexPath.row)
         }
     }
     
     func resumeTapped(_ cell: MusicCell) {
         if let indexPath = musicTableView.indexPath(for: cell) {
-            let track = arrMusic[indexPath.row]
-            downloadService.resumeDownload(track)
+            let music = arrMusic[indexPath.row]
+            downloadService.resumeDownload(music)
             reload(indexPath.row)
         }
     }
@@ -304,7 +297,7 @@ extension SearchViewController: URLSessionDownloadDelegate {
         // 4
         DispatchQueue.main.async {
             if let musicCell = self.musicTableView.cellForRow(at: IndexPath(row: download.music.index,
-                                                                       section: 0)) as? MusicCell {
+                                                                            section: 0)) as? MusicCell {
                 musicCell.updateDisplay(progress: download.progress, totalSize: totalSize)
             }
         }

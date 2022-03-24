@@ -32,7 +32,7 @@ import Foundation
 // MARK: - Query Service
 //
 
-/// Runs query data task, and stores results in array of Tracks
+/// Runs query data task, and stores results in array of musics
 class QueryService {
     //
     // MARK: - Constants
@@ -117,16 +117,16 @@ class QueryService {
         
         var index = 0
         
-        for trackDictionary in array {
-            if let trackDictionary = trackDictionary as? JSONDictionary,
-               let previewURLString = trackDictionary["previewUrl"] as? String,
+        for musicDictionary in array {
+            if let musicDictionary = musicDictionary as? JSONDictionary,
+               let previewURLString = musicDictionary["previewUrl"] as? String,
                let previewURL = URL(string: previewURLString),
-               let name = trackDictionary["trackName"] as? String,
-               let artist = trackDictionary["artistName"] as? String {
+               let name = musicDictionary["trackName"] as? String,
+               let artist = musicDictionary["artistName"] as? String {
                 musics.append(Music(name: name, artist: artist, previewURL: previewURL, index: index))
                 index += 1
             } else {
-                errorMessage += "Problem parsing trackDictionary\n"
+                errorMessage += "Problem parsing musicDictionary\n"
             }
         }
     }
