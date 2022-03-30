@@ -16,6 +16,7 @@
 		E5E8255927EBC54900E58862 /* SingletonExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E8255827EBC54900E58862 /* SingletonExampleTests.swift */; };
 		E5E8256327EBC54900E58862 /* SingletonExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E8256227EBC54900E58862 /* SingletonExampleUITests.swift */; };
 		E5E8256527EBC54900E58862 /* SingletonExampleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E8256427EBC54900E58862 /* SingletonExampleUITestsLaunchTests.swift */; };
+		E5E8257227EBC59500E58862 /* SingletonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E8257127EBC59500E58862 /* SingletonClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		E5E8255E27EBC54900E58862 /* SingletonExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SingletonExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5E8256227EBC54900E58862 /* SingletonExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingletonExampleUITests.swift; sourceTree = "<group>"; };
 		E5E8256427EBC54900E58862 /* SingletonExampleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingletonExampleUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E5E8257127EBC59500E58862 /* SingletonClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingletonClass.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				E5E8254A27EBC54900E58862 /* Assets.xcassets */,
 				E5E8254C27EBC54900E58862 /* LaunchScreen.storyboard */,
 				E5E8254F27EBC54900E58862 /* Info.plist */,
+				E5E8257127EBC59500E58862 /* SingletonClass.swift */,
 			);
 			path = SingletonExample;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5E8257227EBC59500E58862 /* SingletonClass.swift in Sources */,
 				E5E8254627EBC54600E58862 /* ViewController.swift in Sources */,
 				E5E8254227EBC54600E58862 /* AppDelegate.swift in Sources */,
 				E5E8254427EBC54600E58862 /* SceneDelegate.swift in Sources */,
