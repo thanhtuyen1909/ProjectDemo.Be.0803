@@ -14,11 +14,16 @@ class DataViewController: UIViewController {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userScoreView: UIView!
     @IBOutlet weak var userScoreLabel: UILabel!
+    @IBOutlet weak var lineView: UIView!
     
     private var loader: DataLoader? = MockDataLoader()
     private var source = [CellController]()
-    private var background_image = ""
-    private var text_color = ""
+    private var primary_text_color_dark = "#081F42"
+    private var primary_text_color_light = "#FFFFFF"
+    
+    //private var primary_background_color_dark = "#001768"
+    private var primary_background_color_light = "#FFC500"
+    
     private var name = "Thanh Tuyền"
     private var score = "12345"
     //private var titleView = TitleView()
@@ -29,20 +34,44 @@ class DataViewController: UIViewController {
         setupCollectionView()
         loadData()
         setTopView()
+        view.backgroundColor = UIColor(hex: primary_background_color_light)
+    }
+    
+    func setBackgroundView(bg: String) {
+        let image = UIImageView(frame: view.frame)
+        image.contentMode = .scaleAspectFill
+        image.load(urlString: bg)
+        view.insertSubview(image, at: 0)
+    }
+    
+    func setColorLabel(color: String) {
+        userNameLabel.textColor = UIColor(hex: color)
+        userScoreLabel.textColor = UIColor(hex: color)
     }
     
     func setTopView() {
+        lineView.isHidden = true
+        
         userScoreView.clipsToBounds = true
         userScoreView.layer.cornerRadius = 18
         
         userScoreLabel.text = score
         userNameLabel.text = "Chào \(name)!"
+        userNameLabel.textColor = UIColor(hex: primary_text_color_light)
+        userScoreLabel.textColor = UIColor(hex: primary_text_color_light)
+        
+        let heightStatusBar = view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
+        topView.frame.size.height = 80 - heightStatusBar
+        
+        
     }
-
+    
     func setupCollectionView() {
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        collectionView.alwaysBounceVertical = true
         
         collectionView.register(UINib(nibName:"NativeBannerCell", bundle: nil), forCellWithReuseIdentifier: "native_banner")
         collectionView.register(UINib(nibName:"InputLocationCell", bundle: nil), forCellWithReuseIdentifier: "trip")
@@ -74,17 +103,9 @@ class DataViewController: UIViewController {
             //            }
             DispatchQueue.main.async { [weak self] in
                 self?.collectionView.reloadData()
-                self?.background_image = data.background_image
-                self?.text_color = data.text_color
                 
-                guard let frame = self?.view.frame else {
-                    return
-                }
-                
-                let image = UIImageView(frame: frame)
-                image.contentMode = .scaleAspectFill
-                image.load(urlString: self?.background_image ?? "")
-                self?.view.insertSubview(image, at: 0)
+                //self?.setBackgroundView(bg: data.background_image)
+                //self?.setColorLabel(color: data.text_color)
             }
         })
     }
@@ -105,6 +126,21 @@ extension DataViewController: UICollectionViewDataSource {
         let cell = source[indexPath.section].cellForItemAtIndex(for: collectionView, indexPath: indexPath)
         return cell
     }
+    
+    //    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    //        recursiveSetTextColorForLabelsInView(inView: cell)
+    //    }
+    //
+    //    func recursiveSetTextColorForLabelsInView(inView: UIView) {
+    //        for view in inView.subviews {
+    //            if let subview = view as? UILabel {
+    //                subview.textColor = hexStringToUIColor(hex: text_color)
+    //            }
+    //            else {
+    //                self.recursiveSetTextColorForLabelsInView(inView: view)
+    //            }
+    //        }
+    //    }
 }
 
 extension DataViewController: UICollectionViewDelegate {
@@ -113,6 +149,32 @@ extension DataViewController: UICollectionViewDelegate {
         return UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
     }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offset = scrollView.contentOffset.y / 120
+        if offset > 1.2 {
+            topView.backgroundColor = .white
+            lineView.isHidden = false
+            userNameLabel.textColor = UIColor(hex: primary_text_color_dark)
+            userScoreLabel.textColor = UIColor(hex: primary_text_color_dark)
+            if #available(iOS 13.0, *) {
+                let statusBar1 =  UIView()
+                statusBar1.frame = UIApplication.shared.statusBarFrame
+                statusBar1.backgroundColor = UIColor(hex: primary_text_color_light)
+                UIApplication.shared.keyWindow?.addSubview(statusBar1)
+            }
+        } else {
+            topView.backgroundColor = .clear
+            lineView.isHidden = true
+            userNameLabel.textColor = UIColor(hex: primary_text_color_light)
+            userScoreLabel.textColor = UIColor(hex: primary_text_color_light)
+            if #available(iOS 13.0, *) {
+                let statusBar1 =  UIView()
+                statusBar1.frame = UIApplication.shared.statusBarFrame
+                statusBar1.backgroundColor = UIColor(hex: primary_background_color_light)
+                UIApplication.shared.keyWindow?.addSubview(statusBar1)
+            }
+        }
+    }
 }
 
 extension DataViewController: UICollectionViewDelegateFlowLayout {
@@ -123,8 +185,36 @@ extension DataViewController: UICollectionViewDelegateFlowLayout {
             }
             return CGSize(width: (view.frame.width / 4) - 15, height: 80)
         }
+        if(source[indexPath.section].type == "trip") {
+            return CGSize(width: view.frame.width - 40, height: 190)
+        }
         return CGSize(width: view.frame.width - 40, height: 120)
-//        return CGSize(width: view.frame.width - 40, height: 200)
+        
+        //        return CGSize(width: view.frame.width - 40, height: 200)
     }
+}
+
+extension UIColor {
     
+    convenience init?(hex: String, alpha: CGFloat = 1) {
+        self.init(hexa: UInt(hex.dropFirst(), radix: 16) ?? 0, alpha: alpha)
+    }
+    convenience init(hexa: UInt, alpha: CGFloat = 1) {
+        self.init(red:   .init((hexa & 0xff0000) >> 16) / 255,
+                  green: .init((hexa & 0xff00  ) >>  8) / 255,
+                  blue:  .init( hexa & 0xff    )        / 255,
+                  alpha: alpha)
+    }
+    func toHexString() -> String {
+        var r:CGFloat = 0
+        var g:CGFloat = 0
+        var b:CGFloat = 0
+        var a:CGFloat = 0
+        
+        getRed(&r, green: &g, blue: &b, alpha: &a)
+        
+        let rgb:Int = (Int)(r*255)<<16 | (Int)(g*255)<<8 | (Int)(b*255)<<0
+        
+        return String(format:"#%06x", rgb)
+    }
 }

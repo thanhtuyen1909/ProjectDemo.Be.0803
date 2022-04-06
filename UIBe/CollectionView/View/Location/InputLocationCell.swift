@@ -12,9 +12,11 @@ class InputLocationCell: UICollectionViewCell {
     @IBOutlet weak var inputLocationTextFieldFrom: UITextField!
     @IBOutlet weak var lineView: UIView!
     @IBOutlet weak var inputLocationTextFieldTo: UITextField!
-    @IBOutlet weak var sourceLocationCollectionView: UICollectionView!
+    @IBOutlet weak var suggestLocationCollectionView: UICollectionView!
     
-    let sourceLocation = ["Nhà", "Công ty", "69 Đường 55, Tân Tạo", "Thanh Tuyền"]
+    let sourceSuggestLocation = ["Nhà", "Công ty", "69 Đường 55, Tân Tạo", "Thanh Tuyền"]
+    
+    let cellIdentifier = "cell"
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,34 +36,38 @@ class InputLocationCell: UICollectionViewCell {
         // make view to front stackview
         lineView.layer.zPosition = 1
         
-        sourceLocationCollectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        sourceLocationCollectionView.delegate = self
-        sourceLocationCollectionView.dataSource = self
+        // set collectionView
+        suggestLocationCollectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        suggestLocationCollectionView.delegate = self
+        suggestLocationCollectionView.dataSource = self
+        suggestLocationCollectionView.register(UINib(nibName: "SuggestLocationCell", bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
         
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        self.suggestLocationCollectionView.collectionViewLayout = layout
+        
+        suggestLocationCollectionView.alwaysBounceVertical = true
     }
 }
 
 extension InputLocationCell: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
-    }
+
 }
 
 extension InputLocationCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return sourceLocation.count
+        return sourceSuggestLocation.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = sourceLocationCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        guard let cell = suggestLocationCollectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? SuggestLocationCell else{
+            return UICollectionViewCell()
+        }
+        cell.suggestLocationLabel.text = sourceSuggestLocation[indexPath.row]
         return cell
     }
 }
-
-//extension InputLocationCell: UICollectionViewDelegateFlowLayout {
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize(width: view.frame.width - 40, height: 120)
-//    }
-//
-//}
