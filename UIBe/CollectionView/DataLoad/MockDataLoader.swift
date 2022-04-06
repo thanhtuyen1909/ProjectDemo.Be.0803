@@ -8,25 +8,86 @@
 import Foundation
 
 class MockDataLoader: DataLoader {
-        
-    private let mockData = DataHome(source: [
-        [Banner(type: "TitleCell", username: "Thanh Tuyền", userScore: 13, imgBanner: "https://imgcdn.be.com.vn/vehicle/reskin/Banner-Day.png")],
-        [Location(type: "InputLocationCell")],
-        [
-            Service(type: "ServiceCell1", name: "Giao hàng", img: "https://imgcdn.be.com.vn/be-config/services/ic-home-deli2%403x.png"),
-            Service(type: "ServiceCell1", name: "Gói hội viên", img: "https://imgcdn.be.com.vn/be-config/services/ic-home-sub2%403x.png"),
-            Service(type: "ServiceCell2", name: "Food", img: "https://media-dev.be.com.vn/bizops/image/9ee655a2-2cdc-11ec-8b8b-425fea39ed52/original"),
-            Service(type: "ServiceCell2", name: "Bảo hiểm xe", img: "https://media-dev.be.com.vn/bizops/image/8f50eeec-107e-11ec-aef9-0ed28ea87416/original"),
-            Service(type: "ServiceCell2", name: "Đi chợ", img: "https://imgcdn.be.com.vn/be-config/services/ic_home_shopDisable%403x.png"),
-            Service(type: "ServiceCell2", name: "Vé xe khách", img: "https://imgcdn.be.com.vn/be-config/services/ic-home-bus2%403x.png"),
-            Service(type: "ServiceCell2", name: "Ưu đãi", img: "https://imgcdn.be.com.vn/be-config/services/ic-home-promo2%403x.png"),
-            Service(type: "ServiceCell2", name: "Đổi điểm", img: "https://imgcdn.be.com.vn/be-config/services/ic-home-exchange%403x.png"),
-            Service(type: "ServiceCell2", name: "Vé máy bay", img: "https://imgcdn.be.com.vn/be-config/services/ic_home_plane%403x.png"),
-            Service(type: "ServiceCell2", name: "Dịch vụ khác", img: "https://imgcdn.be.com.vn/be-config/services/ic_home_plane%403x.png"),
-        ]
-    ])
+    let url = "https://gw-qa.veep.me/api/v1/be-configuration/customer/get_home_sessions_v2"
     
-    func loadData(completion: @escaping (DataHome) -> Void) {
-        completion(mockData)
+    func loadData(completion: @escaping (DataSession) -> Void) {
+        guard let requestUrl = URL(string: url) else { return }
+        
+        let parameters: [String : Any] = [
+            "client_info": [
+                "env": "qa",
+                "device_type": "1",
+                "location": [
+                    "longitude": 106.69368464146106,
+                    "latitude": 10.782660491413475
+                ],
+                "locale": "vi",
+                "os_version": "12.4",
+                "client_id": "EEBUOvQq7RRJBxJm",
+                "app_version": "3614",
+                "customer_package_name": "xyz.be.customer"
+            ],
+            "access_token": "9e556a0047b4f1a4f8078641845207b71c8df3c71e3e0383c12f2d906aa7493c"
+        ]
+        
+        var urlRequest = URLRequest(url: requestUrl)
+        urlRequest.httpMethod = "POST"
+        
+        do {
+            urlRequest.httpBody = try JSONSerialization.data(withJSONObject: parameters) // pass dictionary to data object and set it as request body
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        
+        //HTTP Headers
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.addValue("662866274d810db738ce7521fbb6c6f1cd0b61f938c8172f4cc391bf7e34a6f8", forHTTPHeaderField: "access_token")
+        
+        
+        
+        let task = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+            guard let data = data else {
+                return
+            }
+            do {
+                //create json object from data
+                guard let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String : Any],
+                      let sessions = json["sessions"] as? Array<Dictionary<String, Any>>,
+                      let background_image = json["background_image"] as? String,
+                      let text_color = json["text_color"] as? String
+                else {
+                    return
+                }
+                var arraySessions = [Session]()
+                for session in sessions {
+                    guard let type = session["type"] as? String,
+                          let data = session["data"] as? Array<Dictionary<String, Any>>,
+                          let meta_data = session["meta_data"] as? [String : Any]
+                    else {
+                        return
+                    }
+                    var arrayHomeServiceSessions = [HomeSessionService]()
+                    for homeservicesession in data {
+                        guard let title = homeservicesession["title"] as? [String: String],
+                              let name = title["vi"],
+                              let image = homeservicesession["image"] as? String,
+                              let label =  homeservicesession["label"] as? [String : Any]
+                        else {
+                            return
+                        }
+                        arrayHomeServiceSessions.append(HomeSessionService(name: name, image: image, label: label))
+                    }
+                    if ["schedule", "other_service", "banner"].contains(type) == false {
+                        arraySessions.append(Session(type: type, data: arrayHomeServiceSessions, meta_data: meta_data))
+                    }
+                }
+                
+                completion(DataSession(source: arraySessions, background_image: background_image, text_color: text_color))
+            }
+            catch {
+                print(error.localizedDescription)
+            }
+        }
+        task.resume()
     }
 }

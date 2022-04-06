@@ -12,12 +12,17 @@ class ServiceCell2: UICollectionViewCell {
     @IBOutlet weak var serviceImageView: UIImageView!
     
     @IBOutlet weak var serviceLabel: UILabel!
-    //    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//        backgroundColor = .white
-//    }
-//    
-//    required init?(coder: NSCoder) {
-//        fatalError("")
-//    }
+    @IBOutlet weak var notiView: UIView!
+    @IBOutlet weak var notiLabel: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        notiView.layer.cornerRadius = notiView.frame.height/2
+        notiView.layer.borderColor = UIColor.white.cgColor
+        notiView.layer.borderWidth = 2.0
+        notiView.clipsToBounds = true
+        
+        notiView.isHidden = true
+    }
+    
 }

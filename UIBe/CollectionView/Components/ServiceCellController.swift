@@ -9,36 +9,44 @@ import Foundation
 import UIKit
 
 class ServiceCellController: CellController {
-//    let type: String?
-//    let img: String?
-//    let name: String?
-//
-//    init(type: String?, img: String?, name: String?) {
-//        self.type = type
-//        self.img = img
-//        self.name = name
-//    }
-//
-    override func cellForItemAtIndex(for collectionView: UICollectionView, indexPath: IndexPath, data: HomeData) -> UICollectionViewCell {
-        
-        guard let service = data as? Service else {
-            return UICollectionViewCell()
-        }
-        
-        if(service.type == "ServiceCell1") {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: service.type, for: indexPath) as! ServiceCell1
-            cell.serviceLabel.text = service.name
-            cell.serviceImageView.load(urlString: service.img!)
+    
+    override func cellForItemAtIndex(for collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
+        if(indexPath.row < 2) {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ServiceCell1", for: indexPath) as! ServiceCell1
+            
+            cell.serviceView.translatesAutoresizingMaskIntoConstraints = false
+            
+            cell.serviceLabel.text = data[indexPath.row].name
+            cell.serviceImageView.load(urlString: data[indexPath.row].image)
+            
             
             if indexPath.row == 0 {
-                cell.serviceView.leftAnchor.constraint(equalTo: cell.leftAnchor, constant: 15).isActive = true
+                if(cell.rightView != nil) {
+                    cell.rightView.removeFromSuperview()
+                    cell.serviceView.trailingAnchor.constraint(equalTo: cell.trailingAnchor).isActive = true
+                }
+                
             }
-            cell.serviceView.rightAnchor.constraint(equalTo: cell.rightAnchor, constant: -15).isActive = true
+            else {
+                if(cell.leftView != nil) {
+                    cell.leftView.removeFromSuperview()
+                    cell.serviceView.leadingAnchor.constraint(equalTo: cell.leadingAnchor).isActive = true
+                }
+            }
+            
+            
+
             return cell
         }
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: service.type, for: indexPath) as! ServiceCell2
-        cell.serviceLabel.text = service.name
-        cell.serviceImageView.load(urlString: service.img!)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ServiceCell2", for: indexPath) as! ServiceCell2
+        cell.serviceLabel.text = data[indexPath.row].name
+        cell.serviceImageView.load(urlString: data[indexPath.row].image)
+        
+        if let label = data[indexPath.row].label["vi"] as? String {
+            cell.notiLabel.text = label
+            cell.notiView.isHidden = false
+        }
+        
         return cell
     }
 }

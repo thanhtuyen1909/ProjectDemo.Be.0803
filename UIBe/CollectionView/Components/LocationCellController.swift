@@ -9,20 +9,10 @@ import Foundation
 import UIKit
 
 class LocationCellController: CellController {
-//    let type: String?
-//    
-//    init(type: String?) {
-//        self.type = type
-//    }
     
-    override func cellForItemAtIndex(for collectionView: UICollectionView, indexPath: IndexPath, data: HomeData) -> UICollectionViewCell {
+    override func cellForItemAtIndex(for collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: type, for: indexPath) as! InputLocationCell
         
-        guard let location = data as? Location else {
-            return UICollectionViewCell()
-        }
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: location.type, for: indexPath) as! InputLocationCell
         return cell
     }
 }
-

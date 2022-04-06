@@ -16,21 +16,21 @@
 		E517863727D9D23B00090A8D /* UIBeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E517863627D9D23B00090A8D /* UIBeTests.swift */; };
 		E517864127D9D23B00090A8D /* UIBeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E517864027D9D23B00090A8D /* UIBeUITests.swift */; };
 		E517864327D9D23B00090A8D /* UIBeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E517864227D9D23B00090A8D /* UIBeUITestsLaunchTests.swift */; };
-		E517865627D9D8BA00090A8D /* TitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E517865527D9D8BA00090A8D /* TitleCell.xib */; };
+		E517865627D9D8BA00090A8D /* NativeBannerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E517865527D9D8BA00090A8D /* NativeBannerCell.xib */; };
 		E517865827D9DFD600090A8D /* InputLocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E517865727D9DFD600090A8D /* InputLocationCell.xib */; };
 		E517865B27D9E3F000090A8D /* ServiceCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = E517865A27D9E3F000090A8D /* ServiceCell1.xib */; };
 		E517865D27D9E49F00090A8D /* ServiceCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = E517865C27D9E49F00090A8D /* ServiceCell2.xib */; };
-		E517865F27D9E51600090A8D /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E517865E27D9E51600090A8D /* TitleCell.swift */; };
+		E517865F27D9E51600090A8D /* NativeBannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E517865E27D9E51600090A8D /* NativeBannerCell.swift */; };
 		E517866127D9E52D00090A8D /* InputLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E517866027D9E52D00090A8D /* InputLocationCell.swift */; };
 		E517866327D9E54100090A8D /* ServiceCell1.swift in Sources */ = {isa = PBXBuildFile; fileRef = E517866227D9E54100090A8D /* ServiceCell1.swift */; };
 		E517866527D9E55300090A8D /* ServiceCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E517866427D9E55300090A8D /* ServiceCell2.swift */; };
 		E517866927D9EE4600090A8D /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E517866827D9EE4600090A8D /* DataLoader.swift */; };
 		E517866D27D9F09B00090A8D /* MockDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E517866C27D9F09B00090A8D /* MockDataLoader.swift */; };
-		E5B27B1727DAA37D00D15F45 /* BannerCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B27B1627DAA37D00D15F45 /* BannerCellController.swift */; };
+		E581105227FC98D6007D979F /* SessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E581105127FC98D6007D979F /* SessionController.swift */; };
+		E5B27B1727DAA37D00D15F45 /* NativeBannerCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B27B1627DAA37D00D15F45 /* NativeBannerCellController.swift */; };
 		E5B27B1927DAA39B00D15F45 /* LocationCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B27B1827DAA39B00D15F45 /* LocationCellController.swift */; };
 		E5B27B1B27DAA3B100D15F45 /* ServiceCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B27B1A27DAA3B100D15F45 /* ServiceCellController.swift */; };
 		E5BABE6F27E109FA00110BFA /* CellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BABE6E27E109FA00110BFA /* CellController.swift */; };
-		E5F4550927DB36EC0060B54C /* SectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F4550827DB36EC0060B54C /* SectionController.swift */; };
 		E5F4550B27DB59F20060B54C /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F4550A27DB59F20060B54C /* UIImageView.swift */; };
 /* End PBXBuildFile section */
 
@@ -65,21 +65,21 @@
 		E517863C27D9D23B00090A8D /* UIBeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UIBeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E517864027D9D23B00090A8D /* UIBeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBeUITests.swift; sourceTree = "<group>"; };
 		E517864227D9D23B00090A8D /* UIBeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBeUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		E517865527D9D8BA00090A8D /* TitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleCell.xib; sourceTree = "<group>"; };
+		E517865527D9D8BA00090A8D /* NativeBannerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NativeBannerCell.xib; sourceTree = "<group>"; };
 		E517865727D9DFD600090A8D /* InputLocationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputLocationCell.xib; sourceTree = "<group>"; };
 		E517865A27D9E3F000090A8D /* ServiceCell1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceCell1.xib; sourceTree = "<group>"; };
 		E517865C27D9E49F00090A8D /* ServiceCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceCell2.xib; sourceTree = "<group>"; };
-		E517865E27D9E51600090A8D /* TitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCell.swift; sourceTree = "<group>"; };
+		E517865E27D9E51600090A8D /* NativeBannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeBannerCell.swift; sourceTree = "<group>"; };
 		E517866027D9E52D00090A8D /* InputLocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputLocationCell.swift; sourceTree = "<group>"; };
 		E517866227D9E54100090A8D /* ServiceCell1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCell1.swift; sourceTree = "<group>"; };
 		E517866427D9E55300090A8D /* ServiceCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCell2.swift; sourceTree = "<group>"; };
 		E517866827D9EE4600090A8D /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
 		E517866C27D9F09B00090A8D /* MockDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataLoader.swift; sourceTree = "<group>"; };
-		E5B27B1627DAA37D00D15F45 /* BannerCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCellController.swift; sourceTree = "<group>"; };
+		E581105127FC98D6007D979F /* SessionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionController.swift; sourceTree = "<group>"; };
+		E5B27B1627DAA37D00D15F45 /* NativeBannerCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeBannerCellController.swift; sourceTree = "<group>"; };
 		E5B27B1827DAA39B00D15F45 /* LocationCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCellController.swift; sourceTree = "<group>"; };
 		E5B27B1A27DAA3B100D15F45 /* ServiceCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCellController.swift; sourceTree = "<group>"; };
 		E5BABE6E27E109FA00110BFA /* CellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellController.swift; sourceTree = "<group>"; };
-		E5F4550827DB36EC0060B54C /* SectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionController.swift; sourceTree = "<group>"; };
 		E5F4550A27DB59F20060B54C /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -174,10 +174,9 @@
 			isa = PBXGroup;
 			children = (
 				E517865927D9E3A300090A8D /* Service */,
-				E517865527D9D8BA00090A8D /* TitleCell.xib */,
-				E517865727D9DFD600090A8D /* InputLocationCell.xib */,
-				E517865E27D9E51600090A8D /* TitleCell.swift */,
-				E517866027D9E52D00090A8D /* InputLocationCell.swift */,
+				E517865527D9D8BA00090A8D /* NativeBannerCell.xib */,
+				E58D7BC427FD8A4A00959221 /* Location */,
+				E517865E27D9E51600090A8D /* NativeBannerCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -196,11 +195,11 @@
 		E517866627D9EC4A00090A8D /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				E5B27B1627DAA37D00D15F45 /* BannerCellController.swift */,
+				E5B27B1627DAA37D00D15F45 /* NativeBannerCellController.swift */,
 				E5B27B1827DAA39B00D15F45 /* LocationCellController.swift */,
 				E5B27B1A27DAA3B100D15F45 /* ServiceCellController.swift */,
-				E5F4550827DB36EC0060B54C /* SectionController.swift */,
 				E5BABE6E27E109FA00110BFA /* CellController.swift */,
+				E581105127FC98D6007D979F /* SessionController.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -213,6 +212,15 @@
 				E5F4550A27DB59F20060B54C /* UIImageView.swift */,
 			);
 			path = DataLoad;
+			sourceTree = "<group>";
+		};
+		E58D7BC427FD8A4A00959221 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				E517865727D9DFD600090A8D /* InputLocationCell.xib */,
+				E517866027D9E52D00090A8D /* InputLocationCell.swift */,
+			);
+			path = Location;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,7 +328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E517865827D9DFD600090A8D /* InputLocationCell.xib in Resources */,
-				E517865627D9D8BA00090A8D /* TitleCell.xib in Resources */,
+				E517865627D9D8BA00090A8D /* NativeBannerCell.xib in Resources */,
 				E517862C27D9D23A00090A8D /* LaunchScreen.storyboard in Resources */,
 				E517865D27D9E49F00090A8D /* ServiceCell2.xib in Resources */,
 				E517862927D9D23A00090A8D /* Assets.xcassets in Resources */,
@@ -351,15 +359,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5B27B1927DAA39B00D15F45 /* LocationCellController.swift in Sources */,
-				E5B27B1727DAA37D00D15F45 /* BannerCellController.swift in Sources */,
+				E5B27B1727DAA37D00D15F45 /* NativeBannerCellController.swift in Sources */,
 				E5F4550B27DB59F20060B54C /* UIImageView.swift in Sources */,
-				E517865F27D9E51600090A8D /* TitleCell.swift in Sources */,
+				E517865F27D9E51600090A8D /* NativeBannerCell.swift in Sources */,
 				E517862427D9D23800090A8D /* DataViewController.swift in Sources */,
 				E517862027D9D23800090A8D /* AppDelegate.swift in Sources */,
 				E517866127D9E52D00090A8D /* InputLocationCell.swift in Sources */,
 				E517866927D9EE4600090A8D /* DataLoader.swift in Sources */,
-				E5F4550927DB36EC0060B54C /* SectionController.swift in Sources */,
 				E5BABE6F27E109FA00110BFA /* CellController.swift in Sources */,
+				E581105227FC98D6007D979F /* SessionController.swift in Sources */,
 				E517866D27D9F09B00090A8D /* MockDataLoader.swift in Sources */,
 				E517862227D9D23800090A8D /* SceneDelegate.swift in Sources */,
 				E517866327D9E54100090A8D /* ServiceCell1.swift in Sources */,
