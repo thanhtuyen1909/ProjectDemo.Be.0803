@@ -77,7 +77,7 @@ class MockDataLoader: DataLoader {
                         }
                         arrayHomeServiceSessions.append(HomeSessionService(name: name, image: image, label: label))
                     }
-                    if ["schedule", "other_service", "banner"].contains(type) == false {
+                    if ["schedule", "other_service"].contains(type) == false {
                         arraySessions.append(Session(type: type, data: arrayHomeServiceSessions, meta_data: meta_data))
                     }
                 }

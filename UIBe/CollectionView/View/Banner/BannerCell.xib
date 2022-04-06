@@ -10,17 +10,17 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gof-TY-oey" customClass="BannerCell" customModule="UIBe" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="banner" id="gof-TY-oey" customClass="BannerCell" customModule="UIBe" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="501" height="229"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="0Ds-0E-7Pc">
                 <rect key="frame" x="0.0" y="0.0" width="501" height="229"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="idF-Lo-x7T">
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="idF-Lo-x7T">
                         <rect key="frame" x="0.0" y="0.0" width="501" height="229"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jbE-dw-l4N">
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jbE-dw-l4N">
                             <size key="itemSize" width="128" height="128"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -28,12 +28,12 @@
                         </collectionViewFlowLayout>
                     </collectionView>
                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="QIP-ru-TYw">
-                        <rect key="frame" x="192.5" y="178" width="116" height="26"/>
+                        <rect key="frame" x="192.5" y="198" width="116" height="26"/>
                     </pageControl>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="idF-Lo-x7T" secondAttribute="bottom" id="9Yj-6B-Ic1"/>
-                    <constraint firstAttribute="bottom" secondItem="QIP-ru-TYw" secondAttribute="bottom" constant="25" id="ChY-1r-OYO"/>
+                    <constraint firstAttribute="bottom" secondItem="QIP-ru-TYw" secondAttribute="bottom" constant="5" id="ChY-1r-OYO"/>
                     <constraint firstAttribute="trailing" secondItem="idF-Lo-x7T" secondAttribute="trailing" id="IDv-dk-KQQ"/>
                     <constraint firstItem="QIP-ru-TYw" firstAttribute="centerX" secondItem="0Ds-0E-7Pc" secondAttribute="centerX" id="JUs-nc-Xi1"/>
                     <constraint firstItem="idF-Lo-x7T" firstAttribute="leading" secondItem="0Ds-0E-7Pc" secondAttribute="leading" id="P2h-m6-BuF"/>

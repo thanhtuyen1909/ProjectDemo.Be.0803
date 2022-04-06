@@ -27,9 +27,10 @@
 		E517866927D9EE4600090A8D /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E517866827D9EE4600090A8D /* DataLoader.swift */; };
 		E517866D27D9F09B00090A8D /* MockDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E517866C27D9F09B00090A8D /* MockDataLoader.swift */; };
 		E57FC7F127FDFC0B006F3632 /* BannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57FC7F027FDFC0B006F3632 /* BannerCell.swift */; };
-		E57FC7F427FDFC5C006F3632 /* ContentBannerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E57FC7F327FDFC5C006F3632 /* ContentBannerCell.xib */; };
 		E57FC7F627FDFEF2006F3632 /* BannerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E57FC7F527FDFEF2006F3632 /* BannerCell.xib */; };
 		E57FC7F827FDFF80006F3632 /* ContentBannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57FC7F727FDFF80006F3632 /* ContentBannerCell.swift */; };
+		E57FC7FA27FE018C006F3632 /* ContentBannerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E57FC7F927FE018C006F3632 /* ContentBannerCell.xib */; };
+		E57FC7FC27FE0513006F3632 /* BannerCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57FC7FB27FE0512006F3632 /* BannerCellController.swift */; };
 		E58D7BC627FD8C5B00959221 /* SuggestLocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E58D7BC527FD8C5B00959221 /* SuggestLocationCell.xib */; };
 		E58D7BC827FD8DEE00959221 /* SuggestLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58D7BC727FD8DEE00959221 /* SuggestLocationCell.swift */; };
 		E5B27B1727DAA37D00D15F45 /* NativeBannerCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B27B1627DAA37D00D15F45 /* NativeBannerCellController.swift */; };
@@ -81,9 +82,10 @@
 		E517866827D9EE4600090A8D /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
 		E517866C27D9F09B00090A8D /* MockDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataLoader.swift; sourceTree = "<group>"; };
 		E57FC7F027FDFC0B006F3632 /* BannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCell.swift; sourceTree = "<group>"; };
-		E57FC7F327FDFC5C006F3632 /* ContentBannerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContentBannerCell.xib; sourceTree = "<group>"; };
 		E57FC7F527FDFEF2006F3632 /* BannerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BannerCell.xib; sourceTree = "<group>"; };
 		E57FC7F727FDFF80006F3632 /* ContentBannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentBannerCell.swift; sourceTree = "<group>"; };
+		E57FC7F927FE018C006F3632 /* ContentBannerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContentBannerCell.xib; sourceTree = "<group>"; };
+		E57FC7FB27FE0512006F3632 /* BannerCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCellController.swift; sourceTree = "<group>"; };
 		E58D7BC527FD8C5B00959221 /* SuggestLocationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuggestLocationCell.xib; sourceTree = "<group>"; };
 		E58D7BC727FD8DEE00959221 /* SuggestLocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestLocationCell.swift; sourceTree = "<group>"; };
 		E5B27B1627DAA37D00D15F45 /* NativeBannerCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeBannerCellController.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 				E5B27B1827DAA39B00D15F45 /* LocationCellController.swift */,
 				E5B27B1A27DAA3B100D15F45 /* ServiceCellController.swift */,
 				E5BABE6E27E109FA00110BFA /* CellController.swift */,
+				E57FC7FB27FE0512006F3632 /* BannerCellController.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -228,9 +231,9 @@
 			isa = PBXGroup;
 			children = (
 				E57FC7F027FDFC0B006F3632 /* BannerCell.swift */,
-				E57FC7F327FDFC5C006F3632 /* ContentBannerCell.xib */,
 				E57FC7F527FDFEF2006F3632 /* BannerCell.xib */,
 				E57FC7F727FDFF80006F3632 /* ContentBannerCell.swift */,
+				E57FC7F927FE018C006F3632 /* ContentBannerCell.xib */,
 			);
 			path = Banner;
 			sourceTree = "<group>";
@@ -358,8 +361,8 @@
 				E517862927D9D23A00090A8D /* Assets.xcassets in Resources */,
 				E517862727D9D23800090A8D /* Main.storyboard in Resources */,
 				E517865B27D9E3F000090A8D /* ServiceCell1.xib in Resources */,
-				E57FC7F427FDFC5C006F3632 /* ContentBannerCell.xib in Resources */,
 				E57FC7F627FDFEF2006F3632 /* BannerCell.xib in Resources */,
+				E57FC7FA27FE018C006F3632 /* ContentBannerCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +404,7 @@
 				E5B27B1B27DAA3B100D15F45 /* ServiceCellController.swift in Sources */,
 				E517866527D9E55300090A8D /* ServiceCell2.swift in Sources */,
 				E58D7BC827FD8DEE00959221 /* SuggestLocationCell.swift in Sources */,
+				E57FC7FC27FE0513006F3632 /* BannerCellController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

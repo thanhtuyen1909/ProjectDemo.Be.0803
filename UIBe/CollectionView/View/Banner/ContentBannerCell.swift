@@ -5,9 +5,17 @@
 //  Created by tuyen.quach on 07/04/2022.
 //
 
-import Foundation
 import UIKit
 
 class ContentBannerCell: UICollectionViewCell {
-    
+
+    @IBOutlet weak var imageView: UIImageView!
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        imageView.layer.cornerRadius = 8
+        imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFill
+    }
 }

@@ -77,6 +77,7 @@ class DataViewController: UIViewController {
         collectionView.register(UINib(nibName:"InputLocationCell", bundle: nil), forCellWithReuseIdentifier: "trip")
         collectionView.register(UINib(nibName:"ServiceCell1", bundle: nil), forCellWithReuseIdentifier: "ServiceCell1")
         collectionView.register(UINib(nibName:"ServiceCell2", bundle: nil), forCellWithReuseIdentifier: "ServiceCell2")
+        collectionView.register(UINib(nibName:"BannerCell", bundle: nil), forCellWithReuseIdentifier: "banner")
     }
     
     private func loadData() {
@@ -90,6 +91,8 @@ class DataViewController: UIViewController {
                     return LocationCellController(type: item.type, data: item.data, meta_data: item.meta_data)
                 case "grid":
                     return ServiceCellController(type: item.type, data: item.data, meta_data: item.meta_data)
+                case "banner":
+                    return BannerCellController(type: item.type, data: item.data, meta_data: item.meta_data)
                 default:
                     return CellController(type: item.type, data: item.data, meta_data: item.meta_data)
                 }
