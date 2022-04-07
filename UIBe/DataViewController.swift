@@ -26,7 +26,6 @@ class DataViewController: UIViewController {
     
     private var name = "Thanh Tuyền"
     private var score = "12345"
-    //private var titleView = TitleView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -154,16 +153,17 @@ extension DataViewController: UICollectionViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offset = scrollView.contentOffset.y / 120
+        
+        let statusBar1 =  UIView()
+        statusBar1.frame = UIApplication.shared.statusBarFrame
+        
         if offset > 1.2 {
             topView.backgroundColor = .white
             lineView.isHidden = false
             userNameLabel.textColor = UIColor(hex: primary_text_color_dark)
             userScoreLabel.textColor = UIColor(hex: primary_text_color_dark)
             if #available(iOS 13.0, *) {
-                let statusBar1 =  UIView()
-                statusBar1.frame = UIApplication.shared.statusBarFrame
                 statusBar1.backgroundColor = UIColor(hex: primary_text_color_light)
-                UIApplication.shared.keyWindow?.addSubview(statusBar1)
             }
         } else {
             topView.backgroundColor = .clear
@@ -171,12 +171,10 @@ extension DataViewController: UICollectionViewDelegate {
             userNameLabel.textColor = UIColor(hex: primary_text_color_light)
             userScoreLabel.textColor = UIColor(hex: primary_text_color_light)
             if #available(iOS 13.0, *) {
-                let statusBar1 =  UIView()
-                statusBar1.frame = UIApplication.shared.statusBarFrame
                 statusBar1.backgroundColor = UIColor(hex: primary_background_color_light)
-                UIApplication.shared.keyWindow?.addSubview(statusBar1)
             }
         }
+        UIApplication.shared.keyWindow?.addSubview(statusBar1)
     }
 }
 

@@ -15,6 +15,11 @@ class BannerCell: UICollectionViewCell {
     
     let imgCellIdentifier = "imgcell"
     
+    var timer: Timer?
+
+    var currentCellIndex = 0
+    var timeInterval = 0.0
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -29,6 +34,19 @@ class BannerCell: UICollectionViewCell {
         // set pageControl
         pageControl.currentPage = 0
         pageControl.numberOfPages = sourceBanner.count
+    }
+    
+    func setAutoScroll(timeInterval: Double) {
+        timer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(slideToNext), userInfo: nil, repeats: true)
+    }
+    
+    @objc func slideToNext() {
+        if currentCellIndex < sourceBanner.count - 1 {
+            currentCellIndex += 1
+        } else {
+            currentCellIndex = 0
+        }
+        collectionView.scrollToItem(at: IndexPath(item: currentCellIndex, section: 0), at: .right, animated: true)
     }
 }
 
