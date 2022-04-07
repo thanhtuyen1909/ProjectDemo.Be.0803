@@ -180,18 +180,26 @@ extension DataViewController: UICollectionViewDelegate {
 
 extension DataViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        var width = CGFloat(0)
+        var ratio = 0.0
         if source[indexPath.section].type == "grid" {
             if indexPath.row < 2 {
-                return CGSize(width: (view.frame.width / 2) - 10, height: 65)
+                width = (view.frame.width / 2) - 10
             }
-            return CGSize(width: (view.frame.width / 4) - 15, height: 80)
+            else {
+                width = (view.frame.width / 4) - 15
+            }
+            ratio = (160 / 64)
+            return CGSize(width: width, height: Double((view.frame.width / 2) - 10) / ratio)
         }
-        if(source[indexPath.section].type == "trip") {
-            return CGSize(width: view.frame.width - 40, height: 190)
+        if source[indexPath.section].type == "trip" {
+            width = view.frame.width - 40
+            ratio = (328 / 160)
+            return CGSize(width: width, height: width / ratio)
         }
-        return CGSize(width: view.frame.width - 40, height: 120)
-        
-        //        return CGSize(width: view.frame.width - 40, height: 200)
+        width = view.frame.width - 40
+        ratio = (336 / 96)
+        return CGSize(width: width, height: width / ratio)
     }
 }
 

@@ -23,9 +23,9 @@ class ServiceCell1: UICollectionViewCell {
         serviceView.layer.cornerRadius = 8
         serviceView.clipsToBounds = true
         
-        notiView.layer.cornerRadius = notiView.frame.height/2
+        notiView.layer.cornerRadius = notiView.frame.height / 2
         notiView.layer.borderColor = UIColor.white.cgColor
-        notiView.layer.borderWidth = 2.0
+        notiView.layer.borderWidth = 1.0
         notiView.clipsToBounds = true
         
         notiView.isHidden = true

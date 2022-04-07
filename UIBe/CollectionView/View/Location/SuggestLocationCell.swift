@@ -18,6 +18,6 @@ class SuggestLocationCell: UICollectionViewCell {
             self.suggestLocationLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         
         self.suggestLocationView.clipsToBounds = true
-        self.suggestLocationView.layer.cornerRadius = self.suggestLocationView.frame.height/2
+        self.suggestLocationView.layer.cornerRadius = self.suggestLocationView.frame.height / 2
      }
 }
