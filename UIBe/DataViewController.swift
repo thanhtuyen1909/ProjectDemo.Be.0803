@@ -32,7 +32,7 @@ class DataViewController: UIViewController {
     
     lazy var bottomView: UIView = {
         let btView = UIView()
-        btView.layer.cornerRadius = 15
+        btView.layer.cornerRadius = 10
         btView.clipsToBounds = true
         btView.backgroundColor = .white
         btView.translatesAutoresizingMaskIntoConstraints = false
@@ -64,8 +64,6 @@ class DataViewController: UIViewController {
                     return ServiceCellController(type: item.type, data: item.data, meta_data: item.meta_data)
                 default:
                     return BannerCellController(type: item.type, data: item.data, meta_data: item.meta_data)
-//                default:
-//                    return CellController(type: item.type, data: item.data, meta_data: item.meta_data)
                 }
             })
             //            if Thread.isMainThread {
@@ -124,7 +122,7 @@ extension DataViewController: UICollectionViewDataSource {
 extension DataViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
+        return UIEdgeInsets(top: 10, left: 3, bottom: 10, right: 3)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

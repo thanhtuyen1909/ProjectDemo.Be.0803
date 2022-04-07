@@ -14,7 +14,7 @@ class ContentBannerCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        imageView.layer.cornerRadius = 8
+        imageView.layer.cornerRadius = 5
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
     }

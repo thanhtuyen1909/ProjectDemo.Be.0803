@@ -22,25 +22,28 @@ class BannerCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         // set collectionView
-        collectionView.layer.cornerRadius = 8
-        collectionView.clipsToBounds = true
-        collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.register(UINib(nibName: "ContentBannerCell", bundle: nil), forCellWithReuseIdentifier: imgCellIdentifier)
+        setPropertiesCollectionView()
         
         // set pageControl
         pageControl.currentPage = 0
         pageControl.numberOfPages = sourceBanner.count
     }
     
+    private func setPropertiesCollectionView() {
+        collectionView.layer.cornerRadius = 5
+        collectionView.clipsToBounds = true
+        collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(UINib(nibName: "ContentBannerCell", bundle: nil), forCellWithReuseIdentifier: imgCellIdentifier)
+    }
+    
     func setAutoScroll(timeInterval: Double) {
         timer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(slideToNext), userInfo: nil, repeats: true)
     }
     
-    @objc func slideToNext() {
+    @objc private func slideToNext() {
         if currentCellIndex < sourceBanner.count - 1 {
             currentCellIndex += 1
         } else {

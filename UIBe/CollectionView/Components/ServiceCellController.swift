@@ -22,7 +22,7 @@ class ServiceCellController: CellController {
     
     func numberOfItemsInSections() -> Int {
         if data.count > 8 {
-            return 8
+            return 10
         }
         return data.count
     }

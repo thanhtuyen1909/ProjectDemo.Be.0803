@@ -20,10 +20,37 @@ class InputLocationCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        // input location view
         inputLocationView.layer.cornerRadius = 5
         inputLocationView.clipsToBounds = true
         
         // text field
+        setPropertiesTextField()
+        
+        // make view to front stackview
+        lineView.layer.zPosition = 1
+        
+        // set collectionView
+        setPropertiesCollectionView()
+    }
+    
+    private func setPropertiesCollectionView() {
+        suggestLocationCollectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        suggestLocationCollectionView.delegate = self
+        suggestLocationCollectionView.dataSource = self
+        suggestLocationCollectionView.register(UINib(nibName: "SuggestLocationCell", bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        //        layout.minimumInteritemSpacing = 0
+        //        layout.minimumLineSpacing = 0
+        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        self.suggestLocationCollectionView.collectionViewLayout = layout
+        
+        //suggestLocationCollectionView.alwaysBounceVertical = true
+    }
+    
+    private func setPropertiesTextField() {
         inputLocationTextFieldFrom.borderStyle = .none
         inputLocationTextFieldTo.borderStyle = .none
         
@@ -32,29 +59,11 @@ class InputLocationCell: UICollectionViewCell {
         
         inputLocationTextFieldFrom.text = "Ila - Nguyễn Đình Chiểu"
         inputLocationTextFieldTo.text = "Nhập điểm đến"
-        
-        // make view to front stackview
-        lineView.layer.zPosition = 1
-        
-        // set collectionView
-        suggestLocationCollectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        suggestLocationCollectionView.delegate = self
-        suggestLocationCollectionView.dataSource = self
-        suggestLocationCollectionView.register(UINib(nibName: "SuggestLocationCell", bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
-        
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-//        layout.minimumInteritemSpacing = 0
-//        layout.minimumLineSpacing = 0
-        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-        self.suggestLocationCollectionView.collectionViewLayout = layout
-        
-        //suggestLocationCollectionView.alwaysBounceVertical = true
     }
 }
 
 extension InputLocationCell: UICollectionViewDelegate {
-
+    
 }
 
 extension InputLocationCell: UICollectionViewDataSource {

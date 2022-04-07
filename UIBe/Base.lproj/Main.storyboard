@@ -29,25 +29,25 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HNa-mO-DYw">
-                                                <rect key="frame" x="266" y="0.0" width="108" height="70"/>
+                                                <rect key="frame" x="261" y="0.0" width="113" height="70"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="thx-c9-Axs">
-                                                        <rect key="frame" x="0.0" y="17" width="108" height="36.5"/>
+                                                        <rect key="frame" x="0.0" y="17.5" width="113" height="35"/>
                                                         <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ZfX-Vm-T3F">
-                                                                <rect key="frame" x="8" y="8" width="92" height="20.5"/>
+                                                            <stackView opaque="NO" contentMode="scaleAspectFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ZfX-Vm-T3F">
+                                                                <rect key="frame" x="8" y="5" width="97" height="25"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="344.456" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3q-FZ-Zkn">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="68" height="20.5"/>
+                                                                        <rect key="frame" x="0.0" y="2.5" width="68" height="20.5"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="kzg-DQ-7DJ">
-                                                                        <rect key="frame" x="72" y="0.5" width="20" height="19"/>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgScore" translatesAutoresizingMaskIntoConstraints="NO" id="kzg-DQ-7DJ">
+                                                                        <rect key="frame" x="72" y="0.0" width="25" height="25"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="width" constant="20" id="uUD-5M-9hk"/>
-                                                                            <constraint firstAttribute="height" constant="20" id="wQr-rD-J7P"/>
+                                                                            <constraint firstAttribute="width" constant="25" id="uUD-5M-9hk"/>
+                                                                            <constraint firstAttribute="height" constant="25" id="wQr-rD-J7P"/>
                                                                         </constraints>
                                                                     </imageView>
                                                                 </subviews>
@@ -55,9 +55,9 @@
                                                         </subviews>
                                                         <color key="backgroundColor" red="0.015492572689999999" green="0.019485623010000001" blue="0.050000431560000003" alpha="0.2345009103" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="bottom" secondItem="ZfX-Vm-T3F" secondAttribute="bottom" constant="8" id="Gog-vV-nL0"/>
+                                                            <constraint firstAttribute="bottom" secondItem="ZfX-Vm-T3F" secondAttribute="bottom" constant="5" id="Gog-vV-nL0"/>
                                                             <constraint firstItem="ZfX-Vm-T3F" firstAttribute="leading" secondItem="thx-c9-Axs" secondAttribute="leading" constant="8" id="Ls3-or-kfH"/>
-                                                            <constraint firstItem="ZfX-Vm-T3F" firstAttribute="top" secondItem="thx-c9-Axs" secondAttribute="top" constant="8" id="VB4-yt-iNL"/>
+                                                            <constraint firstItem="ZfX-Vm-T3F" firstAttribute="top" secondItem="thx-c9-Axs" secondAttribute="top" constant="5" id="VB4-yt-iNL"/>
                                                             <constraint firstAttribute="trailing" secondItem="ZfX-Vm-T3F" secondAttribute="trailing" constant="8" id="lba-8s-Jf7"/>
                                                         </constraints>
                                                     </view>
@@ -132,7 +132,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="square.and.arrow.up.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="imgScore" width="50" height="50"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
