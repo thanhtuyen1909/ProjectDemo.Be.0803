@@ -17,10 +17,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YJb-gu-DzV">
-                                <rect key="frame" x="0.0" y="44" width="414" height="70"/>
+                                <rect key="frame" x="0.0" y="-6" width="414" height="120"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mOv-iM-8K0">
-                                        <rect key="frame" x="20" y="0.0" width="374" height="70"/>
+                                        <rect key="frame" x="20" y="50" width="374" height="70"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chào bạn!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ogs-CX-khL">
                                                 <rect key="frame" x="0.0" y="22" width="102" height="26.5"/>
@@ -71,15 +71,14 @@
                                             </view>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="mOv-iM-8K0" secondAttribute="height" multiplier="187:35" id="P8c-W2-hp9"/>
+                                            <constraint firstAttribute="width" secondItem="mOv-iM-8K0" secondAttribute="height" multiplier="187:35" id="GuO-l3-cKF"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="9ho-BP-O1C"/>
-                                    <constraint firstAttribute="bottom" secondItem="mOv-iM-8K0" secondAttribute="bottom" id="IIB-Lw-4La"/>
-                                    <constraint firstItem="mOv-iM-8K0" firstAttribute="top" secondItem="YJb-gu-DzV" secondAttribute="top" id="geA-lV-bJV"/>
+                                    <constraint firstAttribute="bottom" secondItem="mOv-iM-8K0" secondAttribute="bottom" id="7Ce-Xy-4oO"/>
+                                    <constraint firstAttribute="height" constant="120" id="9ho-BP-O1C"/>
                                     <constraint firstItem="mOv-iM-8K0" firstAttribute="leading" secondItem="YJb-gu-DzV" secondAttribute="leading" constant="20" id="jOJ-Gv-hYN"/>
                                     <constraint firstAttribute="trailing" secondItem="mOv-iM-8K0" secondAttribute="trailing" constant="20" id="z7L-MW-v6J"/>
                                 </constraints>
@@ -111,7 +110,7 @@
                             <constraint firstItem="QTy-GA-Xd9" firstAttribute="top" secondItem="YJb-gu-DzV" secondAttribute="bottom" id="6IF-i7-KTg"/>
                             <constraint firstItem="QTy-GA-Xd9" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="9vp-rM-oD1"/>
                             <constraint firstItem="U4e-EC-nh1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="OBA-Gp-6Ap"/>
-                            <constraint firstItem="YJb-gu-DzV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="TU3-OD-r6e"/>
+                            <constraint firstItem="YJb-gu-DzV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-50" id="TU3-OD-r6e"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="U4e-EC-nh1" secondAttribute="trailing" id="bry-tc-LKq"/>
                             <constraint firstItem="YJb-gu-DzV" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="cej-5q-v2E"/>
                             <constraint firstItem="QTy-GA-Xd9" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="jj8-j4-wti"/>

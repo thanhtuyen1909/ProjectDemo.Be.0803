@@ -6,30 +6,17 @@
 //
 import UIKit
 
-class CellController {
+protocol CellController {
     
-    var type: String
-    var data: [HomeSessionService]
-    var meta_data: [String: Any]
+    var type: String { get set }
+    var data: [HomeSessionService] { get set }
+    var meta_data: [String: Any] { get set }
     
-    init(type: String, data: [HomeSessionService], meta_data: [String : Any]) {
-        self.type = type
-        self.data = data
-        self.meta_data = meta_data
-    }
+    init(type: String, data: [HomeSessionService], meta_data: [String: Any])
     
-    func numberOfItemsInSections() -> Int {
-        guard let stringCount = meta_data["service_icon_threshold"] as? String,
-            let count = Int(stringCount)
-        else {
-            return 1
-        }
-        return count + 2
-    }
-    
-    func cellForItemAtIndex(for collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
-    }
+    func cellForItemAtIndex(for collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell
+   
+    func numberOfItemsInSections() -> Int
     
 }
 

@@ -44,12 +44,12 @@ class InputLocationCell: UICollectionViewCell {
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing = 0
+//        layout.minimumInteritemSpacing = 0
+//        layout.minimumLineSpacing = 0
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         self.suggestLocationCollectionView.collectionViewLayout = layout
         
-        suggestLocationCollectionView.alwaysBounceVertical = true
+        //suggestLocationCollectionView.alwaysBounceVertical = true
     }
 }
 

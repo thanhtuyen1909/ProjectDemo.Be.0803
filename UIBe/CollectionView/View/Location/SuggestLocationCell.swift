@@ -13,11 +13,9 @@ class SuggestLocationCell: UICollectionViewCell {
     @IBOutlet weak var suggestLocationView: UIView!
     
     override func awakeFromNib() {
-            super.awakeFromNib()
-            self.suggestLocationLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
-            self.suggestLocationLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        super.awakeFromNib()
         
         self.suggestLocationView.clipsToBounds = true
         self.suggestLocationView.layer.cornerRadius = self.suggestLocationView.frame.height / 2
-     }
+    }
 }

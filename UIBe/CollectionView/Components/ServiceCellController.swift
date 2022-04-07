@@ -9,8 +9,25 @@ import Foundation
 import UIKit
 
 class ServiceCellController: CellController {
+    var type: String = ""
+    var data: [HomeSessionService] = []
+    var meta_data: [String : Any] = [:]
     
-    override func cellForItemAtIndex(for collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
+    required init(type: String, data: [HomeSessionService], meta_data: [String : Any]) {
+        self.type = type
+        self.data = data
+        self.meta_data = meta_data
+    }
+    
+    
+    func numberOfItemsInSections() -> Int {
+        if data.count > 8 {
+            return 8
+        }
+        return data.count
+    }
+    
+    func cellForItemAtIndex(for collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
         if(indexPath.row < 2) {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ServiceCell1", for: indexPath) as! ServiceCell1
             
