@@ -11,17 +11,17 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="trip" id="SuM-hx-3k0" customClass="InputLocationCell" customModule="UIBe" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="319" height="162"/>
+            <rect key="frame" x="0.0" y="0.0" width="319" height="156"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="tfN-0c-qyG">
-                <rect key="frame" x="0.0" y="0.0" width="319" height="162"/>
+                <rect key="frame" x="0.0" y="0.0" width="319" height="156"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JyO-f3-T8e">
-                        <rect key="frame" x="0.0" y="0.0" width="319" height="162"/>
+                        <rect key="frame" x="0.0" y="0.0" width="319" height="156"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xOq-mq-WxG">
-                                <rect key="frame" x="5" y="0.0" width="309" height="162"/>
+                                <rect key="frame" x="5" y="0.0" width="309" height="146"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PMv-dd-Mp1">
                                         <rect key="frame" x="0.0" y="0.0" width="309" height="112"/>
@@ -96,7 +96,7 @@
                                                     </view>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="tuv-fT-588" secondAttribute="height" multiplier="146:53" id="5xx-6q-WNz"/>
+                                                    <constraint firstAttribute="width" secondItem="tuv-fT-588" secondAttribute="height" multiplier="309:112" id="o5G-8r-iWU"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
@@ -111,10 +111,10 @@
                                             <constraint firstItem="tuv-fT-588" firstAttribute="top" secondItem="PMv-dd-Mp1" secondAttribute="top" id="lGB-8H-9Om"/>
                                         </constraints>
                                     </view>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="q18-Ui-OYh">
-                                        <rect key="frame" x="0.0" y="112" width="309" height="50"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AxZ-Xw-c9q">
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="q18-Ui-OYh">
+                                        <rect key="frame" x="0.0" y="112" width="309" height="34"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AxZ-Xw-c9q">
                                             <size key="itemSize" width="128" height="128"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -132,7 +132,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="xOq-mq-WxG" firstAttribute="leading" secondItem="JyO-f3-T8e" secondAttribute="leading" constant="5" id="JTm-sd-CZd"/>
-                            <constraint firstAttribute="bottom" secondItem="xOq-mq-WxG" secondAttribute="bottom" id="SeQ-79-4Ot"/>
+                            <constraint firstAttribute="bottom" secondItem="xOq-mq-WxG" secondAttribute="bottom" constant="10" id="SeQ-79-4Ot"/>
                             <constraint firstItem="xOq-mq-WxG" firstAttribute="top" secondItem="JyO-f3-T8e" secondAttribute="top" id="ogg-Th-gka"/>
                             <constraint firstAttribute="trailing" secondItem="xOq-mq-WxG" secondAttribute="trailing" constant="5" id="xgp-qK-8Q1"/>
                         </constraints>
@@ -146,7 +146,7 @@
                 </constraints>
             </collectionViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-            <size key="customSize" width="319" height="162"/>
+            <size key="customSize" width="319" height="156"/>
             <connections>
                 <outlet property="inputLocationTextFieldFrom" destination="cST-cm-tIV" id="XEa-LK-zlU"/>
                 <outlet property="inputLocationTextFieldTo" destination="pXf-DV-lfj" id="lx1-2s-IB8"/>
@@ -154,7 +154,7 @@
                 <outlet property="lineView" destination="whc-52-Ijq" id="bn1-WZ-1Jt"/>
                 <outlet property="suggestLocationCollectionView" destination="q18-Ui-OYh" id="JV9-J3-agh"/>
             </connections>
-            <point key="canvasLocation" x="154.34782608695653" y="48.214285714285715"/>
+            <point key="canvasLocation" x="154.34782608695653" y="45.535714285714285"/>
         </collectionViewCell>
     </objects>
     <resources>

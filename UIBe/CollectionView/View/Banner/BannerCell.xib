@@ -27,12 +27,12 @@
                         </collectionViewFlowLayout>
                     </collectionView>
                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="QIP-ru-TYw">
-                        <rect key="frame" x="192.5" y="198" width="116" height="26"/>
+                        <rect key="frame" x="192.5" y="203" width="116" height="26"/>
                     </pageControl>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="idF-Lo-x7T" secondAttribute="bottom" id="9Yj-6B-Ic1"/>
-                    <constraint firstAttribute="bottom" secondItem="QIP-ru-TYw" secondAttribute="bottom" constant="5" id="ChY-1r-OYO"/>
+                    <constraint firstAttribute="bottom" secondItem="QIP-ru-TYw" secondAttribute="bottom" id="ChY-1r-OYO"/>
                     <constraint firstAttribute="trailing" secondItem="idF-Lo-x7T" secondAttribute="trailing" id="IDv-dk-KQQ"/>
                     <constraint firstItem="QIP-ru-TYw" firstAttribute="centerX" secondItem="0Ds-0E-7Pc" secondAttribute="centerX" id="JUs-nc-Xi1"/>
                     <constraint firstItem="idF-Lo-x7T" firstAttribute="leading" secondItem="0Ds-0E-7Pc" secondAttribute="leading" id="P2h-m6-BuF"/>

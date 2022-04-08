@@ -42,12 +42,13 @@ class InputLocationCell: UICollectionViewCell {
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        //        layout.minimumInteritemSpacing = 0
-        //        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 3
+        layout.minimumLineSpacing = 0
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        //suggestLocationCollectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         self.suggestLocationCollectionView.collectionViewLayout = layout
         
-        //suggestLocationCollectionView.alwaysBounceVertical = true
+        //suggestLocationCollectionView.alwaysBoxunceVertical = true
     }
     
     private func setPropertiesTextField() {
@@ -78,5 +79,11 @@ extension InputLocationCell: UICollectionViewDataSource {
         }
         cell.suggestLocationLabel.text = sourceSuggestLocation[indexPath.row]
         return cell
+    }
+}
+
+extension InputLocationCell: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: suggestLocationCollectionView.frame.width, height: suggestLocationCollectionView.frame.height)
     }
 }

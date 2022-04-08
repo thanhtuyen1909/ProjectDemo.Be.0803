@@ -22,9 +22,6 @@ class DataViewController: UIViewController {
     private var primary_text_color_dark = "#081F42"
     private var primary_text_color_light = "#FFFFFF"
     
-    //private var primary_background_color_dark = "#001768"
-    private var primary_background_color_light = "#FFC500"
-    
     private var startY = 0.0
     
     private var name = "Thanh Tuyền"
@@ -45,7 +42,6 @@ class DataViewController: UIViewController {
         setupCollectionView()
         loadData()
         setTopView()
-        view.backgroundColor = UIColor(hex: primary_background_color_light)
         view.insertSubview(bottomView, at: 0)
         bottomView.isHidden = true
         setGradientBackground()
@@ -97,8 +93,9 @@ extension DataViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = source[indexPath.section].cellForItemAtIndex(for: collectionView, indexPath: indexPath)
         if source[indexPath.section].type == "grid" && indexPath.row == 0 {
-            setBottomView(y: Double(cell.frame.origin.y + 108), height: view.frame.height - cell.frame.origin.y)
-            self.startY = Double(cell.frame.origin.y + 108)
+            let originInRootView = collectionView.convert(cell.frame.origin, to: self.view)
+            setBottomView(y: Double(originInRootView.y - 10), height: view.frame.height - Double(originInRootView.y - 10))
+            self.startY = Double(originInRootView.y - 10)
         }
         return cell
     }
@@ -124,25 +121,22 @@ extension DataViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10, left: 3, bottom: 10, right: 3)
     }
-    
+
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offset = scrollView.contentOffset.y / 120
+        let offset = scrollView.contentOffset.y / (((view.frame.width - 40) / (336 / 96)) + 30)
         let y = view.frame.height - (startY - scrollView.contentOffset.y)
         let h = view.frame.height - y
         
 //        let statusBar1 =  UIView()
 //        statusBar1.frame = UIApplication.shared.statusBarFrame
         
-//        print(scrollView.contentOffset.y)
-        
-        if offset > 1.2 {
+        if offset > 1 {
             topView.backgroundColor = .white
             lineView.isHidden = false
             setColorLabel(color: primary_text_color_dark)
 //            if #available(iOS 13.0, *) {
 //                statusBar1.backgroundColor = UIColor(hex: primary_text_color_light)
 //            }
-            //setBottomView(y: bottomView.frame.origin.y - scrollView.contentOffset.y, height: view.frame.height - (bottomView.frame.origin.y - scrollView.contentOffset.y))
         } else {
             topView.backgroundColor = .clear
             lineView.isHidden = true
@@ -169,7 +163,7 @@ extension DataViewController: UICollectionViewDelegateFlowLayout {
                 width = (view.frame.width / 4) - 15
             }
             ratio = (160 / 64)
-            return CGSize(width: width, height: Double((view.frame.width / 2) - 10) / ratio)
+            return CGSize(width: width, height: Double((view.frame.width / 2)) / ratio)
         }
         if source[indexPath.section].type == "trip" {
             width = view.frame.width - 40
@@ -216,8 +210,6 @@ extension DataViewController {
         
         let heightStatusBar = view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
         topView.frame.size.height = 80 - heightStatusBar
-        
-        
     }
     
     func setupCollectionView() {

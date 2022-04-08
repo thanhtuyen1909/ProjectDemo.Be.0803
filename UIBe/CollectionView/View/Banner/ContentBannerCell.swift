@@ -17,5 +17,6 @@ class ContentBannerCell: UICollectionViewCell {
         imageView.layer.cornerRadius = 5
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
+
     }
 }

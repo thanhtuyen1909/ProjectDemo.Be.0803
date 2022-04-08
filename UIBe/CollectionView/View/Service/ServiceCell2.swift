@@ -22,6 +22,12 @@ class ServiceCell2: UICollectionViewCell {
         notiView.layer.borderWidth = 2.0
         notiView.clipsToBounds = true
         
+        notiView.layer.masksToBounds = false
+        notiView.layer.shadowColor = UIColor.gray.cgColor
+        notiView.layer.shadowOpacity = 0.1
+        //cell.layer.shadowOffset = CGSize(width: 3, height: 3)
+        notiView.layer.shadowRadius = 3
+        
         notiView.isHidden = true
     }
     

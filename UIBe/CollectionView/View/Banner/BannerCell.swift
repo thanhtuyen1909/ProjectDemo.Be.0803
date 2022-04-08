@@ -28,6 +28,9 @@ class BannerCell: UICollectionViewCell {
         // set pageControl
         pageControl.currentPage = 0
         pageControl.numberOfPages = sourceBanner.count
+        
+        pageControl.preferredIndicatorImage = UIImage(named: "straight")?.scalePreservingAspectRatio(targetSize: CGSize(width: 25, height: 30))
+        pageControl.setIndicatorImage(UIImage(named: "catIcon"), forPage: currentCellIndex)
     }
     
     private func setPropertiesCollectionView() {
