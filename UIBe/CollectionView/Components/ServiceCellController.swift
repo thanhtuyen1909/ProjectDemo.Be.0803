@@ -13,6 +13,9 @@ class ServiceCellController: CellController {
     var data: [HomeSessionService] = []
     var meta_data: [String : Any] = [:]
     
+    private lazy var width = CGFloat(0)
+    private lazy var ratio = 0.0
+    
     required init(type: String, data: [HomeSessionService], meta_data: [String : Any]) {
         self.type = type
         self.data = data
@@ -42,7 +45,6 @@ class ServiceCellController: CellController {
                     cell.rightView.removeFromSuperview()
                     cell.serviceView.trailingAnchor.constraint(equalTo: cell.trailingAnchor).isActive = true
                 }
-                
             }
             else {
                 if(cell.leftView != nil) {
@@ -50,11 +52,9 @@ class ServiceCellController: CellController {
                     cell.serviceView.leadingAnchor.constraint(equalTo: cell.leadingAnchor).isActive = true
                 }
             }
-            
-            
-
             return cell
         }
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ServiceCell2", for: indexPath) as! ServiceCell2
         cell.serviceLabel.text = data[indexPath.row].name
         cell.serviceImageView.load(urlString: data[indexPath.row].image)
@@ -65,5 +65,16 @@ class ServiceCellController: CellController {
         }
         
         return cell
+    }
+    
+    func sizeForItemAt(view: UIView, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if indexPath.row < 2 {
+            width = (view.frame.width / 2) - 10
+        }
+        else {
+            width = (view.frame.width / 4) - 15
+        }
+        ratio = (160 / 64)
+        return CGSize(width: width, height: Double((view.frame.width / 2)) / ratio)
     }
 }

@@ -9,25 +9,24 @@ import UIKit
 
 class DataViewController: UIViewController {
     
+    //MARK: properties
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userScoreView: UIView!
     @IBOutlet weak var userScoreLabel: UILabel!
     @IBOutlet weak var lineView: UIView!
-    //@IBOutlet weak var bottomView: UIView!
     
     private var loader: DataLoader? = MockDataLoader()
     private var source = [CellController]()
-    private var primary_text_color_dark = "#081F42"
-    private var primary_text_color_light = "#FFFFFF"
     
-    private var startY = 0.0
+    private lazy var startY = 0.0
+    private lazy var name = "Thanh Tuyền"
+    private lazy var score = 12345
+    private lazy var primary_text_color_dark = "#081F42"
+    private lazy var primary_text_color_light = "#FFFFFF"
     
-    private var name = "Thanh Tuyền"
-    private var score = "12345"
-    
-    lazy var bottomView: UIView = {
+    private lazy var bottomView: UIView = {
         let btView = UIView()
         btView.layer.cornerRadius = 10
         btView.clipsToBounds = true
@@ -39,14 +38,19 @@ class DataViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        // Set up CollectionView, TopView
         setupCollectionView()
+        setupTopView()
+        
+        /// call func addBottomView
+        addBottomView()
+        
+        /// call func loadData
         loadData()
-        setTopView()
-        view.insertSubview(bottomView, at: 0)
-        bottomView.isHidden = true
-        setGradientBackground()
     }
     
+    /// Load data from api parse to CellController and reloadData of collectionView
     private func loadData() {
         loader?.loadData(completion: { [weak self] data in
             self?.source = data.source.map({
@@ -71,9 +75,7 @@ class DataViewController: UIViewController {
             //            }
             DispatchQueue.main.async { [weak self] in
                 self?.collectionView.reloadData()
-                
                 self?.setBackgroundView(bg: data.background_image)
-                //self?.setColorLabel(color: data.text_color)
             }
         })
     }
@@ -92,28 +94,16 @@ extension DataViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = source[indexPath.section].cellForItemAtIndex(for: collectionView, indexPath: indexPath)
+        
+        // set startY and setBottomView
         if source[indexPath.section].type == "grid" && indexPath.row == 0 {
             let originInRootView = collectionView.convert(cell.frame.origin, to: self.view)
-            setBottomView(y: Double(originInRootView.y - 10), height: view.frame.height - Double(originInRootView.y - 10))
-            self.startY = Double(originInRootView.y - 10)
+            setBottomView(y: Double(originInRootView.y) - 10, height: view.frame.height - Double(originInRootView.y) - 10)
+            self.startY = Double(originInRootView.y) - 10
         }
+        
         return cell
     }
-    
-    //    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-    //        recursiveSetTextColorForLabelsInView(inView: cell)
-    //    }
-    //
-    //    func recursiveSetTextColorForLabelsInView(inView: UIView) {
-    //        for view in inView.subviews {
-    //            if let subview = view as? UILabel {
-    //                subview.textColor = hexStringToUIColor(hex: text_color)
-    //            }
-    //            else {
-    //                self.recursiveSetTextColorForLabelsInView(inView: view)
-    //            }
-    //        }
-    //    }
 }
 
 extension DataViewController: UICollectionViewDelegate {
@@ -127,57 +117,29 @@ extension DataViewController: UICollectionViewDelegate {
         let y = view.frame.height - (startY - scrollView.contentOffset.y)
         let h = view.frame.height - y
         
-//        let statusBar1 =  UIView()
-//        statusBar1.frame = UIApplication.shared.statusBarFrame
-        
         if offset > 1 {
             topView.backgroundColor = .white
             lineView.isHidden = false
             setColorLabel(color: primary_text_color_dark)
-//            if #available(iOS 13.0, *) {
-//                statusBar1.backgroundColor = UIColor(hex: primary_text_color_light)
-//            }
         } else {
             topView.backgroundColor = .clear
             lineView.isHidden = true
             setColorLabel(color: primary_text_color_light)
-//            if #available(iOS 13.0, *) {
-//                statusBar1.backgroundColor = UIColor(hex: primary_background_color_light)
-//            }
-            
         }
         setBottomView(y: h, height: y)
-//        UIApplication.shared.keyWindow?.addSubview(statusBar1)
     }
 }
 
 extension DataViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        var width = CGFloat(0)
-        var ratio = 0.0
-        if source[indexPath.section].type == "grid" {
-            if indexPath.row < 2 {
-                width = (view.frame.width / 2) - 10
-            }
-            else {
-                width = (view.frame.width / 4) - 15
-            }
-            ratio = (160 / 64)
-            return CGSize(width: width, height: Double((view.frame.width / 2)) / ratio)
-        }
-        if source[indexPath.section].type == "trip" {
-            width = view.frame.width - 40
-            ratio = (328 / 160)
-            return CGSize(width: width, height: width / ratio)
-        }
-        width = view.frame.width - 40
-        ratio = (336 / 96)
-        return CGSize(width: width, height: width / ratio)
+        return source[indexPath.section].sizeForItemAt(view: view, sizeForItemAt: indexPath)
     }
 }
 
 extension DataViewController {
-    func setBottomView(y: Double, height: Double) {
+    
+    /// set frame to bottomView in background
+    private func setBottomView(y: Double, height: Double) {
         bottomView.frame = CGRect(x: view.frame.origin.x, y: y, width: view.frame.width, height: height)
         
         if bottomView.isHidden == true {
@@ -185,34 +147,42 @@ extension DataViewController {
         }
     }
     
-    func setBackgroundView(bg: String) {
+    /// set up background view
+    private func setBackgroundView(bg: String) {
         let image = UIImageView(frame: view.frame)
         image.contentMode = .scaleAspectFill
         image.load(urlString: bg)
         view.insertSubview(image, at: 0)
     }
     
-    func setColorLabel(color: String) {
+    /// set color to userNameLabel và userScoreLabel
+    private func setColorLabel(color: String) {
         userNameLabel.textColor = UIColor(hex: color)
         userScoreLabel.textColor = UIColor(hex: color)
     }
     
-    func setTopView() {
+    /// set up topView
+    private func setupTopView() {
         lineView.isHidden = true
         
         userScoreView.clipsToBounds = true
         userScoreView.layer.cornerRadius = 18
         
-        userScoreLabel.text = score
+        userScoreLabel.text = String(score)
         userNameLabel.text = "Chào \(name)!"
         userNameLabel.textColor = UIColor(hex: primary_text_color_light)
         userScoreLabel.textColor = UIColor(hex: primary_text_color_light)
         
-        let heightStatusBar = view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
-        topView.frame.size.height = 80 - heightStatusBar
+//        if #available(iOS 13.0, *) {
+//            let window = UIApplication.shared.windows.first
+//            let topPadding = window?.safeAreaInsets.top
+//            topView.frame.size.height = CGFloat(80 + CGFloat(topPadding ?? 0.0))
+//        }
+        
     }
     
-    func setupCollectionView() {
+    /// set up collectionView and register cell in collectionView
+    private func setupCollectionView() {
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -226,15 +196,22 @@ extension DataViewController {
         collectionView.register(UINib(nibName:"BannerCell", bundle: nil), forCellWithReuseIdentifier: "banner")
     }
     
-    func setGradientBackground() {
-        let colorTop =  UIColor.white.cgColor
-        let colorBottom = UIColor(red: 242.0/255.0, green: 242.0/255.0, blue: 242.0/255.0, alpha: 0.05).cgColor
-                    
+    ///Set gradient color to background
+    private func setGradientBackground(colorTop: CGColor, colorBottom: CGColor) {
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [colorTop, colorBottom]
         gradientLayer.locations = [0.0, 1.0]
         gradientLayer.frame = self.view.bounds
                 
         self.bottomView.layer.insertSublayer(gradientLayer, at:0)
+    }
+    
+    ///Add BottomView to background
+    private func addBottomView() {
+        view.insertSubview(bottomView, at: 0)
+        bottomView.isHidden = true
+        let colorTop = UIColor.white.cgColor
+        let colorBottom = UIColor(red: 242.0/255.0, green: 242.0/255.0, blue: 242.0/255.0, alpha: 0.05).cgColor
+        setGradientBackground(colorTop: colorTop, colorBottom: colorBottom)
     }
 }

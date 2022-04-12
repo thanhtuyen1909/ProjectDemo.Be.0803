@@ -67,8 +67,8 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Wj-e0-uLO">
-                                <rect key="frame" x="73" y="38.5" width="37.5" height="17"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <rect key="frame" x="73" y="37.5" width="42.5" height="19.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -104,9 +104,6 @@
                 </constraints>
             </collectionViewCellContentView>
             <size key="customSize" width="229" height="94"/>
-            <userDefinedRuntimeAttributes>
-                <userDefinedRuntimeAttribute type="boolean" keyPath="" value="YES"/>
-            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="leftView" destination="glG-I1-bnF" id="t6V-Nw-xe2"/>
                 <outlet property="notiLabel" destination="PPG-gY-P69" id="ovd-rf-rBH"/>

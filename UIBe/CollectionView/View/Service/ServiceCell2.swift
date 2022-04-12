@@ -17,6 +17,10 @@ class ServiceCell2: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupNotiView()
+    }
+    
+    private func setupNotiView() {
         notiView.layer.cornerRadius = notiView.frame.height/2
         notiView.layer.borderColor = UIColor.white.cgColor
         notiView.layer.borderWidth = 2.0
@@ -30,5 +34,4 @@ class ServiceCell2: UICollectionViewCell {
         
         notiView.isHidden = true
     }
-    
 }

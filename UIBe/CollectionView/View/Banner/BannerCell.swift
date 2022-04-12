@@ -13,12 +13,12 @@ class BannerCell: UICollectionViewCell {
     
     var sourceBanner = [UIImage(named: "img1"), UIImage(named: "img2")]
     
-    let imgCellIdentifier = "imgcell"
+    private let imgCellIdentifier = "imgcell"
     
-    var timer: Timer?
+    private var timer: Timer?
 
-    var currentCellIndex = 0
-    var timeInterval = 0.0
+    private lazy var currentCellIndex = 0
+    private lazy var timeInterval = 0.0
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,6 +26,10 @@ class BannerCell: UICollectionViewCell {
         setPropertiesCollectionView()
         
         // set pageControl
+        setPageControl()
+    }
+    
+    private func setPageControl() {
         pageControl.currentPage = 0
         pageControl.numberOfPages = sourceBanner.count
         

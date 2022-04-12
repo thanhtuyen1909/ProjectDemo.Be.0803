@@ -227,7 +227,6 @@
 			children = (
 				E517866827D9EE4600090A8D /* DataLoader.swift */,
 				E517866C27D9F09B00090A8D /* MockDataLoader.swift */,
-				E5F4550A27DB59F20060B54C /* UIImageView.swift */,
 			);
 			path = DataLoad;
 			sourceTree = "<group>";
@@ -235,6 +234,7 @@
 		E56F69F927FED40F009F0A2A /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				E5F4550A27DB59F20060B54C /* UIImageView.swift */,
 				E56F69F727FED0BF009F0A2A /* UIColor.swift */,
 				E56F69FC27FEE939009F0A2A /* UIImage.swift */,
 			);

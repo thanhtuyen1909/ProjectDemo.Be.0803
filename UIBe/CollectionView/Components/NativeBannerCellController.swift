@@ -13,6 +13,9 @@ class NativeBannerCellController: CellController {
     var data: [HomeSessionService] = []
     var meta_data: [String : Any] = [:]
     
+    private lazy var width = CGFloat(0)
+    private lazy var ratio = 0.0
+    
     required init(type: String, data: [HomeSessionService], meta_data: [String : Any]) {
         self.type = type
         self.data = data
@@ -37,5 +40,9 @@ class NativeBannerCellController: CellController {
         return cell
     }
     
-    
+    func sizeForItemAt(view: UIView, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        width = view.frame.width - 40
+        ratio = (336 / 96)
+        return CGSize(width: width, height: width / ratio)
+    }
 }
