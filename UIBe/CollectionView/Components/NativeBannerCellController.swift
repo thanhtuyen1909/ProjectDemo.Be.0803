@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 class NativeBannerCellController: CellController {
+    //MARK: properties
     var type: String = ""
     var data: [HomeSessionService] = []
     var meta_data: [String : Any] = [:]

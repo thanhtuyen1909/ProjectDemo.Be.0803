@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ServiceCell2: UICollectionViewCell {
+class ServiceCellVertical: UICollectionViewCell {
     
     @IBOutlet weak var serviceImageView: UIImageView!
     
@@ -17,9 +17,12 @@ class ServiceCell2: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        // call func set properties to NotiView
         setupNotiView()
     }
     
+    //MARK: set properties to NotiView
     private func setupNotiView() {
         notiView.layer.cornerRadius = notiView.frame.height/2
         notiView.layer.borderColor = UIColor.white.cgColor

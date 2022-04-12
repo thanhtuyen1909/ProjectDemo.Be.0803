@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ServiceCell1: UICollectionViewCell {
+class ServiceCellHorizontal: UICollectionViewCell {
     
     @IBOutlet weak var serviceImageView: UIImageView!
     @IBOutlet weak var serviceLabel: UILabel!
@@ -23,9 +23,11 @@ class ServiceCell1: UICollectionViewCell {
         serviceView.layer.masksToBounds = false
         serviceView.layer.cornerRadius = 8
         
+        // call func set properties to NotiView
         setupNotiView()
     }
     
+    //MARK: set properties to NotiView
     private func setupNotiView() {
         notiView.layer.cornerRadius = notiView.frame.height / 2
         notiView.layer.borderColor = UIColor.white.cgColor

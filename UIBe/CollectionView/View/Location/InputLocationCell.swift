@@ -20,20 +20,21 @@ class InputLocationCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // input location view
+        // set properties to input location view
         inputLocationView.layer.cornerRadius = 5
         inputLocationView.clipsToBounds = true
         
-        // text field
+        // call func set properties to text field
         setPropertiesTextField()
         
         // make view to front stackview
         lineView.layer.zPosition = 1
         
-        // set collectionView
+        // call func set properties to collectionView
         setPropertiesCollectionView()
     }
     
+    //MARK: set properties to collectionView
     private func setPropertiesCollectionView() {
         suggestLocationCollectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         suggestLocationCollectionView.delegate = self
@@ -51,6 +52,7 @@ class InputLocationCell: UICollectionViewCell {
         //suggestLocationCollectionView.alwaysBoxunceVertical = true
     }
     
+    //MARK: set properties to TextField
     private func setPropertiesTextField() {
         inputLocationTextFieldFrom.borderStyle = .none
         inputLocationTextFieldTo.borderStyle = .none

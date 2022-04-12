@@ -22,13 +22,14 @@ class BannerCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // set collectionView
+        // call fun set properties to collectionView
         setPropertiesCollectionView()
         
-        // set pageControl
+        // call fun set properties to pageControl
         setPageControl()
     }
     
+    //MARK: set properties to pageControl
     private func setPageControl() {
         pageControl.currentPage = 0
         pageControl.numberOfPages = sourceBanner.count
@@ -37,6 +38,7 @@ class BannerCell: UICollectionViewCell {
         pageControl.setIndicatorImage(UIImage(named: "catIcon"), forPage: currentCellIndex)
     }
     
+    //MARK: set properties to collectionView
     private func setPropertiesCollectionView() {
         collectionView.layer.cornerRadius = 5
         collectionView.clipsToBounds = true
@@ -46,10 +48,12 @@ class BannerCell: UICollectionViewCell {
         collectionView.register(UINib(nibName: "ContentBannerCell", bundle: nil), forCellWithReuseIdentifier: imgCellIdentifier)
     }
     
+    //MARK: set auto scroll with timeInterval and selector is slideToNext
     func setAutoScroll(timeInterval: Double) {
         timer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(slideToNext), userInfo: nil, repeats: true)
     }
     
+    //MARK: func make collectionView scroll to item at currentCellIndex with the right direction
     @objc private func slideToNext() {
         if currentCellIndex < sourceBanner.count - 1 {
             currentCellIndex += 1

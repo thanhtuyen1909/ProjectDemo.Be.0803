@@ -37,9 +37,7 @@ class DataViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
-        // Set up CollectionView, TopView
+        /// Set up CollectionView, TopView
         setupCollectionView()
         setupTopView()
         
@@ -50,7 +48,7 @@ class DataViewController: UIViewController {
         loadData()
     }
     
-    /// Load data from api parse to CellController and reloadData of collectionView
+    //MARK: Load data from api parse to CellController and reloadData of collectionView
     private func loadData() {
         loader?.loadData(completion: { [weak self] data in
             self?.source = data.source.map({
@@ -95,7 +93,7 @@ extension DataViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = source[indexPath.section].cellForItemAtIndex(for: collectionView, indexPath: indexPath)
         
-        // set startY and setBottomView
+        // set startY and setBottomView when cell is the first element of section 2
         if source[indexPath.section].type == "grid" && indexPath.row == 0 {
             let originInRootView = collectionView.convert(cell.frame.origin, to: self.view)
             setBottomView(y: Double(originInRootView.y) - 10, height: view.frame.height - Double(originInRootView.y) - 10)
@@ -112,6 +110,7 @@ extension DataViewController: UICollectionViewDelegate {
         return UIEdgeInsets(top: 10, left: 3, bottom: 10, right: 3)
     }
 
+    //MARK: Scroll header change color, white bottom background will scale
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offset = scrollView.contentOffset.y / (((view.frame.width - 40) / (336 / 96)) + 30)
         let y = view.frame.height - (startY - scrollView.contentOffset.y)
@@ -138,7 +137,7 @@ extension DataViewController: UICollectionViewDelegateFlowLayout {
 
 extension DataViewController {
     
-    /// set frame to bottomView in background
+    //MARK: Set frame to bottomView in background
     private func setBottomView(y: Double, height: Double) {
         bottomView.frame = CGRect(x: view.frame.origin.x, y: y, width: view.frame.width, height: height)
         
@@ -147,7 +146,7 @@ extension DataViewController {
         }
     }
     
-    /// set up background view
+    //MARK: Set up background view
     private func setBackgroundView(bg: String) {
         let image = UIImageView(frame: view.frame)
         image.contentMode = .scaleAspectFill
@@ -155,13 +154,13 @@ extension DataViewController {
         view.insertSubview(image, at: 0)
     }
     
-    /// set color to userNameLabel và userScoreLabel
+    //MARK: Set color to userNameLabel và userScoreLabel
     private func setColorLabel(color: String) {
         userNameLabel.textColor = UIColor(hex: color)
         userScoreLabel.textColor = UIColor(hex: color)
     }
     
-    /// set up topView
+    //MARK: Set up topView
     private func setupTopView() {
         lineView.isHidden = true
         
@@ -181,7 +180,7 @@ extension DataViewController {
         
     }
     
-    /// set up collectionView and register cell in collectionView
+    //MARK: Set up collectionView and register cell in collectionView
     private func setupCollectionView() {
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.delegate = self
@@ -191,12 +190,12 @@ extension DataViewController {
         
         collectionView.register(UINib(nibName:"NativeBannerCell", bundle: nil), forCellWithReuseIdentifier: "native_banner")
         collectionView.register(UINib(nibName:"InputLocationCell", bundle: nil), forCellWithReuseIdentifier: "trip")
-        collectionView.register(UINib(nibName:"ServiceCell1", bundle: nil), forCellWithReuseIdentifier: "ServiceCell1")
-        collectionView.register(UINib(nibName:"ServiceCell2", bundle: nil), forCellWithReuseIdentifier: "ServiceCell2")
+        collectionView.register(UINib(nibName:"ServiceCellHorizontal", bundle: nil), forCellWithReuseIdentifier: "ServiceCellHorizontal")
+        collectionView.register(UINib(nibName:"ServiceCellVertical", bundle: nil), forCellWithReuseIdentifier: "ServiceCellVertical")
         collectionView.register(UINib(nibName:"BannerCell", bundle: nil), forCellWithReuseIdentifier: "banner")
     }
     
-    ///Set gradient color to background
+    //MARK: Set gradient color to background
     private func setGradientBackground(colorTop: CGColor, colorBottom: CGColor) {
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [colorTop, colorBottom]
@@ -206,7 +205,7 @@ extension DataViewController {
         self.bottomView.layer.insertSublayer(gradientLayer, at:0)
     }
     
-    ///Add BottomView to background
+    //MARK: Add BottomView to background
     private func addBottomView() {
         view.insertSubview(bottomView, at: 0)
         bottomView.isHidden = true

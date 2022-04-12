@@ -32,14 +32,14 @@ class ServiceCellController: CellController {
     
     func cellForItemAtIndex(for collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
         if(indexPath.row < 2) {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ServiceCell1", for: indexPath) as! ServiceCell1
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ServiceCellHorizontal", for: indexPath) as! ServiceCellHorizontal
             
             cell.serviceView.translatesAutoresizingMaskIntoConstraints = false
             
             cell.serviceLabel.text = data[indexPath.row].name
             cell.serviceImageView.load(urlString: data[indexPath.row].image)
             
-            
+            // If is the first element, check rightView -> remove rightView + add constraint to trailingAnchor of serviceView. Same for the remain element
             if indexPath.row == 0 {
                 if(cell.rightView != nil) {
                     cell.rightView.removeFromSuperview()
@@ -55,10 +55,11 @@ class ServiceCellController: CellController {
             return cell
         }
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ServiceCell2", for: indexPath) as! ServiceCell2
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ServiceCellVertical", for: indexPath) as! ServiceCellVertical
         cell.serviceLabel.text = data[indexPath.row].name
         cell.serviceImageView.load(urlString: data[indexPath.row].image)
         
+        // If label exist -> notiView is display
         if let label = data[indexPath.row].label["vi"] as? String {
             cell.notiLabel.text = label
             cell.notiView.isHidden = false
