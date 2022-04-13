@@ -7,6 +7,11 @@
 
 import UIKit
 
+enum NavBarMode {
+    case dark
+    case light
+}
+
 class NavBar: UIView {
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var userNameLabel: UILabel!

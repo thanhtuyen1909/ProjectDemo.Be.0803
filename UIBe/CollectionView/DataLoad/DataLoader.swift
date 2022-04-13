@@ -36,11 +36,6 @@ struct User {
     var score = 12345
 }
 
-enum NavBarMode {
-    case dark
-    case light
-}
-
 enum ItemType : String {
     case native_banner = "native_banner"
     case trip = "trip"

@@ -18,13 +18,9 @@ class DataViewController: UIViewController {
     lazy var primary_text_color_dark = "#081F42"
     lazy var primary_text_color_light = "#FFFFFF"
     
-    private lazy var bottomView: UIView = {
-        let bottomView = UIView(frame: .zero)
-        bottomView.layer.cornerRadius = 10
-        bottomView.clipsToBounds = true
-        bottomView.backgroundColor = .white
-        bottomView.translatesAutoresizingMaskIntoConstraints = false
-        return bottomView
+    private lazy var whiteBottomBackground: GradientView = {
+        let whiteBottomBackground = GradientView.init()
+        return whiteBottomBackground
     }()
     
     private lazy var topScreen: UIView = {
@@ -44,7 +40,6 @@ class DataViewController: UIViewController {
         
         collectionView.backgroundColor = .clear
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        //setupCollectionView()
         return collectionView
     }()
     
@@ -145,7 +140,7 @@ extension DataViewController: UICollectionViewDataSource {
         // set startY and setBottomView when cell is the first element of section 2
         if source[indexPath.section].type == ItemType.grid.rawValue && indexPath.row == 0 {
             let originInRootView = collectionView.convert(cell.frame.origin, to: self.view)
-            setBottomView(y: Double(originInRootView.y) - 10)
+            setPositionWhiteBackgroundView(y: Double(originInRootView.y) - 10)
             self.startY = Double(originInRootView.y) - 10
         }
         
@@ -172,7 +167,7 @@ extension DataViewController: UICollectionViewDelegate {
             topScreen.backgroundColor = .clear
             navBar.setupNavBarMode(style: .light)
         }
-        setBottomView(y: y)
+        setPositionWhiteBackgroundView(y: y)
     }
 }
 
@@ -185,11 +180,11 @@ extension DataViewController: UICollectionViewDelegateFlowLayout {
 extension DataViewController {
     
     //MARK: Set frame to bottomView in background
-    private func setBottomView(y: Double) {
-        bottomView.frame = CGRect(x: view.frame.origin.x, y: y, width: view.frame.width, height: view.frame.height)
+    private func setPositionWhiteBackgroundView(y: Double) {
+        whiteBottomBackground.frame = CGRect(x: view.frame.origin.x, y: y, width: view.frame.width, height: view.frame.height)
         
-        if bottomView.isHidden{
-            bottomView.isHidden = false
+        if whiteBottomBackground.isHidden {
+            whiteBottomBackground.isHidden = false
         }
     }
     
@@ -217,22 +212,9 @@ extension DataViewController {
         collectionView.dataSource = self
     }
     
-    //MARK: Set gradient color to background
-    private func setGradientBackground(colorTop: CGColor, colorBottom: CGColor) {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [colorTop, colorBottom]
-        gradientLayer.locations = [0.0, 1.0]
-        gradientLayer.frame = self.view.bounds
-        
-        self.bottomView.layer.insertSublayer(gradientLayer, at:0)
-    }
-    
     //MARK: Add BottomView to background
     private func addBottomView() {
-        view.insertSubview(bottomView, at: 0)
-        bottomView.isHidden = true
-        let colorTop = UIColor.white.cgColor
-        let colorBottom = UIColor(red: 242.0/255.0, green: 242.0/255.0, blue: 242.0/255.0, alpha: 0.05).cgColor
-        setGradientBackground(colorTop: colorTop, colorBottom: colorBottom)
+        view.insertSubview(whiteBottomBackground, at: 0)
+        whiteBottomBackground.isHidden = true
     }
 }

@@ -35,6 +35,7 @@
 		E57FC7F827FDFF80006F3632 /* ContentBannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57FC7F727FDFF80006F3632 /* ContentBannerCell.swift */; };
 		E57FC7FA27FE018C006F3632 /* ContentBannerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E57FC7F927FE018C006F3632 /* ContentBannerCell.xib */; };
 		E57FC7FC27FE0513006F3632 /* BannerCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57FC7FB27FE0512006F3632 /* BannerCellController.swift */; };
+		E5801B5D2806B743006BC87D /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5801B5C2806B743006BC87D /* GradientView.swift */; };
 		E58D7BC627FD8C5B00959221 /* SuggestLocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E58D7BC527FD8C5B00959221 /* SuggestLocationCell.xib */; };
 		E58D7BC827FD8DEE00959221 /* SuggestLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58D7BC727FD8DEE00959221 /* SuggestLocationCell.swift */; };
 		E5B27B1727DAA37D00D15F45 /* NativeBannerCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B27B1627DAA37D00D15F45 /* NativeBannerCellController.swift */; };
@@ -94,6 +95,7 @@
 		E57FC7F727FDFF80006F3632 /* ContentBannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentBannerCell.swift; sourceTree = "<group>"; };
 		E57FC7F927FE018C006F3632 /* ContentBannerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContentBannerCell.xib; sourceTree = "<group>"; };
 		E57FC7FB27FE0512006F3632 /* BannerCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCellController.swift; sourceTree = "<group>"; };
+		E5801B5C2806B743006BC87D /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		E58D7BC527FD8C5B00959221 /* SuggestLocationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuggestLocationCell.xib; sourceTree = "<group>"; };
 		E58D7BC727FD8DEE00959221 /* SuggestLocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestLocationCell.swift; sourceTree = "<group>"; };
 		E5B27B1627DAA37D00D15F45 /* NativeBannerCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeBannerCellController.swift; sourceTree = "<group>"; };
@@ -153,8 +155,8 @@
 			children = (
 				E517864F27D9D62400090A8D /* CollectionView */,
 				E517861F27D9D23800090A8D /* AppDelegate.swift */,
-				E517862127D9D23800090A8D /* SceneDelegate.swift */,
 				E517862327D9D23800090A8D /* DataViewController.swift */,
+				E517862127D9D23800090A8D /* SceneDelegate.swift */,
 				E517862527D9D23800090A8D /* Main.storyboard */,
 				E517862827D9D23A00090A8D /* Assets.xcassets */,
 				E517862A27D9D23A00090A8D /* LaunchScreen.storyboard */,
@@ -194,13 +196,10 @@
 		E517865427D9D86D00090A8D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E57FC7F227FDFC24006F3632 /* Banner */,
-				E58D7BC427FD8A4A00959221 /* Location */,
-				E517865927D9E3A300090A8D /* Service */,
-				E517865527D9D8BA00090A8D /* NativeBannerCell.xib */,
-				E517865E27D9E51600090A8D /* NativeBannerCell.swift */,
+				E5801B5B2806B717006BC87D /* Cell */,
 				E50EE97D28057B8000EE09B0 /* NavBar.xib */,
 				E50EE97F28057E9E00EE09B0 /* NavBar.swift */,
+				E5801B5C2806B743006BC87D /* GradientView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -256,6 +255,18 @@
 				E57FC7F927FE018C006F3632 /* ContentBannerCell.xib */,
 			);
 			path = Banner;
+			sourceTree = "<group>";
+		};
+		E5801B5B2806B717006BC87D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E517865527D9D8BA00090A8D /* NativeBannerCell.xib */,
+				E517865E27D9E51600090A8D /* NativeBannerCell.swift */,
+				E517865927D9E3A300090A8D /* Service */,
+				E58D7BC427FD8A4A00959221 /* Location */,
+				E57FC7F227FDFC24006F3632 /* Banner */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		E58D7BC427FD8A4A00959221 /* Location */ = {
@@ -410,6 +421,7 @@
 			files = (
 				E5B27B1927DAA39B00D15F45 /* LocationCellController.swift in Sources */,
 				E56F69FD27FEE939009F0A2A /* UIImage.swift in Sources */,
+				E5801B5D2806B743006BC87D /* GradientView.swift in Sources */,
 				E5B27B1727DAA37D00D15F45 /* NativeBannerCellController.swift in Sources */,
 				E5F4550B27DB59F20060B54C /* UIImageView.swift in Sources */,
 				E517865F27D9E51600090A8D /* NativeBannerCell.swift in Sources */,
