@@ -7,7 +7,7 @@
 import UIKit
 
 protocol CellController {
-    
+    //MARK: properties
     var type: String { get set }
     var data: [HomeSessionService] { get set }
     var meta_data: [String: Any] { get set }

@@ -8,6 +8,7 @@
 import UIKit
 
 class InputLocationCell: UICollectionViewCell {
+    //MARK: properties
     @IBOutlet weak var inputLocationView: UIView!
     @IBOutlet weak var inputLocationTextFieldFrom: UITextField!
     @IBOutlet weak var lineView: UIView!
@@ -16,6 +17,7 @@ class InputLocationCell: UICollectionViewCell {
     
     let sourceSuggestLocation = ["Nhà", "Công ty", "69 Đường 55, Tân Tạo", "Thanh Tuyền"]
     
+    let identifier = String(describing: "trip")
     let cellIdentifier = "cell"
     
     override func awakeFromNib() {
@@ -37,36 +39,28 @@ class InputLocationCell: UICollectionViewCell {
     //MARK: set properties to collectionView
     private func setPropertiesCollectionView() {
         suggestLocationCollectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        suggestLocationCollectionView.register(UINib(nibName: "SuggestLocationCell", bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
         suggestLocationCollectionView.delegate = self
         suggestLocationCollectionView.dataSource = self
-        suggestLocationCollectionView.register(UINib(nibName: "SuggestLocationCell", bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.minimumInteritemSpacing = 3
         layout.minimumLineSpacing = 0
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-        //suggestLocationCollectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        self.suggestLocationCollectionView.collectionViewLayout = layout
-        
-        //suggestLocationCollectionView.alwaysBoxunceVertical = true
+        suggestLocationCollectionView.collectionViewLayout = layout
     }
     
     //MARK: set properties to TextField
     private func setPropertiesTextField() {
         inputLocationTextFieldFrom.borderStyle = .none
-        inputLocationTextFieldTo.borderStyle = .none
-        
         inputLocationTextFieldFrom.isUserInteractionEnabled = false
-        inputLocationTextFieldTo.isUserInteractionEnabled = false
-        
         inputLocationTextFieldFrom.text = "Ila - Nguyễn Đình Chiểu"
+        
+        inputLocationTextFieldTo.borderStyle = .none
+        inputLocationTextFieldTo.isUserInteractionEnabled = false
         inputLocationTextFieldTo.text = "Nhập điểm đến"
     }
-}
-
-extension InputLocationCell: UICollectionViewDelegate {
-    
 }
 
 extension InputLocationCell: UICollectionViewDataSource {
@@ -86,6 +80,7 @@ extension InputLocationCell: UICollectionViewDataSource {
 
 extension InputLocationCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: suggestLocationCollectionView.frame.width, height: suggestLocationCollectionView.frame.height)
+//        return CGSize(width: suggestLocationCollectionView.frame.width, height: suggestLocationCollectionView.frame.height)
+        return CGSize(width: suggestLocationCollectionView.frame.width, height: 20)
     }
 }

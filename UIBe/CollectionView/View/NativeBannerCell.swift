@@ -9,4 +9,5 @@ import UIKit
 
 class NativeBannerCell: UICollectionViewCell {
     @IBOutlet weak var bannerImageView: UIImageView!
+    let identifier = String(describing: "native_banner")
 }

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class BannerCellController: CellController {
-    
+    //MARK: properties
     private lazy var width = CGFloat(0)
     private lazy var ratio = 0.0
     
@@ -24,10 +24,7 @@ class BannerCellController: CellController {
     }
     
     func numberOfItemsInSections() -> Int {
-        if data.count == 0 {
-            return 1
-        }
-        return data.count
+        return 1
     }
 
     func cellForItemAtIndex(for collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
@@ -36,10 +33,6 @@ class BannerCellController: CellController {
             return UICollectionViewCell()
         }
         cell.setAutoScroll(timeInterval:  Double(time) ?? 0.0)
-        cell.layer.masksToBounds = false
-        cell.layer.shadowColor = UIColor.gray.cgColor
-        cell.layer.shadowOpacity = 0.3
-        cell.layer.shadowRadius = 8
         return cell
     }
     

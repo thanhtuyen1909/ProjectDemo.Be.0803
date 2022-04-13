@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 class ServiceCellController: CellController {
+    //MARK: properties
     var type: String = ""
     var data: [HomeSessionService] = []
     var meta_data: [String : Any] = [:]
@@ -32,9 +33,7 @@ class ServiceCellController: CellController {
     
     func cellForItemAtIndex(for collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
         if(indexPath.row < 2) {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ServiceCellHorizontal", for: indexPath) as! ServiceCellHorizontal
-            
-            cell.serviceView.translatesAutoresizingMaskIntoConstraints = false
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PromoteServiceCell().identifier, for: indexPath) as! PromoteServiceCell
             
             cell.serviceLabel.text = data[indexPath.row].name
             cell.serviceImageView.load(urlString: data[indexPath.row].image)
@@ -55,7 +54,7 @@ class ServiceCellController: CellController {
             return cell
         }
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ServiceCellVertical", for: indexPath) as! ServiceCellVertical
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NormalServiceCell().identifier, for: indexPath) as! NormalServiceCell
         cell.serviceLabel.text = data[indexPath.row].name
         cell.serviceImageView.load(urlString: data[indexPath.row].image)
         

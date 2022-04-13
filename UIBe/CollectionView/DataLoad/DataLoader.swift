@@ -7,36 +7,12 @@
 
 import Foundation
 
-//protocol HomeData {
-//    var type: String { get set }
-//}
-//
-//struct DataHome {
-//    let source: [[Data]]
-//}
-//
-//struct Service: HomeData {
-//    var type: String
-//    let name: String?
-//    let img: String?
-//}
-//
-//struct Location: HomeData {
-//    var type: String
-//}
-//
-//struct Banner: HomeData {
-//    var type: String
-//    
-//    let username: String?
-//    let userScore: Int?
-//    let imgBanner: String?
-//}
-
+//MARK: create protocol to load data
 protocol DataLoader {
     func loadData(completion: @escaping (DataSession) -> Void)
 }
 
+//MARK: create struct to parse data
 struct DataSession {
     let source: [Session]
     let background_image: String
@@ -53,4 +29,21 @@ struct HomeSessionService {
     var name: String
     var image: String
     var label: [String: Any]
+}
+
+struct User {
+    var name = "Thanh Tuyền"
+    var score = 12345
+}
+
+enum NavBarMode {
+    case dark
+    case light
+}
+
+enum ItemType : String {
+    case native_banner = "native_banner"
+    case trip = "trip"
+    case grid = "grid"
+    case banner = "banner"
 }

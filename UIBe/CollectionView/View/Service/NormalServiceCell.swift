@@ -1,5 +1,5 @@
 //
-//  ServiceCell1.swift
+//  ServiceCell2.swift
 //  UIBe
 //
 //  Created by tuyen.quach on 10/03/2022.
@@ -7,21 +7,18 @@
 
 import UIKit
 
-class ServiceCellHorizontal: UICollectionViewCell {
+class NormalServiceCell: UICollectionViewCell {
     
     @IBOutlet weak var serviceImageView: UIImageView!
     @IBOutlet weak var serviceLabel: UILabel!
-    @IBOutlet weak var serviceView: UIView!
-    @IBOutlet weak var leftView: UIView!
-    @IBOutlet weak var rightView: UIView!
     @IBOutlet weak var notiView: UIView!
     @IBOutlet weak var notiLabel: UILabel!
     
+    
+    let identifier = String(describing: "normalServiceCell")
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        serviceView.layer.masksToBounds = false
-        serviceView.layer.cornerRadius = 8
         
         // call func set properties to NotiView
         setupNotiView()
@@ -29,9 +26,9 @@ class ServiceCellHorizontal: UICollectionViewCell {
     
     //MARK: set properties to NotiView
     private func setupNotiView() {
-        notiView.layer.cornerRadius = notiView.frame.height / 2
+        notiView.layer.cornerRadius = notiView.frame.height/2
         notiView.layer.borderColor = UIColor.white.cgColor
-        notiView.layer.borderWidth = 1.0
+        notiView.layer.borderWidth = 2.0
         notiView.clipsToBounds = true
         
         notiView.layer.masksToBounds = false

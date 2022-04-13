@@ -10,42 +10,90 @@ import UIKit
 class DataViewController: UIViewController {
     
     //MARK: properties
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var topView: UIView!
-    @IBOutlet weak var userNameLabel: UILabel!
-    @IBOutlet weak var userScoreView: UIView!
-    @IBOutlet weak var userScoreLabel: UILabel!
-    @IBOutlet weak var lineView: UIView!
-    
-    private var loader: DataLoader? = MockDataLoader()
+    private var loader: DataLoader? = RemoteDataLoader()
     private var source = [CellController]()
     
     private lazy var startY = 0.0
-    private lazy var name = "Thanh Tuyền"
-    private lazy var score = 12345
-    private lazy var primary_text_color_dark = "#081F42"
-    private lazy var primary_text_color_light = "#FFFFFF"
+    
+    lazy var primary_text_color_dark = "#081F42"
+    lazy var primary_text_color_light = "#FFFFFF"
     
     private lazy var bottomView: UIView = {
-        let btView = UIView()
-        btView.layer.cornerRadius = 10
-        btView.clipsToBounds = true
-        btView.backgroundColor = .white
-        btView.translatesAutoresizingMaskIntoConstraints = false
-        return btView
+        let bottomView = UIView(frame: .zero)
+        bottomView.layer.cornerRadius = 10
+        bottomView.clipsToBounds = true
+        bottomView.backgroundColor = .white
+        bottomView.translatesAutoresizingMaskIntoConstraints = false
+        return bottomView
     }()
-
+    
+    private lazy var topScreen: UIView = {
+        let uiView = UIView()
+        uiView.translatesAutoresizingMaskIntoConstraints = false
+        return uiView
+    }()
+    
+    private lazy var navBar: NavBar = {
+        let nav = NavBar()
+        nav.translatesAutoresizingMaskIntoConstraints = false
+        return nav
+    }()
+    
+    private lazy var collectionView: UICollectionView = {
+        let collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: UICollectionViewFlowLayout())
+        
+        collectionView.backgroundColor = .clear
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        //setupCollectionView()
+        return collectionView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        /// Set up CollectionView, TopView
-        setupCollectionView()
-        setupTopView()
-        
-        /// call func addBottomView
         addBottomView()
-        
-        /// call func loadData
         loadData()
+        initTopScreen()
+        initCollectionView()
+        setupCollectionView()
+    }
+    
+    private func configTopScreenConstraints() {
+        let height = (view.frame.width) / (360 / 80)
+        let constraints = [
+            topScreen.topAnchor.constraint(equalTo: view.topAnchor),
+            topScreen.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+            topScreen.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
+            topScreen.heightAnchor.constraint(equalToConstant: height)
+        ]
+        NSLayoutConstraint.activate(constraints)
+    }
+    
+    private func configCollectionViewConstraints() {
+        let constraints = [
+            collectionView.topAnchor.constraint(equalTo: navBar.bottomAnchor),
+            collectionView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+            collectionView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ]
+        NSLayoutConstraint.activate(constraints)
+    }
+    
+    private func initTopScreen() {
+        topScreen.addSubview(navBar)
+        view.addSubview(topScreen)
+        configTopScreenConstraints()
+        
+        NSLayoutConstraint.activate([
+            navBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            navBar.bottomAnchor.constraint(equalTo: topScreen.bottomAnchor),
+            navBar.leftAnchor.constraint(equalTo: topScreen.leftAnchor),
+            navBar.rightAnchor.constraint(equalTo: topScreen.rightAnchor)
+        ])
+    }
+    
+    private func initCollectionView() {
+        view.addSubview(collectionView)
+        configCollectionViewConstraints()
     }
     
     //MARK: Load data from api parse to CellController and reloadData of collectionView
@@ -53,12 +101,13 @@ class DataViewController: UIViewController {
         loader?.loadData(completion: { [weak self] data in
             self?.source = data.source.map({
                 item in
-                switch item.type {
-                case "native_banner":
+                let type = ItemType(rawValue: item.type)
+                switch type {
+                case .native_banner:
                     return NativeBannerCellController(type: item.type, data: item.data, meta_data: item.meta_data)
-                case "trip":
+                case .trip:
                     return LocationCellController(type: item.type, data: item.data, meta_data: item.meta_data)
-                case "grid":
+                case .grid:
                     return ServiceCellController(type: item.type, data: item.data, meta_data: item.meta_data)
                 default:
                     return BannerCellController(type: item.type, data: item.data, meta_data: item.meta_data)
@@ -94,9 +143,9 @@ extension DataViewController: UICollectionViewDataSource {
         let cell = source[indexPath.section].cellForItemAtIndex(for: collectionView, indexPath: indexPath)
         
         // set startY and setBottomView when cell is the first element of section 2
-        if source[indexPath.section].type == "grid" && indexPath.row == 0 {
+        if source[indexPath.section].type == ItemType.grid.rawValue && indexPath.row == 0 {
             let originInRootView = collectionView.convert(cell.frame.origin, to: self.view)
-            setBottomView(y: Double(originInRootView.y) - 10, height: view.frame.height - Double(originInRootView.y) - 10)
+            setBottomView(y: Double(originInRootView.y) - 10)
             self.startY = Double(originInRootView.y) - 10
         }
         
@@ -109,23 +158,21 @@ extension DataViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10, left: 3, bottom: 10, right: 3)
     }
-
+    
     //MARK: Scroll header change color, white bottom background will scale
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offset = scrollView.contentOffset.y / (((view.frame.width - 40) / (336 / 96)) + 30)
-        let y = view.frame.height - (startY - scrollView.contentOffset.y)
-        let h = view.frame.height - y
+        let distanceBanner = (((view.frame.width - 40) / (336 / 96)) + 30)
+        let offset = scrollView.contentOffset.y / distanceBanner
+        let y = startY - scrollView.contentOffset.y
         
         if offset > 1 {
-            topView.backgroundColor = .white
-            lineView.isHidden = false
-            setColorLabel(color: primary_text_color_dark)
+            topScreen.backgroundColor = .white
+            navBar.setupNavBarMode(style: .dark)
         } else {
-            topView.backgroundColor = .clear
-            lineView.isHidden = true
-            setColorLabel(color: primary_text_color_light)
+            topScreen.backgroundColor = .clear
+            navBar.setupNavBarMode(style: .light)
         }
-        setBottomView(y: h, height: y)
+        setBottomView(y: y)
     }
 }
 
@@ -138,10 +185,10 @@ extension DataViewController: UICollectionViewDelegateFlowLayout {
 extension DataViewController {
     
     //MARK: Set frame to bottomView in background
-    private func setBottomView(y: Double, height: Double) {
-        bottomView.frame = CGRect(x: view.frame.origin.x, y: y, width: view.frame.width, height: height)
+    private func setBottomView(y: Double) {
+        bottomView.frame = CGRect(x: view.frame.origin.x, y: y, width: view.frame.width, height: view.frame.height)
         
-        if bottomView.isHidden == true {
+        if bottomView.isHidden{
             bottomView.isHidden = false
         }
     }
@@ -153,46 +200,21 @@ extension DataViewController {
         image.load(urlString: bg)
         view.insertSubview(image, at: 0)
     }
-    
-    //MARK: Set color to userNameLabel và userScoreLabel
-    private func setColorLabel(color: String) {
-        userNameLabel.textColor = UIColor(hex: color)
-        userScoreLabel.textColor = UIColor(hex: color)
-    }
-    
-    //MARK: Set up topView
-    private func setupTopView() {
-        lineView.isHidden = true
-        
-        userScoreView.clipsToBounds = true
-        userScoreView.layer.cornerRadius = 18
-        
-        userScoreLabel.text = String(score)
-        userNameLabel.text = "Chào \(name)!"
-        userNameLabel.textColor = UIColor(hex: primary_text_color_light)
-        userScoreLabel.textColor = UIColor(hex: primary_text_color_light)
-        
-//        if #available(iOS 13.0, *) {
-//            let window = UIApplication.shared.windows.first
-//            let topPadding = window?.safeAreaInsets.top
-//            topView.frame.size.height = CGFloat(80 + CGFloat(topPadding ?? 0.0))
-//        }
-        
-    }
-    
+
     //MARK: Set up collectionView and register cell in collectionView
     private func setupCollectionView() {
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        collectionView.delegate = self
-        collectionView.dataSource = self
         
         collectionView.alwaysBounceVertical = true
         
-        collectionView.register(UINib(nibName:"NativeBannerCell", bundle: nil), forCellWithReuseIdentifier: "native_banner")
-        collectionView.register(UINib(nibName:"InputLocationCell", bundle: nil), forCellWithReuseIdentifier: "trip")
-        collectionView.register(UINib(nibName:"ServiceCellHorizontal", bundle: nil), forCellWithReuseIdentifier: "ServiceCellHorizontal")
-        collectionView.register(UINib(nibName:"ServiceCellVertical", bundle: nil), forCellWithReuseIdentifier: "ServiceCellVertical")
-        collectionView.register(UINib(nibName:"BannerCell", bundle: nil), forCellWithReuseIdentifier: "banner")
+        collectionView.register(UINib(nibName:"NativeBannerCell", bundle: nil), forCellWithReuseIdentifier: NativeBannerCell().identifier)
+        collectionView.register(UINib(nibName:"InputLocationCell", bundle: nil), forCellWithReuseIdentifier: InputLocationCell().identifier)
+        collectionView.register(UINib(nibName:"PromoteServiceCell", bundle: nil), forCellWithReuseIdentifier: PromoteServiceCell().identifier)
+        collectionView.register(UINib(nibName:"NormalServiceCell", bundle: nil), forCellWithReuseIdentifier: NormalServiceCell().identifier)
+        collectionView.register(UINib(nibName:"BannerCell", bundle: nil), forCellWithReuseIdentifier: BannerCell().identifier)
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
     }
     
     //MARK: Set gradient color to background
@@ -201,7 +223,7 @@ extension DataViewController {
         gradientLayer.colors = [colorTop, colorBottom]
         gradientLayer.locations = [0.0, 1.0]
         gradientLayer.frame = self.view.bounds
-                
+        
         self.bottomView.layer.insertSublayer(gradientLayer, at:0)
     }
     

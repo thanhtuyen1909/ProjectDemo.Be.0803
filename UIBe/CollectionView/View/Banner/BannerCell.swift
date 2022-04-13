@@ -7,9 +7,11 @@
 import UIKit
 
 class BannerCell: UICollectionViewCell {
-    
+    //MARK: properties
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    let identifier = String(describing: "banner")
     
     var sourceBanner = [UIImage(named: "img1"), UIImage(named: "img2")]
     
@@ -35,21 +37,28 @@ class BannerCell: UICollectionViewCell {
         pageControl.numberOfPages = sourceBanner.count
         
         pageControl.preferredIndicatorImage = UIImage(named: "straight")?.scalePreservingAspectRatio(targetSize: CGSize(width: 25, height: 30))
-        pageControl.setIndicatorImage(UIImage(named: "catIcon"), forPage: currentCellIndex)
     }
     
     //MARK: set properties to collectionView
     private func setPropertiesCollectionView() {
         collectionView.layer.cornerRadius = 5
         collectionView.clipsToBounds = true
+        
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        collectionView.register(UINib(nibName: "ContentBannerCell", bundle: nil), forCellWithReuseIdentifier: imgCellIdentifier)
+        
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(UINib(nibName: "ContentBannerCell", bundle: nil), forCellWithReuseIdentifier: imgCellIdentifier)
+        
+        self.layer.masksToBounds = false
+        self.layer.shadowColor = UIColor.gray.cgColor
+        self.layer.shadowOpacity = 0.3
+        self.layer.shadowRadius = 8
     }
     
     //MARK: set auto scroll with timeInterval and selector is slideToNext
     func setAutoScroll(timeInterval: Double) {
+        timer?.invalidate()
         timer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(slideToNext), userInfo: nil, repeats: true)
     }
     
@@ -64,17 +73,13 @@ class BannerCell: UICollectionViewCell {
     }
 }
 
-extension BannerCell: UICollectionViewDelegate {
-    
-}
-
 extension BannerCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return sourceBanner.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: imgCellIdentifier, for: indexPath) as? ContentBannerCell else{
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: imgCellIdentifier, for: indexPath) as? ContentBannerCell else {
             return UICollectionViewCell()
         }
         cell.imageView.image = sourceBanner[indexPath.row]

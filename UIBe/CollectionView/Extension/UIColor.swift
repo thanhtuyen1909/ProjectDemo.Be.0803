@@ -8,16 +8,20 @@
 import UIKit
 
 extension UIColor {
-    
+    //MARK: create init UIColor by hexString
     convenience init?(hex: String, alpha: CGFloat = 1) {
         self.init(hexa: UInt(hex.dropFirst(), radix: 16) ?? 0, alpha: alpha)
     }
+    
+    //MARK: create init UIColor by hexUInt
     convenience init(hexa: UInt, alpha: CGFloat = 1) {
         self.init(red:   .init((hexa & 0xff0000) >> 16) / 255,
                   green: .init((hexa & 0xff00  ) >>  8) / 255,
                   blue:  .init( hexa & 0xff    )        / 255,
                   alpha: alpha)
     }
+    
+    //MARK: func to hexString
     func toHexString() -> String {
         var r:CGFloat = 0
         var g:CGFloat = 0
