@@ -35,8 +35,6 @@ class NativeBannerCellController: CellController {
         guard let img = meta_data["image"] as? String else {
             return UICollectionViewCell()
         }
-//        cell.userLabel.text = "Chào \(name)!"
-//        cell.userScoreLabel.text = score
         cell.bannerImageView.load(urlString: img)
         return cell
     }

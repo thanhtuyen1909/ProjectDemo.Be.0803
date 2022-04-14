@@ -18,7 +18,6 @@
 		E517863727D9D23B00090A8D /* UIBeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E517863627D9D23B00090A8D /* UIBeTests.swift */; };
 		E517864127D9D23B00090A8D /* UIBeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E517864027D9D23B00090A8D /* UIBeUITests.swift */; };
 		E517864327D9D23B00090A8D /* UIBeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E517864227D9D23B00090A8D /* UIBeUITestsLaunchTests.swift */; };
-		E517865627D9D8BA00090A8D /* NativeBannerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E517865527D9D8BA00090A8D /* NativeBannerCell.xib */; };
 		E517865827D9DFD600090A8D /* InputLocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E517865727D9DFD600090A8D /* InputLocationCell.xib */; };
 		E517865B27D9E3F000090A8D /* PromoteServiceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E517865A27D9E3F000090A8D /* PromoteServiceCell.xib */; };
 		E517865D27D9E49F00090A8D /* NormalServiceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E517865C27D9E49F00090A8D /* NormalServiceCell.xib */; };
@@ -36,6 +35,7 @@
 		E57FC7FA27FE018C006F3632 /* ContentBannerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E57FC7F927FE018C006F3632 /* ContentBannerCell.xib */; };
 		E57FC7FC27FE0513006F3632 /* BannerCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57FC7FB27FE0512006F3632 /* BannerCellController.swift */; };
 		E5801B5D2806B743006BC87D /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5801B5C2806B743006BC87D /* GradientView.swift */; };
+		E5801B602806BD31006BC87D /* FrameLayoutKit in Frameworks */ = {isa = PBXBuildFile; productRef = E5801B5F2806BD31006BC87D /* FrameLayoutKit */; };
 		E58D7BC627FD8C5B00959221 /* SuggestLocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E58D7BC527FD8C5B00959221 /* SuggestLocationCell.xib */; };
 		E58D7BC827FD8DEE00959221 /* SuggestLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58D7BC727FD8DEE00959221 /* SuggestLocationCell.swift */; };
 		E5B27B1727DAA37D00D15F45 /* NativeBannerCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B27B1627DAA37D00D15F45 /* NativeBannerCellController.swift */; };
@@ -78,7 +78,6 @@
 		E517863C27D9D23B00090A8D /* UIBeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UIBeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E517864027D9D23B00090A8D /* UIBeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBeUITests.swift; sourceTree = "<group>"; };
 		E517864227D9D23B00090A8D /* UIBeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBeUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		E517865527D9D8BA00090A8D /* NativeBannerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NativeBannerCell.xib; sourceTree = "<group>"; };
 		E517865727D9DFD600090A8D /* InputLocationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputLocationCell.xib; sourceTree = "<group>"; };
 		E517865A27D9E3F000090A8D /* PromoteServiceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PromoteServiceCell.xib; sourceTree = "<group>"; };
 		E517865C27D9E49F00090A8D /* NormalServiceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NormalServiceCell.xib; sourceTree = "<group>"; };
@@ -110,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5801B602806BD31006BC87D /* FrameLayoutKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,7 +260,6 @@
 		E5801B5B2806B717006BC87D /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				E517865527D9D8BA00090A8D /* NativeBannerCell.xib */,
 				E517865E27D9E51600090A8D /* NativeBannerCell.swift */,
 				E517865927D9E3A300090A8D /* Service */,
 				E58D7BC427FD8A4A00959221 /* Location */,
@@ -296,6 +295,9 @@
 			dependencies = (
 			);
 			name = UIBe;
+			packageProductDependencies = (
+				E5801B5F2806BD31006BC87D /* FrameLayoutKit */,
+			);
 			productName = UIBe;
 			productReference = E517861C27D9D23800090A8D /* UIBe.app */;
 			productType = "com.apple.product-type.application";
@@ -368,6 +370,9 @@
 				Base,
 			);
 			mainGroup = E517861327D9D23800090A8D;
+			packageReferences = (
+				E5801B5E2806BD31006BC87D /* XCRemoteSwiftPackageReference "FrameLayoutKit" */,
+			);
 			productRefGroup = E517861D27D9D23800090A8D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -385,7 +390,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E517865827D9DFD600090A8D /* InputLocationCell.xib in Resources */,
-				E517865627D9D8BA00090A8D /* NativeBannerCell.xib in Resources */,
 				E58D7BC627FD8C5B00959221 /* SuggestLocationCell.xib in Resources */,
 				E517862C27D9D23A00090A8D /* LaunchScreen.storyboard in Resources */,
 				E517865D27D9E49F00090A8D /* NormalServiceCell.xib in Resources */,
@@ -778,6 +782,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E5801B5E2806BD31006BC87D /* XCRemoteSwiftPackageReference "FrameLayoutKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kennic/FrameLayoutKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E5801B5F2806BD31006BC87D /* FrameLayoutKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E5801B5E2806BD31006BC87D /* XCRemoteSwiftPackageReference "FrameLayoutKit" */;
+			productName = FrameLayoutKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E517861427D9D23800090A8D /* Project object */;
 }

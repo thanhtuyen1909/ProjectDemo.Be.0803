@@ -80,7 +80,7 @@ extension InputLocationCell: UICollectionViewDataSource {
 
 extension InputLocationCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize(width: suggestLocationCollectionView.frame.width, height: suggestLocationCollectionView.frame.height)
-        return CGSize(width: suggestLocationCollectionView.frame.width, height: 20)
+        return CGSize(width: suggestLocationCollectionView.frame.width, height: suggestLocationCollectionView.frame.height)
+//        return CGSize(width: suggestLocationCollectionView.frame.width, height: 20)
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FrameLayoutKit
 
 class DataViewController: UIViewController {
     
@@ -54,6 +55,7 @@ class DataViewController: UIViewController {
     
     private func configTopScreenConstraints() {
         let height = (view.frame.width) / (360 / 80)
+        
         let constraints = [
             topScreen.topAnchor.constraint(equalTo: view.topAnchor),
             topScreen.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
@@ -160,7 +162,7 @@ extension DataViewController: UICollectionViewDelegate {
         let offset = scrollView.contentOffset.y / distanceBanner
         let y = startY - scrollView.contentOffset.y
         
-        if offset > 1 {
+        if offset > 0.5 {
             topScreen.backgroundColor = .white
             navBar.setupNavBarMode(style: .dark)
         } else {
@@ -202,7 +204,7 @@ extension DataViewController {
         
         collectionView.alwaysBounceVertical = true
         
-        collectionView.register(UINib(nibName:"NativeBannerCell", bundle: nil), forCellWithReuseIdentifier: NativeBannerCell().identifier)
+        collectionView.register(NativeBannerCell.self, forCellWithReuseIdentifier: NativeBannerCell().identifier)
         collectionView.register(UINib(nibName:"InputLocationCell", bundle: nil), forCellWithReuseIdentifier: InputLocationCell().identifier)
         collectionView.register(UINib(nibName:"PromoteServiceCell", bundle: nil), forCellWithReuseIdentifier: PromoteServiceCell().identifier)
         collectionView.register(UINib(nibName:"NormalServiceCell", bundle: nil), forCellWithReuseIdentifier: NormalServiceCell().identifier)
