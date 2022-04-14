@@ -59,7 +59,7 @@ class BannerCell: UICollectionViewCell {
     }
     
     //MARK: set properties to pageControl
-    private func setPageControl() {
+    private func setupPageControl() {
         pageControl.currentPage = 0
         pageControl.numberOfPages = sourceBanner.count
         
@@ -69,20 +69,19 @@ class BannerCell: UICollectionViewCell {
     }
     
     //MARK: set properties to collectionView
-    private func setPropertiesCollectionView() {
-        
+    private func setupPropertiesCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
+    }
+    
+    private func commonInit() {
+        setupPageControl()
+        setupPropertiesCollectionView()
         
         layer.masksToBounds = false
         layer.shadowColor = UIColor.gray.cgColor
         layer.shadowOpacity = 0.3
         layer.shadowRadius = 8
-    }
-    
-    private func commonInit() {
-        setPageControl()
-        setPropertiesCollectionView()
         
         addSubview(pageControl)
         addSubview(frameLayout)
