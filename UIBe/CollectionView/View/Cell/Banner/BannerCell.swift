@@ -5,30 +5,55 @@
 //  Created by tuyen.quach on 06/04/2022.
 //
 import UIKit
+import FrameLayoutKit
 
 class BannerCell: UICollectionViewCell {
     //MARK: properties
-    @IBOutlet weak var pageControl: UIPageControl!
-    @IBOutlet weak var collectionView: UICollectionView!
+    private var pageControl = UIPageControl()
+    private var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        
+        collectionView.backgroundColor = .clear
+        
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
+        
+        collectionView.layer.cornerRadius = 5
+        collectionView.clipsToBounds = true
+        collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        collectionView.register(ContentBannerCell.self, forCellWithReuseIdentifier: ContentBannerCell().imgCellIdentifier)
+        return collectionView
+    }()
+    private var frameLayout = StackFrameLayout(axis: .vertical)
     
     let identifier = String(describing: "banner")
     
-    var sourceBanner = [UIImage(named: "img1"), UIImage(named: "img2")]
-    
-    private let imgCellIdentifier = "imgcell"
+    var sourceBanner = ["https://simg.zalopay.com.vn/zlp-website/assets/be_4aaf47a554.jpg", "https://imgmainsite.be.com.vn/2021/06/461a0c25-28tinh_deskbanner.png", "https://www.itjobs.com.vn/Upload/be-Group-banner.jpg"]
     
     private var timer: Timer?
 
     private lazy var currentCellIndex = 0
     private lazy var timeInterval = 0.0
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // call fun set properties to collectionView
-        setPropertiesCollectionView()
-        
-        // call fun set properties to pageControl
-        setPageControl()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
+    }
+    
+    override func sizeThatFits(_ size: CGSize) -> CGSize {
+        return frameLayout.sizeThatFits(size)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        frameLayout.frame = bounds
     }
     
     //MARK: set properties to pageControl
@@ -41,19 +66,27 @@ class BannerCell: UICollectionViewCell {
     
     //MARK: set properties to collectionView
     private func setPropertiesCollectionView() {
-        collectionView.layer.cornerRadius = 5
-        collectionView.clipsToBounds = true
-        
-        collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        collectionView.register(UINib(nibName: "ContentBannerCell", bundle: nil), forCellWithReuseIdentifier: imgCellIdentifier)
         
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        self.layer.masksToBounds = false
-        self.layer.shadowColor = UIColor.gray.cgColor
-        self.layer.shadowOpacity = 0.3
-        self.layer.shadowRadius = 8
+        layer.masksToBounds = false
+        layer.shadowColor = UIColor.gray.cgColor
+        layer.shadowOpacity = 0.3
+        layer.shadowRadius = 8
+    }
+    
+    private func commonInit() {
+        setPageControl()
+        setPropertiesCollectionView()
+        
+        addSubview(pageControl)
+        addSubview(frameLayout)
+        
+        frameLayout + collectionView
+        (frameLayout + pageControl).alignment = (.bottom, .center)
+        
+        frameLayout.isUserInteractionEnabled = true
     }
     
     //MARK: set auto scroll with timeInterval and selector is slideToNext
@@ -77,15 +110,15 @@ extension BannerCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return sourceBanner.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: imgCellIdentifier, for: indexPath) as? ContentBannerCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ContentBannerCell().imgCellIdentifier, for: indexPath) as? ContentBannerCell else {
             return UICollectionViewCell()
         }
-        cell.imageView.image = sourceBanner[indexPath.row]
+        cell.imageView.load(urlString: sourceBanner[indexPath.row])
         return cell
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         pageControl.currentPage = indexPath.row
     }

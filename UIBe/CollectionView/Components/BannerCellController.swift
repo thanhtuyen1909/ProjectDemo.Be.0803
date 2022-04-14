@@ -28,11 +28,16 @@ class BannerCellController: CellController {
     }
 
     func cellForItemAtIndex(for collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: type, for: indexPath) as? BannerCell,
-            let time = meta_data["slide_duration"] as? String else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: type, for: indexPath) as? BannerCell else {
             return UICollectionViewCell()
         }
-        cell.setAutoScroll(timeInterval:  Double(time) ?? 0.0)
+        
+        if let time = meta_data["slide_duration"] as? String {
+            cell.setAutoScroll(timeInterval:  Double(time) ?? 0.0)
+        } else {
+            cell.setAutoScroll(timeInterval: 0.0)
+        }
+        
         return cell
     }
     

@@ -12,16 +12,16 @@ class NativeBannerCell: UICollectionViewCell {
     //@IBOutlet weak var bannerImageView: UIImageView!
     let identifier = String(describing: "native_banner")
     let bannerImageView = UIImageView()
-    var frameLayout = FrameLayout()
+    private var frameLayout = FrameLayout()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupLayout()
+        commonInit()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setupLayout()
+        commonInit()
     }
     
     override func sizeThatFits(_ size: CGSize) -> CGSize {
@@ -33,7 +33,7 @@ class NativeBannerCell: UICollectionViewCell {
         frameLayout.frame = bounds
     }
     
-    private func setupLayout() {
+    private func commonInit() {
         frameLayout.targetView = bannerImageView
         addSubview(frameLayout)
         addSubview(bannerImageView)

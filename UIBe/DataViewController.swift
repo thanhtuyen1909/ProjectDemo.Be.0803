@@ -38,7 +38,8 @@ class DataViewController: UIViewController {
     
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: UICollectionViewFlowLayout())
-        
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
         collectionView.backgroundColor = .clear
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
@@ -208,7 +209,7 @@ extension DataViewController {
         collectionView.register(UINib(nibName:"InputLocationCell", bundle: nil), forCellWithReuseIdentifier: InputLocationCell().identifier)
         collectionView.register(UINib(nibName:"PromoteServiceCell", bundle: nil), forCellWithReuseIdentifier: PromoteServiceCell().identifier)
         collectionView.register(UINib(nibName:"NormalServiceCell", bundle: nil), forCellWithReuseIdentifier: NormalServiceCell().identifier)
-        collectionView.register(UINib(nibName:"BannerCell", bundle: nil), forCellWithReuseIdentifier: BannerCell().identifier)
+        collectionView.register(BannerCell.self, forCellWithReuseIdentifier: BannerCell().identifier)
         
         collectionView.delegate = self
         collectionView.dataSource = self
