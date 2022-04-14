@@ -26,6 +26,8 @@ class BannerCell: UICollectionViewCell {
         collectionView.register(ContentBannerCell.self, forCellWithReuseIdentifier: ContentBannerCell().imgCellIdentifier)
         return collectionView
     }()
+    
+
     private var frameLayout = StackFrameLayout(axis: .vertical)
     
     let identifier = String(describing: "banner")
@@ -60,6 +62,8 @@ class BannerCell: UICollectionViewCell {
     private func setPageControl() {
         pageControl.currentPage = 0
         pageControl.numberOfPages = sourceBanner.count
+        
+        pageControl.layer.zPosition = 1
         
         pageControl.preferredIndicatorImage = UIImage(named: "straight")?.scalePreservingAspectRatio(targetSize: CGSize(width: 25, height: 30))
     }
@@ -121,6 +125,36 @@ extension BannerCell: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         pageControl.currentPage = indexPath.row
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let widthCell = frame.width
+        let offset = scrollView.contentOffset.x / widthCell
+        
+        if offset > 0.5, currentCellIndex < sourceBanner.count - 1{
+            collectionView.scrollToItem(at: IndexPath(item: currentCellIndex + 1, section: 0), at: .right, animated: true)
+        } else {
+            if currentCellIndex >= sourceBanner.count - 1 {
+                collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .left, animated: true)
+            } else {
+                collectionView.scrollToItem(at: IndexPath(item: currentCellIndex - 1, section: 0), at: .left, animated: true)
+            }
+        }
+    }
+    
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        let widthCell = frame.width
+        let offset = scrollView.contentOffset.x / widthCell
+        
+        if offset > 0.5, currentCellIndex < sourceBanner.count - 1{
+            collectionView.scrollToItem(at: IndexPath(item: currentCellIndex + 1, section: 0), at: .right, animated: true)
+        } else {
+            if currentCellIndex >= sourceBanner.count - 1 {
+                collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .left, animated: true)
+            } else {
+                collectionView.scrollToItem(at: IndexPath(item: currentCellIndex - 1, section: 0), at: .left, animated: true)
+            }
+        }
     }
 }
 

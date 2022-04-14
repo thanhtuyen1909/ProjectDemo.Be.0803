@@ -61,7 +61,7 @@ class DataViewController: UIViewController {
             topScreen.topAnchor.constraint(equalTo: view.topAnchor),
             topScreen.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
             topScreen.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
-            topScreen.heightAnchor.constraint(equalToConstant: height)
+            topScreen.heightAnchor.constraint(equalToConstant: height + 24)
         ]
         NSLayoutConstraint.activate(constraints)
     }
