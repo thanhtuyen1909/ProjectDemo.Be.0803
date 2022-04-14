@@ -91,6 +91,8 @@ class InputLocationCell: UICollectionViewCell {
         frameLayout.backgroundColor = .white
         frameLayout.padding(top: 12, left: 0, bottom: 0, right: 0)
         
+        frameLayout.isUserInteractionEnabled = true
+        
         addSubview(frameLayout)
         //frameLayout.debug = true
     }
@@ -98,6 +100,9 @@ class InputLocationCell: UICollectionViewCell {
     private func setupCollectionView() {
         suggestLocationCollectionView.delegate = self
         suggestLocationCollectionView.dataSource = self
+        suggestLocationCollectionView.alwaysBounceHorizontal = true
+        suggestLocationCollectionView.showsVerticalScrollIndicator = false
+        suggestLocationCollectionView.showsHorizontalScrollIndicator = false
     }
     
     //MARK: set properties to TextField

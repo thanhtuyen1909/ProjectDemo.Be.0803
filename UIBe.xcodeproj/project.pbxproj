@@ -17,7 +17,6 @@
 		E517863727D9D23B00090A8D /* UIBeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E517863627D9D23B00090A8D /* UIBeTests.swift */; };
 		E517864127D9D23B00090A8D /* UIBeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E517864027D9D23B00090A8D /* UIBeUITests.swift */; };
 		E517864327D9D23B00090A8D /* UIBeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E517864227D9D23B00090A8D /* UIBeUITestsLaunchTests.swift */; };
-		E517865827D9DFD600090A8D /* InputLocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E517865727D9DFD600090A8D /* InputLocationCell.xib */; };
 		E517865B27D9E3F000090A8D /* PromoteServiceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E517865A27D9E3F000090A8D /* PromoteServiceCell.xib */; };
 		E517865D27D9E49F00090A8D /* NormalServiceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E517865C27D9E49F00090A8D /* NormalServiceCell.xib */; };
 		E517865F27D9E51600090A8D /* NativeBannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E517865E27D9E51600090A8D /* NativeBannerCell.swift */; };
@@ -73,7 +72,6 @@
 		E517863C27D9D23B00090A8D /* UIBeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UIBeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E517864027D9D23B00090A8D /* UIBeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBeUITests.swift; sourceTree = "<group>"; };
 		E517864227D9D23B00090A8D /* UIBeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBeUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		E517865727D9DFD600090A8D /* InputLocationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputLocationCell.xib; sourceTree = "<group>"; };
 		E517865A27D9E3F000090A8D /* PromoteServiceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PromoteServiceCell.xib; sourceTree = "<group>"; };
 		E517865C27D9E49F00090A8D /* NormalServiceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NormalServiceCell.xib; sourceTree = "<group>"; };
 		E517865E27D9E51600090A8D /* NativeBannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeBannerCell.swift; sourceTree = "<group>"; };
@@ -260,7 +258,6 @@
 		E58D7BC427FD8A4A00959221 /* Location */ = {
 			isa = PBXGroup;
 			children = (
-				E517865727D9DFD600090A8D /* InputLocationCell.xib */,
 				E517866027D9E52D00090A8D /* InputLocationCell.swift */,
 				E58D7BC727FD8DEE00959221 /* SuggestLocationCell.swift */,
 			);
@@ -377,7 +374,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E517865827D9DFD600090A8D /* InputLocationCell.xib in Resources */,
 				E517862C27D9D23A00090A8D /* LaunchScreen.storyboard in Resources */,
 				E517865D27D9E49F00090A8D /* NormalServiceCell.xib in Resources */,
 				E517862927D9D23A00090A8D /* Assets.xcassets in Resources */,
