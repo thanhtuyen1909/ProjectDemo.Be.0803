@@ -28,11 +28,6 @@ class NavBar: UIView {
         userScoreLabel.textColor = UIColor(hex: color)
     }
     
-    override class func awakeFromNib() {
-        super.awakeFromNib()
-        
-    }
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()

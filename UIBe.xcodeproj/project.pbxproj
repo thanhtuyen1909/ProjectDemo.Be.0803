@@ -33,7 +33,6 @@
 		E57FC7FC27FE0513006F3632 /* BannerCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57FC7FB27FE0512006F3632 /* BannerCellController.swift */; };
 		E5801B5D2806B743006BC87D /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5801B5C2806B743006BC87D /* GradientView.swift */; };
 		E5801B602806BD31006BC87D /* FrameLayoutKit in Frameworks */ = {isa = PBXBuildFile; productRef = E5801B5F2806BD31006BC87D /* FrameLayoutKit */; };
-		E58D7BC627FD8C5B00959221 /* SuggestLocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E58D7BC527FD8C5B00959221 /* SuggestLocationCell.xib */; };
 		E58D7BC827FD8DEE00959221 /* SuggestLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58D7BC727FD8DEE00959221 /* SuggestLocationCell.swift */; };
 		E5B27B1727DAA37D00D15F45 /* NativeBannerCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B27B1627DAA37D00D15F45 /* NativeBannerCellController.swift */; };
 		E5B27B1927DAA39B00D15F45 /* LocationCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B27B1827DAA39B00D15F45 /* LocationCellController.swift */; };
@@ -89,7 +88,6 @@
 		E57FC7F727FDFF80006F3632 /* ContentBannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentBannerCell.swift; sourceTree = "<group>"; };
 		E57FC7FB27FE0512006F3632 /* BannerCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCellController.swift; sourceTree = "<group>"; };
 		E5801B5C2806B743006BC87D /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
-		E58D7BC527FD8C5B00959221 /* SuggestLocationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuggestLocationCell.xib; sourceTree = "<group>"; };
 		E58D7BC727FD8DEE00959221 /* SuggestLocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestLocationCell.swift; sourceTree = "<group>"; };
 		E5B27B1627DAA37D00D15F45 /* NativeBannerCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeBannerCellController.swift; sourceTree = "<group>"; };
 		E5B27B1827DAA39B00D15F45 /* LocationCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCellController.swift; sourceTree = "<group>"; };
@@ -264,7 +262,6 @@
 			children = (
 				E517865727D9DFD600090A8D /* InputLocationCell.xib */,
 				E517866027D9E52D00090A8D /* InputLocationCell.swift */,
-				E58D7BC527FD8C5B00959221 /* SuggestLocationCell.xib */,
 				E58D7BC727FD8DEE00959221 /* SuggestLocationCell.swift */,
 			);
 			path = Location;
@@ -381,7 +378,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E517865827D9DFD600090A8D /* InputLocationCell.xib in Resources */,
-				E58D7BC627FD8C5B00959221 /* SuggestLocationCell.xib in Resources */,
 				E517862C27D9D23A00090A8D /* LaunchScreen.storyboard in Resources */,
 				E517865D27D9E49F00090A8D /* NormalServiceCell.xib in Resources */,
 				E517862927D9D23A00090A8D /* Assets.xcassets in Resources */,

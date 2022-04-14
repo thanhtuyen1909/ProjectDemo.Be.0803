@@ -206,7 +206,7 @@ extension DataViewController {
         collectionView.alwaysBounceVertical = true
         
         collectionView.register(NativeBannerCell.self, forCellWithReuseIdentifier: NativeBannerCell().identifier)
-        collectionView.register(UINib(nibName:"InputLocationCell", bundle: nil), forCellWithReuseIdentifier: InputLocationCell().identifier)
+        collectionView.register(InputLocationCell.self, forCellWithReuseIdentifier: InputLocationCell().identifier)
         collectionView.register(UINib(nibName:"PromoteServiceCell", bundle: nil), forCellWithReuseIdentifier: PromoteServiceCell().identifier)
         collectionView.register(UINib(nibName:"NormalServiceCell", bundle: nil), forCellWithReuseIdentifier: NormalServiceCell().identifier)
         collectionView.register(BannerCell.self, forCellWithReuseIdentifier: BannerCell().identifier)

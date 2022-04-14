@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="trip" id="SuM-hx-3k0" customClass="InputLocationCell" customModule="UIBe" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="trip" id="SuM-hx-3k0">
             <rect key="frame" x="0.0" y="0.0" width="319" height="156"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="tfN-0c-qyG">
@@ -114,7 +114,7 @@
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="q18-Ui-OYh">
                                         <rect key="frame" x="0.0" y="112" width="309" height="34"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AxZ-Xw-c9q">
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AxZ-Xw-c9q">
                                             <size key="itemSize" width="128" height="128"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -147,13 +147,6 @@
             </collectionViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <size key="customSize" width="319" height="156"/>
-            <connections>
-                <outlet property="inputLocationTextFieldFrom" destination="cST-cm-tIV" id="XEa-LK-zlU"/>
-                <outlet property="inputLocationTextFieldTo" destination="pXf-DV-lfj" id="lx1-2s-IB8"/>
-                <outlet property="inputLocationView" destination="JyO-f3-T8e" id="61k-jJ-wVM"/>
-                <outlet property="lineView" destination="whc-52-Ijq" id="bn1-WZ-1Jt"/>
-                <outlet property="suggestLocationCollectionView" destination="q18-Ui-OYh" id="JV9-J3-agh"/>
-            </connections>
             <point key="canvasLocation" x="154.34782608695653" y="45.535714285714285"/>
         </collectionViewCell>
     </objects>
