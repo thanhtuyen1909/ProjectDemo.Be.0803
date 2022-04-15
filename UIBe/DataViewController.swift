@@ -207,8 +207,8 @@ extension DataViewController {
         
         collectionView.register(NativeBannerCell.self, forCellWithReuseIdentifier: NativeBannerCell().identifier)
         collectionView.register(InputLocationCell.self, forCellWithReuseIdentifier: InputLocationCell().identifier)
-        collectionView.register(UINib(nibName:"PromoteServiceCell", bundle: nil), forCellWithReuseIdentifier: PromoteServiceCell().identifier)
-        collectionView.register(UINib(nibName:"NormalServiceCell", bundle: nil), forCellWithReuseIdentifier: NormalServiceCell().identifier)
+        collectionView.register(PromoteServiceCell.self, forCellWithReuseIdentifier: PromoteServiceCell().identifier)
+        collectionView.register(NormalServiceCell.self, forCellWithReuseIdentifier: NormalServiceCell().identifier)
         collectionView.register(BannerCell.self, forCellWithReuseIdentifier: BannerCell().identifier)
         
         collectionView.delegate = self

@@ -6,43 +6,86 @@
 //
 
 import UIKit
+import FrameLayoutKit
 
 class PromoteServiceCell: UICollectionViewCell {
     
-    @IBOutlet weak var serviceImageView: UIImageView!
-    @IBOutlet weak var serviceLabel: UILabel!
-    @IBOutlet weak var serviceView: UIView!
-    @IBOutlet weak var leftView: UIView!
-    @IBOutlet weak var rightView: UIView!
-    @IBOutlet weak var notiView: UIView!
-    @IBOutlet weak var notiLabel: UILabel!
+    var serviceImageView = UIImageView()
+    var serviceLabel = UILabel()
+    private var notiLabel = UILabel()
+    private var frameLayout = StackFrameLayout(axis: .horizontal)
     
     
     let identifier = String(describing: "promoteServiceCell")
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        serviceView.layer.masksToBounds = false
-        serviceView.layer.cornerRadius = 8
-        
-        // call func set properties to NotiView
-        setupNotiView()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
     }
     
-    //MARK: set properties to NotiView
-    private func setupNotiView() {
-        notiView.layer.cornerRadius = notiView.frame.height / 2
-        notiView.layer.borderColor = UIColor.white.cgColor
-        notiView.layer.borderWidth = 1.0
-        notiView.clipsToBounds = true
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
+    }
+    
+    override func sizeThatFits(_ size: CGSize) -> CGSize {
+        return frameLayout.sizeThatFits(size)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        frameLayout.frame = bounds
+    }
+    
+    private func commonInit() {
+        setupComponents()
+        //setLabel(label: "Moi")
         
-        notiView.layer.masksToBounds = false
-        notiView.layer.shadowColor = UIColor.gray.cgColor
-        notiView.layer.shadowOpacity = 0.1
-        //cell.layer.shadowOffset = CGSize(width: 3, height: 3)
-        notiView.layer.shadowRadius = 3
+        notiLabel.text = "Moi"
+        notiLabel.backgroundColor = .red
         
-        notiView.isHidden = true
+        (frameLayout + serviceImageView)
+            .align(vertical: .center, horizontal: .none)
+            .padding(top: 4, left: 0, bottom: 0, right: 0)
+            .fixedContentSize = CGSize(width: 40, height: 40)
+        frameLayout.spacing = 12
+        frameLayout + serviceLabel
+        frameLayout.distribution = .center
+        
+        frameLayout.backgroundColor = UIColor(hex: "#F2F5F7")
+        frameLayout.debug = true
+        addSubview(frameLayout)
+    }
+    
+//
+//    //MARK: set properties to NotiView
+//    private func setupNotiView() {
+//        notiView.layer.cornerRadius = notiView.frame.height / 2
+//        notiView.layer.borderColor = UIColor.white.cgColor
+//        notiView.layer.borderWidth = 1.0
+//        notiView.clipsToBounds = true
+//
+//        notiView.layer.masksToBounds = false
+//        notiView.layer.shadowColor = UIColor.gray.cgColor
+//        notiView.layer.shadowOpacity = 0.1
+//        //cell.layer.shadowOffset = CGSize(width: 3, height: 3)
+//        notiView.layer.shadowRadius = 3
+//
+//        notiView.isHidden = true
+//    }
+    
+    private func setupComponents() {
+        //notiLabel.isHidden = true
+        notiLabel.font = .systemFont(ofSize: 10, weight: .medium)
+        notiLabel.textColor = .white
+
+        notiLabel.layer.zPosition = 1
+        
+        serviceLabel.font = .systemFont(ofSize: 15, weight: .bold)
+    }
+    
+    func setLabel(label: String) {
+        notiLabel.text = label
+        //notiLabel.isHidden = false
     }
 }

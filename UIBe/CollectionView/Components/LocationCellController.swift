@@ -25,10 +25,7 @@ class LocationCellController: CellController {
     
     
     func numberOfItemsInSections() -> Int {
-        if data.count == 0 {
-            return 1
-        }
-        return data.count
+        return 1
     }
     
     func cellForItemAtIndex(for collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {

@@ -38,19 +38,11 @@ class ServiceCellController: CellController {
             cell.serviceLabel.text = data[indexPath.row].name
             cell.serviceImageView.load(urlString: data[indexPath.row].image)
             
-            // If is the first element, check rightView -> remove rightView + add constraint to trailingAnchor of serviceView. Same for the remain element
-            if indexPath.row == 0 {
-                if(cell.rightView != nil) {
-                    cell.rightView.removeFromSuperview()
-                    cell.serviceView.trailingAnchor.constraint(equalTo: cell.trailingAnchor).isActive = true
-                }
+            // If label exist -> notiView is display
+            if let label = data[indexPath.row].label["vi"] as? String {
+                cell.setLabel(label: label)
             }
-            else {
-                if(cell.leftView != nil) {
-                    cell.leftView.removeFromSuperview()
-                    cell.serviceView.leadingAnchor.constraint(equalTo: cell.leadingAnchor).isActive = true
-                }
-            }
+            
             return cell
         }
         
@@ -60,8 +52,7 @@ class ServiceCellController: CellController {
         
         // If label exist -> notiView is display
         if let label = data[indexPath.row].label["vi"] as? String {
-            cell.notiLabel.text = label
-            cell.notiView.isHidden = false
+            cell.setLabel(label: label)
         }
         
         return cell
