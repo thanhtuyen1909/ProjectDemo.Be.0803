@@ -29,6 +29,7 @@ struct HomeSessionService {
     var name: String
     var image: String
     var label: [String: Any]
+    var promoted: Int
 }
 
 struct User {

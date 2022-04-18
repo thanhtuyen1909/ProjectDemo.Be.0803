@@ -41,19 +41,20 @@ class PromoteServiceCell: UICollectionViewCell {
         setupComponents()
         //setLabel(label: "Moi")
         
-        notiLabel.text = "Moi"
-        notiLabel.backgroundColor = .red
+//        notiLabel.text = "Moi"
+//        notiLabel.backgroundColor = .red
         
         (frameLayout + serviceImageView)
             .align(vertical: .center, horizontal: .none)
             .padding(top: 4, left: 0, bottom: 0, right: 0)
             .fixedContentSize = CGSize(width: 40, height: 40)
+            
         frameLayout.spacing = 12
         frameLayout + serviceLabel
         frameLayout.distribution = .center
         
-        frameLayout.backgroundColor = UIColor(hex: "#F2F5F7")
-        frameLayout.debug = true
+        frameLayout.backgroundColor = .tertiarySystemGroupedBackground
+        //frameLayout.debug = true
         addSubview(frameLayout)
     }
     
@@ -76,11 +77,11 @@ class PromoteServiceCell: UICollectionViewCell {
     
     private func setupComponents() {
         //notiLabel.isHidden = true
-        notiLabel.font = .systemFont(ofSize: 10, weight: .medium)
-        notiLabel.textColor = .white
-
-        notiLabel.layer.zPosition = 1
-        
+//        notiLabel.font = .systemFont(ofSize: 10, weight: .medium)
+//        notiLabel.textColor = .white
+//
+//        notiLabel.layer.zPosition = 1
+//
         serviceLabel.font = .systemFont(ofSize: 15, weight: .bold)
     }
     

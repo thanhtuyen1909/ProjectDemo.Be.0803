@@ -5,7 +5,6 @@
 //  Created by tuyen.quach on 11/03/2022.
 //
 
-import Foundation
 import UIKit
 
 class ServiceCellController: CellController {
@@ -32,7 +31,7 @@ class ServiceCellController: CellController {
     }
     
     func cellForItemAtIndex(for collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
-        if(indexPath.row < 2) {
+        if(data[indexPath.row].promoted == 1) {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PromoteServiceCell().identifier, for: indexPath) as! PromoteServiceCell
             
             cell.serviceLabel.text = data[indexPath.row].name
@@ -45,17 +44,18 @@ class ServiceCellController: CellController {
             
             return cell
         }
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NormalServiceCell().identifier, for: indexPath) as! NormalServiceCell
-        cell.serviceLabel.text = data[indexPath.row].name
-        cell.serviceImageView.load(urlString: data[indexPath.row].image)
-        
-        // If label exist -> notiView is display
-        if let label = data[indexPath.row].label["vi"] as? String {
-            cell.setLabel(label: label)
+        else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NormalServiceCell().identifier, for: indexPath) as! NormalServiceCell
+            cell.serviceLabel.text = data[indexPath.row].name
+            cell.serviceImageView.load(urlString: data[indexPath.row].image)
+            
+            // If label exist -> notiView is display
+            if let label = data[indexPath.row].label["vi"] as? String {
+                cell.setLabel(label: label)
+            }
+            
+            return cell
         }
-        
-        return cell
     }
     
     func sizeForItemAt(view: UIView, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -66,6 +66,6 @@ class ServiceCellController: CellController {
             width = (view.frame.width / 4) - 15
         }
         ratio = (160 / 64)
-        return CGSize(width: width, height: Double((view.frame.width / 2)) / ratio)
+        return CGSize(width: width, height: Double((view.frame.width / 2) ) / ratio)
     }
 }

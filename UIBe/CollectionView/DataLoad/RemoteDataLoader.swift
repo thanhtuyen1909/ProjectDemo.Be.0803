@@ -75,11 +75,12 @@ class RemoteDataLoader: DataLoader {
                 guard let title = homeservicesession["title"] as? [String: String],
                       let name = title["vi"],
                       let image = homeservicesession["image"] as? String,
-                      let label =  homeservicesession["label"] as? [String : Any]
+                      let label =  homeservicesession["label"] as? [String : Any],
+                      let promoted = homeservicesession["promoted"] as? Int
                 else {
                     return nil
                 }
-                arrayHomeServiceSessions.append(HomeSessionService(name: name, image: image, label: label))
+                arrayHomeServiceSessions.append(HomeSessionService(name: name, image: image, label: label, promoted: promoted))
             }
             if ["schedule", "other_service"].contains(type) == false {
                 arraySessions.append(Session(type: type, data: arrayHomeServiceSessions, meta_data: meta_data))
