@@ -40,8 +40,8 @@ class NormalServiceCell: UICollectionViewCell {
         setupComponents()
         //setLabel(label: "Moi")
         
-        notiLabel.text = "Moi"
-        notiLabel.backgroundColor = .red
+//        notiLabel.text = "Moi"
+//        notiLabel.backgroundColor = .red
         
         (frameLayout + serviceImageView)
             .align(vertical: .none, horizontal: .center)
@@ -51,7 +51,7 @@ class NormalServiceCell: UICollectionViewCell {
         (frameLayout + serviceLabel).align(vertical: .fit, horizontal: .center)
         frameLayout.distribution = .center
         
-        frameLayout.debug = true
+        //frameLayout.debug = true
         addSubview(frameLayout)
     }
     
@@ -73,7 +73,7 @@ class NormalServiceCell: UICollectionViewCell {
 //    }
     
     private func setupComponents() {
-        //notiLabel.isHidden = true
+        notiLabel.isHidden = true
         notiLabel.font = .systemFont(ofSize: 10, weight: .medium)
         notiLabel.textColor = .white
 
@@ -83,23 +83,31 @@ class NormalServiceCell: UICollectionViewCell {
     }
     
     func setLabel(label: String) {
+        
+        addLabelNoti()
+        
         notiLabel.text = label
-        //notiLabel.isHidden = false
+        notiLabel.isHidden = false
+        
+        notiLabel.layer.borderColor = UIColor.white.cgColor
+        notiLabel.layer.borderWidth = 2.0
+        notiLabel.clipsToBounds = true
+        
+        notiLabel.layer.shadowColor = UIColor.gray.cgColor
+        notiLabel.layer.shadowOpacity = 0.1
+        notiLabel.layer.shadowRadius = 3
+        notiLabel.textAlignment = .center
+        notiLabel.textColor = .white
+        notiLabel.backgroundColor = .red
+        notiLabel.layer.cornerRadius = notiLabel.frame.height/2
+
     }
     
-//    //MARK: set properties to NotiView
-//    private func setupNotiView() {
-//        notiView.layer.cornerRadius = notiView.frame.height/2
-//        notiView.layer.borderColor = UIColor.white.cgColor
-//        notiView.layer.borderWidth = 2.0
-//        notiView.clipsToBounds = true
-//
-//        notiView.layer.masksToBounds = false
-//        notiView.layer.shadowColor = UIColor.gray.cgColor
-//        notiView.layer.shadowOpacity = 0.1
-//        //cell.layer.shadowOffset = CGSize(width: 3, height: 3)
-//        notiView.layer.shadowRadius = 3
-//
-//        notiView.isHidden = true
-//    }
+    private func addLabelNoti() {
+        let x = bounds.size.width / 2
+        let y = serviceImageView.bounds.origin.x - 4
+        
+        notiLabel.frame = CGRect(x:x, y:y, width: notiLabel.sizeThatFits(frame.size).width + 12, height: notiLabel.sizeThatFits(frame.size).width)
+        addSubview(notiLabel)
+    }
 }
