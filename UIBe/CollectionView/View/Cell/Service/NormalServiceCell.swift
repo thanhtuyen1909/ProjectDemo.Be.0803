@@ -38,10 +38,6 @@ class NormalServiceCell: UICollectionViewCell {
     
     private func commonInit() {
         setupComponents()
-        //setLabel(label: "Moi")
-        
-//        notiLabel.text = "Moi"
-//        notiLabel.backgroundColor = .red
         
         (frameLayout + serviceImageView)
             .align(vertical: .none, horizontal: .center)
@@ -55,23 +51,6 @@ class NormalServiceCell: UICollectionViewCell {
         addSubview(frameLayout)
     }
     
-//
-//    //MARK: set properties to NotiView
-//    private func setupNotiView() {
-//        notiView.layer.cornerRadius = notiView.frame.height / 2
-//        notiView.layer.borderColor = UIColor.white.cgColor
-//        notiView.layer.borderWidth = 1.0
-//        notiView.clipsToBounds = true
-//
-//        notiView.layer.masksToBounds = false
-//        notiView.layer.shadowColor = UIColor.gray.cgColor
-//        notiView.layer.shadowOpacity = 0.1
-//        //cell.layer.shadowOffset = CGSize(width: 3, height: 3)
-//        notiView.layer.shadowRadius = 3
-//
-//        notiView.isHidden = true
-//    }
-    
     private func setupComponents() {
         notiLabel.isHidden = true
         notiLabel.font = .systemFont(ofSize: 10, weight: .medium)
@@ -83,8 +62,6 @@ class NormalServiceCell: UICollectionViewCell {
     }
     
     func setLabel(label: String) {
-        
-        addLabelNoti()
         
         notiLabel.text = label
         notiLabel.isHidden = false
@@ -99,7 +76,9 @@ class NormalServiceCell: UICollectionViewCell {
         notiLabel.textAlignment = .center
         notiLabel.textColor = .white
         notiLabel.backgroundColor = .red
-        notiLabel.layer.cornerRadius = notiLabel.frame.height/2
+        
+        
+        addLabelNoti()
 
     }
     
@@ -108,6 +87,8 @@ class NormalServiceCell: UICollectionViewCell {
         let y = serviceImageView.bounds.origin.x - 4
         
         notiLabel.frame = CGRect(x:x, y:y, width: notiLabel.sizeThatFits(frame.size).width + 12, height: notiLabel.sizeThatFits(frame.size).width)
+        notiLabel.layer.cornerRadius = notiLabel.frame.height / 2.0
+        
         addSubview(notiLabel)
     }
 }

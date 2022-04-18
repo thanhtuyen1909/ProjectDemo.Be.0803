@@ -62,7 +62,7 @@ class NavBar: UIView {
                     ($0 + scoreImage).fixedSize = CGSize(width: 25, height: 25)
                     //$0
                     $0.padding(top: 5.0, left: 8.0, bottom: 5.0, right: 8.0)
-                    $0.backgroundColor = UIColor(hex: "#04050D", alpha: 0.2)
+                    $0.backgroundColor = UIColor(hex: "#5E6D84", alpha: 0.35)
                 }
                 $0.layer.masksToBounds = true
                 $0.distribution = .center

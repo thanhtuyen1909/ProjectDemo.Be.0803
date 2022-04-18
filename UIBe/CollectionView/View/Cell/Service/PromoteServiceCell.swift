@@ -53,24 +53,26 @@ class PromoteServiceCell: UICollectionViewCell {
         frameLayout + serviceLabel
         frameLayout.distribution = .center
         
-        frameLayout.backgroundColor = .tertiarySystemGroupedBackground
+        frameLayout.backgroundColor = UIColor.init(hex: "#F2F5F7")
+        frameLayout.clipsToBounds = true
+        frameLayout.layer.cornerRadius = 5
         //frameLayout.debug = true
         addSubview(frameLayout)
     }
     
     private func setupComponents() {
         notiLabel.isHidden = true
-        notiLabel.font = .systemFont(ofSize: 10, weight: .medium)
+        notiLabel.font = UIFont(name: "be Vietnam Display", size: 14)
         notiLabel.textColor = .white
 
         notiLabel.layer.zPosition = 1
 
-        serviceLabel.font = .systemFont(ofSize: 15, weight: .bold)
+        serviceLabel.font =
+        //UIFont(name: "be Vietnam", size: 12)
+            .systemFont(ofSize: 15, weight: .bold)
     }
     
     func setLabel(label: String) {
-        
-        addLabelNoti()
         
         notiLabel.text = label
         notiLabel.isHidden = false
@@ -85,7 +87,9 @@ class PromoteServiceCell: UICollectionViewCell {
         notiLabel.textAlignment = .center
         notiLabel.textColor = .white
         notiLabel.backgroundColor = .red
-        notiLabel.layer.cornerRadius = notiLabel.frame.height/2
+        
+        
+        addLabelNoti()
 
     }
     
@@ -94,6 +98,8 @@ class PromoteServiceCell: UICollectionViewCell {
         let y = serviceImageView.bounds.origin.x - 4
         
         notiLabel.frame = CGRect(x:x, y:y, width: notiLabel.sizeThatFits(frame.size).width + 12, height: notiLabel.sizeThatFits(frame.size).width)
+        notiLabel.layer.cornerRadius = notiLabel.frame.height / 2.0
+        
         addSubview(notiLabel)
     }
 }

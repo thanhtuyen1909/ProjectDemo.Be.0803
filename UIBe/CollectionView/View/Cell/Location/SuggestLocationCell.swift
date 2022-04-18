@@ -51,7 +51,7 @@ class SuggestLocationCell: UICollectionViewCell {
     private func setupLayout() {
         suggestLocationLabel.font = .systemFont(ofSize: 15, weight: .bold)
         suggestLocationLabel.textAlignment = .center
-        suggestLocationLabel.backgroundColor = .tertiarySystemGroupedBackground
+        suggestLocationLabel.backgroundColor = UIColor.init(hex: "#F2F5F7")
         suggestLocationLabel.layer.masksToBounds = true
     }
 }
