@@ -58,14 +58,14 @@ class ServiceCellController: CellController {
         }
     }
     
-    func sizeForItemAt(view: UIView, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func sizeForItemAt(collectionView: UICollectionView, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.row < 2 {
-            width = (view.frame.width / 2) - 10
+            width = (collectionView.frame.width / 2) - 8
         }
         else {
-            width = (view.frame.width / 4) - 15
+            width = (collectionView.frame.width / 4) - 15
         }
         ratio = (160 / 64)
-        return CGSize(width: width, height: Double((view.frame.width / 2) ) / ratio)
+        return CGSize(width: width, height: ((collectionView.frame.width / 2.0) - 8) / ratio)
     }
 }

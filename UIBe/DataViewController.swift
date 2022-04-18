@@ -19,15 +19,11 @@ class DataViewController: UIViewController {
     lazy var primary_text_color_dark = "#081F42"
     lazy var primary_text_color_light = "#FFFFFF"
     
+    private let frameLayout = StackFrameLayout(axis: .vertical)
+    
     private lazy var whiteBottomBackground: GradientView = {
         let whiteBottomBackground = GradientView.init()
         return whiteBottomBackground
-    }()
-    
-    private lazy var topScreen: UIView = {
-        let uiView = UIView()
-        uiView.translatesAutoresizingMaskIntoConstraints = false
-        return uiView
     }()
     
     private lazy var navBar: NavBar = {
@@ -52,46 +48,26 @@ class DataViewController: UIViewController {
         initTopScreen()
         initCollectionView()
         setupCollectionView()
+        view.addSubview(frameLayout)
     }
     
-    private func configTopScreenConstraints() {
-        let height = (view.frame.width) / (360 / 80)
-        
-        let constraints = [
-            topScreen.topAnchor.constraint(equalTo: view.topAnchor),
-            topScreen.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
-            topScreen.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
-            topScreen.heightAnchor.constraint(equalToConstant: height + 24)
-        ]
-        NSLayoutConstraint.activate(constraints)
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        frameLayout.frame = view.bounds
     }
     
-    private func configCollectionViewConstraints() {
-        let constraints = [
-            collectionView.topAnchor.constraint(equalTo: navBar.bottomAnchor),
-            collectionView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
-            collectionView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ]
-        NSLayoutConstraint.activate(constraints)
-    }
+//    private func configTopScreenConstraints() {
+//        let height = (view.frame.width) / (360 / 80)
+//    }
     
     private func initTopScreen() {
-        topScreen.addSubview(navBar)
-        view.addSubview(topScreen)
-        configTopScreenConstraints()
-        
-        NSLayoutConstraint.activate([
-            navBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            navBar.bottomAnchor.constraint(equalTo: topScreen.bottomAnchor),
-            navBar.leftAnchor.constraint(equalTo: topScreen.leftAnchor),
-            navBar.rightAnchor.constraint(equalTo: topScreen.rightAnchor)
-        ])
+        frameLayout + navBar
     }
     
     private func initCollectionView() {
-        view.addSubview(collectionView)
-        configCollectionViewConstraints()
+        (frameLayout + collectionView).padding(top: 0, left: 16, bottom: 0, right: 16)
+        frameLayout.isUserInteractionEnabled = true
+        
     }
     
     //MARK: Load data from api parse to CellController and reloadData of collectionView
@@ -164,10 +140,8 @@ extension DataViewController: UICollectionViewDelegate {
         let y = startY - scrollView.contentOffset.y
         
         if offset > 0.5 {
-            topScreen.backgroundColor = .white
             navBar.setupNavBarMode(style: .dark)
         } else {
-            topScreen.backgroundColor = .clear
             navBar.setupNavBarMode(style: .light)
         }
         setPositionWhiteBackgroundView(y: y)
@@ -176,7 +150,7 @@ extension DataViewController: UICollectionViewDelegate {
 
 extension DataViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return source[indexPath.section].sizeForItemAt(view: view, sizeForItemAt: indexPath)
+        return source[indexPath.section].sizeForItemAt(collectionView: collectionView, sizeForItemAt: indexPath)
     }
 }
 

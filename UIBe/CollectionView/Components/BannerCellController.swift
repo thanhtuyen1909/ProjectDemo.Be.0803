@@ -41,8 +41,8 @@ class BannerCellController: CellController {
         return cell
     }
     
-    func sizeForItemAt(view: UIView, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        width = view.frame.width - 40
+    func sizeForItemAt(collectionView: UICollectionView, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        width = collectionView.frame.width
         ratio = (336 / 96)
         return CGSize(width: width, height: width / ratio)
     }

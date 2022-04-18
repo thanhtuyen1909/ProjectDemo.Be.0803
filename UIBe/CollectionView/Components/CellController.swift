@@ -18,7 +18,7 @@ protocol CellController {
    
     func numberOfItemsInSections() -> Int
     
-    func sizeForItemAt(view: UIView, sizeForItemAt indexPath: IndexPath) -> CGSize
+    func sizeForItemAt(collectionView: UICollectionView, sizeForItemAt indexPath: IndexPath) -> CGSize
     
 }
 

@@ -50,6 +50,9 @@ class NavBar: UIView {
     private func commonInit() {
         setupComponents()
         
+        let app = UIApplication.shared
+        let height = app.statusBarFrame.size.height
+        
         frameLayout + HStackLayout {
             $0 + userNameLabel
             $0.addSpace().flexible()
@@ -71,6 +74,7 @@ class NavBar: UIView {
         }
         frameLayout.distribution = .bottom
         frameLayout + lineView
+        frameLayout.padding(top: height, left: 0, bottom: 0, right: 0)
         addSubview(frameLayout)
     }
     
